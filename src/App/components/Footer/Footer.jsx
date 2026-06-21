@@ -29,7 +29,7 @@ export default function Footer() {
         </p>
         <p className="footer-text-piece">
           <a
-            href="https://github.com/N1k0s1/kiwihacks"
+            href="https://github.com/KiwiHacksNZ/site"
             target="_blank"
             rel="noreferrer"
           >
