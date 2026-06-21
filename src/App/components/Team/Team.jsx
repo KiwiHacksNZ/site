@@ -2,7 +2,6 @@ import "./Team.css";
 import NikoImage from "../../../assets/People/niko.jpg";
 import JoshImage from "../../../assets/People/josh.jpg";
 import KyleImage from "../../../assets/People/kyle.jpg";
-import AudreyImage from "../../../assets/People/audrey.jpg";
 import ChristieImage from "../../../assets/People/christie.jpg";
 import MaggieImage from "../../../assets/People/maggie.jpg";
 import SebastianImage from "../../../assets/People/sebastian.jpg";
@@ -168,37 +167,6 @@ export default function Team() {
             helping out the website. I'm passionate about coding & learning.
             I love the thrill of getting a project finally working & I'm
             super excited to see what people create at KiwiHacks!
-          </p>
-        </div>
-
-        <div className="team-member-div">
-          <img src={AudreyImage} alt="Audrey Shi" loading="lazy" />
-          <h2>Audrey Shi</h2>
-          <div className="team-socials">
-            <a
-              href="mailto:audrey@kiwihacks.org"
-              aria-label="Email"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaEnvelope />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/audrey-shi-0657213b4/"
-              aria-label="LinkedIn"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaLinkedin />
-            </a>
-            {/* <a href="https://github.com/AudreyShi" aria-label="Github" target="_blank" rel="noreferrer"><FaGithub /></a> */}
-          </div>
-          <p>
-            Hey there! I'm a 15 year old coder from Glendowie College, and
-            the Art & Branding lead at KiwiHacks. I have a passion for all
-            sorts of things, including coding, art, and learning. I'm
-            extremely grateful to be a part of the team, and I'm excited to
-            make KiwiHacks an amazing event for all our attendees!
           </p>
         </div>
 
