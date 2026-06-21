@@ -96,7 +96,7 @@ if (pathname === "/" || pathname === "") {
   window.location.replace("https://github.com/N1k0s1/kiwihacks");
   PageComponent = renderNothing;
 } else if (pathname === "/register" || pathname === "/countmein" || pathname === "/signup") {
-  window.location.replace("https://forms.hackclub.com/kiwihacks");
+  window.location.replace("https://kiwihacks.fillout.com/nova");
   PageComponent = renderNothing;
 } else if (pathname === "/code-of-conduct" || pathname === "/coc" || pathname === "/codeofconduct" || pathname === "/conduct") {
   PageComponent = CodeOfConduct;
