@@ -10,7 +10,6 @@ import Swag from "./components/Swag/Swag";
 import Prizes from "./components/Prizes/Prizes";
 import FAQ from "./components/FAQ/FAQ";
 import Partners from "./components/Partners/Partners";
-import Team from "./components/Team/Team";
 import CTA from "./components/CTA/CTA";
 import Footer from "./components/Footer/Footer";
 
@@ -113,7 +112,6 @@ export default function App() {
         <About />
         <FAQ />
         <Partners />
-        <Team />
         <CTA />
       </main>
       <Footer />
