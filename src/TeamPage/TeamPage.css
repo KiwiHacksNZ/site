@@ -1,0 +1,48 @@
+.team-page-main {
+  min-height: 100vh;
+  padding: 2rem 0 4rem;
+  background: #eae6e2;
+  color: var(--very-dark-green);
+}
+
+.team-page-intro {
+  width: min(900px, 92vw);
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+
+.team-page-intro h1 {
+  margin: 0;
+  color: var(--dark-green);
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.team-page-intro p {
+  width: min(620px, 100%);
+  margin: 0.75rem auto 0;
+  padding: 0;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.team-page-team-section {
+  width: min(1180px, 94vw);
+  margin: 0 auto;
+}
+
+.team-page-team-section #team h1 {
+  display: none;
+}
+
+.team-page-team-section .meet-the-team {
+  align-items: stretch;
+  padding: 0;
+}
+
+@media screen and (max-width: 820px) {
+  .team-page-main {
+    padding-top: 1rem;
+  }
+}

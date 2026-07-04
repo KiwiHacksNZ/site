@@ -26,7 +26,7 @@ export default function Navbar() {
         <a href="../showcase" className="nav-link" onClick={close}>Showcase</a>
         <a href="../#faq" className="nav-link" onClick={close}>FAQ</a>
         <a href="../#partnerships" className="nav-link" onClick={close}>Partners</a>
-        <a href="../#team" className="nav-link" onClick={close}>Meet The Team</a>
+        <a href="../team" className="nav-link" onClick={close}>Meet The Team</a>
         <a
           className="nav-signup"
           href="../signup"

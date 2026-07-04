@@ -10,6 +10,7 @@ import ParentsGuide from "./ParentsGuide/ParentsGuide.jsx";
 import AnnouncementVideoPage from "./Video/mobile/AnnouncementVideoPage.jsx";
 import Showcase from "./Showcase/Showcase.jsx";
 import AdminPage from "./Admin/AdminPage.jsx";
+import TeamPage from "./TeamPage/TeamPage.jsx";
 import AppConvexProvider from "./ConvexProvider.jsx";
 import { seoHeadHtml } from "./SEO/seoConfig.js";
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -102,6 +103,8 @@ if (pathname === "/" || pathname === "") {
   PageComponent = CodeOfConduct;
 } else if (pathname === "/showcase" || pathname === "/projects") {
   PageComponent = Showcase;
+} else if (pathname === "/team" || pathname === "/team/" || pathname === "/meet-the-team") {
+  PageComponent = TeamPage;
 } else if (pathname === "/admin" || pathname === "/showcase-admin") {
   PageComponent = AdminPage;
 } else if (pathname === "/parents-guide" || pathname === "/parentsguide" || pathname === "/parents") {
