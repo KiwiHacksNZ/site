@@ -1,6 +1,6 @@
 import "./Footer.css";
-import SignatureImage from "../../../assets/signatures.png";
-import SignatureWideImage from "../../../assets/signatures-wide.png";
+import SignatureImage from "../../../assets/signatures.png?url";
+import SignatureWideImage from "../../../assets/signatures-wide.png?url";
 import {
   FaInstagram,
   FaLinkedin,

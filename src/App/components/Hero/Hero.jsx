@@ -1,6 +1,6 @@
 import "./Hero.css";
-import LogoText from "../../../assets/kiwihackstext.png";
-import StarsImage from "../../../assets/stars.png";
+import LogoText from "../../../assets/kiwihackstext.png?url";
+import StarsImage from "../../../assets/stars.png?url";
 
 export default function Hero() {
   return (

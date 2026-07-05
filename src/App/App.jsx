@@ -1,7 +1,6 @@
-import "./App.css";
 import Navbar from "../Navbar/Navbar";
 //Branding
-import Logo from "../assets/kiwihackslogo.png";
+import Logo from "../assets/kiwihackslogo.png?url";
 // Components
 import Hero from "./components/Hero/Hero";
 import BasicInfo from "./components/BasicInfo/BasicInfo";

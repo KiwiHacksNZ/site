@@ -1,9 +1,10 @@
 import "./Partners.css";
-import TapeImage from "../../../assets/tape.png";
+import TapeImage from "../../../assets/tape.png?url";
 import sponsorsData from "../../sponsors.json";
 
 // Automatically import all logos in the Sponsors directory
 const sponsorLogos = import.meta.glob("../../../assets/Sponsors/*", {
+  query: "?url",
   import: "default",
   eager: true,
 });

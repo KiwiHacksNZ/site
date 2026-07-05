@@ -1,5 +1,5 @@
 import "./About.css";
-import ExampleImage from "../../../assets/example.png";
+import ExampleImage from "../../../assets/example.png?url";
 
 export default function About() {
   return (
