@@ -1,9 +1,16 @@
-# React + Vite
+# KiwiHacks Site
 
-Kiwihacks
+Built with [Astro](https://astro.build) and [Bun](https://bun.sh).
 
 ## Development
+
 ```bash
-pnpm install
-pnpm run dev
+# Install dependencies
+bun install
+
+# Start development server
+bun run dev
+
+# Build for production
+bun run build
 ```

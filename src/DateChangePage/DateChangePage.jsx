@@ -1,6 +1,6 @@
 import "./DateChangePage.css";
-import Logo from "../assets/kiwihackslogo.png";
-import LogoText from "../assets/kiwihackstext.png";
+import Logo from "../assets/kiwihackslogo.png?url";
+import LogoText from "../assets/kiwihackstext.png?url";
 import Navbar from "../Navbar/Navbar";
 
 export default function DateChangePage() {

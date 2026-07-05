@@ -1,10 +1,10 @@
-import NikoImage from "../../../assets/People/niko.jpg";
-import JoshImage from "../../../assets/People/josh.jpg";
-import KyleImage from "../../../assets/People/kyle.jpg";
-import ChristieImage from "../../../assets/People/christie.jpg";
-import MaggieImage from "../../../assets/People/maggie.jpg";
-import SebastianImage from "../../../assets/People/sebastian.jpg";
-import KieraImage from "../../../assets/People/kiera.jpg";
+import NikoImage from "../../../assets/People/niko.jpg?url";
+import JoshImage from "../../../assets/People/josh.jpg?url";
+import KyleImage from "../../../assets/People/kyle.jpg?url";
+import ChristieImage from "../../../assets/People/christie.jpg?url";
+import MaggieImage from "../../../assets/People/maggie.jpg?url";
+import SebastianImage from "../../../assets/People/sebastian.jpg?url";
+import KieraImage from "../../../assets/People/kiera.jpg?url";
 
 export const teamMembers = [
   {

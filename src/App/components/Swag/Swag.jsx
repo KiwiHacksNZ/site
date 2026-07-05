@@ -1,6 +1,6 @@
 import "./Swag.css";
-import Shirt_Front from "../../../assets/Swag/shirt-front.png";
-import Shirt_Back from "../../../assets/Swag/shirt-back.png";
+import Shirt_Front from "../../../assets/Swag/shirt-front.png?url";
+import Shirt_Back from "../../../assets/Swag/shirt-back.png?url";
 
 export default function Swag() {
   return (

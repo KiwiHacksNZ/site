@@ -1,5 +1,5 @@
 import "./FAQ.css";
-import TapeImage from "../../../assets/tape.png";
+import TapeImage from "../../../assets/tape.png?url";
 
 export default function FAQ() {
   return (
