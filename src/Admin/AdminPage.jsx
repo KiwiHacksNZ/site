@@ -4,6 +4,7 @@ import { useMutation, useQuery } from "convex/react";
 import Navbar from "../Navbar/Navbar";
 import { api } from "../../convex/_generated/api";
 import { isConvexConfigured } from "../convexConfig";
+import AppConvexProvider from "../ConvexProvider";
 import "./AdminPage.css";
 
 const emptyProject = {
@@ -36,7 +37,7 @@ function normalizeProject(project) {
   };
 }
 
-export default function AdminPage() {
+function AdminPageContent() {
   const convexReady = isConvexConfigured();
   const { signIn, signOut } = useAuthActions();
   const { isLoading, isAuthenticated } = useConvexAuth();
@@ -366,5 +367,13 @@ export default function AdminPage() {
         </section>
       </main>
     </>
+  );
+}
+
+export default function AdminPage() {
+  return (
+    <AppConvexProvider>
+      <AdminPageContent />
+    </AppConvexProvider>
   );
 }

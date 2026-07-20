@@ -1,5 +1,4 @@
 ---
-import AppConvexProvider from '../ConvexProvider.jsx';
 import ForkPreviewPage from '../ForkPreviewPage/ForkPreviewPage.jsx';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
@@ -29,16 +28,14 @@ const { title = "KiwiHacks", isSeoEnabled = import.meta.env.VITE_SEO === "true" 
     )}
   </head>
   <body>
-    <AppConvexProvider client:load>
-      <SpeedInsights client:idle />
-      <Analytics client:idle />
-      {isSeoEnabled ? (
+    <SpeedInsights client:idle />
+    <Analytics client:idle />
+    {isSeoEnabled ? (
+      <slot />
+    ) : (
+      <ForkPreviewPage client:load>
         <slot />
-      ) : (
-        <ForkPreviewPage client:load>
-          <slot />
-        </ForkPreviewPage>
-      )}
-    </AppConvexProvider>
+      </ForkPreviewPage>
+    )}
   </body>
 </html>

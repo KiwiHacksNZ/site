@@ -4,6 +4,7 @@ import "./Showcase.css";
 import Navbar from "../Navbar/Navbar";
 import { api } from "../../convex/_generated/api";
 import { isConvexConfigured } from "../convexConfig";
+import AppConvexProvider from "../ConvexProvider";
 import {
   FaArrowUpRightFromSquare,
   FaChevronLeft,
@@ -43,7 +44,7 @@ function ProjectActions({ project, compact = false }) {
   );
 }
 
-export default function Showcase() {
+function ShowcaseContent() {
   const convexReady = isConvexConfigured();
   const dbProjects = useQuery(
     api.projects.list,
@@ -182,5 +183,13 @@ export default function Showcase() {
         ) : null}
       </main>
     </>
+  );
+}
+
+export default function Showcase() {
+  return (
+    <AppConvexProvider>
+      <ShowcaseContent />
+    </AppConvexProvider>
   );
 }
