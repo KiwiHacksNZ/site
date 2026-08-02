@@ -1,26 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Showcase from '../Showcase/Showcase.jsx';
-import { sanityClient } from 'sanity:client';
+import { sanityClient } from '../sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 
-const builder = imageUrlBuilder(sanityClient);
+const projects = sanityClient
+  ? await sanityClient.fetch(
+      `*[_type == "project"] | order(sortOrder asc, _createdAt asc){
+        "id": _id,
+        title,
+        team,
+        description,
+        event,
+        place,
+        points,
+        repoUrl,
+        demoUrl,
+        featured,
+        image
+      }`,
+    )
+  : [];
 
-const projects = await sanityClient.fetch(
-  `*[_type == "project"] | order(sortOrder asc, _createdAt asc){
-    "id": _id,
-    title,
-    team,
-    description,
-    event,
-    place,
-    points,
-    repoUrl,
-    demoUrl,
-    featured,
-    image
-  }`,
-);
+const builder = sanityClient ? imageUrlBuilder(sanityClient) : null;
 
 const items = projects.map(({ image, ...project }) => ({
   ...project,
