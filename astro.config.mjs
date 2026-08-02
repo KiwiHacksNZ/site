@@ -1,10 +1,34 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import vercel from "@astrojs/vercel";
+import sanity from "@sanity/astro";
+import { loadEnv } from "vite";
+
+// astro.config runs before Astro loads .env, so read it explicitly.
+const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
+  process.env.NODE_ENV,
+  process.cwd(),
+  "",
+);
+
+// The integration builds a Sanity client at server start, which throws without
+// a projectId and 500s every route. Skip it (and /studio) when unconfigured so
+// a missing variable can only cost an empty showcase, not the whole site.
+const sanityIntegrations = PUBLIC_SANITY_PROJECT_ID
+  ? [
+      sanity({
+        projectId: PUBLIC_SANITY_PROJECT_ID,
+        dataset: PUBLIC_SANITY_DATASET || "production",
+        apiVersion: "2026-08-02",
+        useCdn: true,
+        studioBasePath: "/studio",
+      }),
+    ]
+  : [];
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  integrations: [...sanityIntegrations, react()],
   output: "server",
   adapter: vercel(),
   redirects: {
