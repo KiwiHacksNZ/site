@@ -1,12 +1,11 @@
 import "./FAQ.css";
-import TapeImage from "../../../assets/tape.png?url";
 
 export default function FAQ() {
   return (
     <section id="faq" className="faq-section" style={{ position: "relative" }}>
       <div
         className="tape-divider-container"
-        style={{ backgroundImage: `url(${TapeImage})` }}
+        style={{ backgroundImage: "url(/assets/tape.png)" }}
         aria-hidden="true"
       ></div>
       <h1 className="mono">FAQ</h1>

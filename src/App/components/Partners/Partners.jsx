@@ -1,13 +1,5 @@
 import "./Partners.css";
-import TapeImage from "../../../assets/tape.png?url";
 import sponsorsData from "../../sponsors.json";
-
-// Automatically import all logos in the Sponsors directory
-const sponsorLogos = import.meta.glob("../../../assets/Sponsors/*", {
-  query: "?url",
-  import: "default",
-  eager: true,
-});
 
 export default function Partners() {
   const inKindSponsors = sponsorsData.filter((sponsor) => sponsor.inKind);
@@ -16,7 +8,7 @@ export default function Partners() {
   const renderSponsorGrid = (sponsors, dataRole = "partners") => (
     <div className="partners" data-role={dataRole}>
       {sponsors.map((sponsor, idx) => {
-        const logoSrc = sponsorLogos[`../../../assets/Sponsors/${sponsor.logo}`];
+        const logoSrc = `/assets/Sponsors/${sponsor.logo}`;
         return (
           <a
             key={`${sponsor.name}-${idx}`}
@@ -49,7 +41,7 @@ export default function Partners() {
     >
       <div
         className="tape-divider-container"
-        style={{ backgroundImage: `url(${TapeImage})` }}
+        style={{ backgroundImage: "url(/assets/tape.png)" }}
         aria-hidden="true"
       ></div>
       <h1>Partners</h1>

@@ -1,16 +1,8 @@
-import NikoImage from "../../../assets/People/niko.jpg?url";
-import JoshImage from "../../../assets/People/josh.jpg?url";
-import KyleImage from "../../../assets/People/kyle.jpg?url";
-import ChristieImage from "../../../assets/People/christie.jpg?url";
-import MaggieImage from "../../../assets/People/maggie.jpg?url";
-import SebastianImage from "../../../assets/People/sebastian.jpg?url";
-import KieraImage from "../../../assets/People/kiera.jpg?url";
-
 export const teamMembers = [
   {
     name: "Niko Purdie",
     role: "Lead organiser",
-    image: NikoImage,
+    image: "/assets/People/niko.jpg",
     links: [
       { type: "email", href: "mailto:niko@kiwihacks.org", label: "Email Niko" },
       { type: "phone", href: "tel:0221350419", label: "Call Niko" },
@@ -23,7 +15,7 @@ export const teamMembers = [
   {
     name: "Sebastian Johnson",
     role: "Website + technical infrastructure",
-    image: SebastianImage,
+    image: "/assets/People/sebastian.jpg",
     links: [
       { type: "email", href: "mailto:pakkid@stuffandthings.cc", label: "Email Sebastian" },
       { type: "instagram", href: "https://www.instagram.com/le_snakey", label: "Sebastian on Instagram" },
@@ -35,7 +27,7 @@ export const teamMembers = [
   {
     name: "Josh Palmer",
     role: "Outreach + website",
-    image: JoshImage,
+    image: "/assets/People/josh.jpg",
     links: [
       { type: "email", href: "mailto:josh@kiwihacks.org", label: "Email Josh" },
       { type: "linkedin", href: "https://www.linkedin.com/in/josh-palmer-b9942237b/", label: "Josh on LinkedIn" },
@@ -47,7 +39,7 @@ export const teamMembers = [
   {
     name: "Kyle Bendall",
     role: "Website + outreach",
-    image: KyleImage,
+    image: "/assets/People/kyle.jpg",
     links: [
       { type: "email", href: "mailto:kyle@kiwihacks.org", label: "Email Kyle" },
       { type: "linkedin", href: "https://linkedin.com/in/kyle-b-134a48390", label: "Kyle on LinkedIn" },
@@ -59,7 +51,7 @@ export const teamMembers = [
   {
     name: "Christie Berenshteyn",
     role: "Outreach + marketing",
-    image: ChristieImage,
+    image: "/assets/People/christie.jpg",
     links: [
       { type: "email", href: "mailto:christie@kiwihacks.org", label: "Email Christie" },
       { type: "github", href: "https://github.com/Christie125", label: "Christie on GitHub" },
@@ -69,7 +61,7 @@ export const teamMembers = [
   {
     name: "Maggie Berenshteyn",
     role: "Social media + advertising",
-    image: MaggieImage,
+    image: "/assets/People/maggie.jpg",
     links: [
       { type: "email", href: "mailto:maggie.berenshteyn@gmail.com", label: "Email Maggie" },
     ],
@@ -78,7 +70,7 @@ export const teamMembers = [
   {
     name: "Kiera Langridge",
     role: "Outreach + branding",
-    image: KieraImage,
+    image: "/assets/People/kiera.jpg",
     links: [
       { type: "email", href: "mailto:kiera.langridge@gmail.com", label: "Email Kiera" },
       { type: "linkedin", href: "https://www.linkedin.com/in/kiera-langridge-459098322/", label: "Kiera on LinkedIn" },

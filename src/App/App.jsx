@@ -1,6 +1,4 @@
 import Navbar from "../Navbar/Navbar";
-//Branding
-import Logo from "../assets/kiwihackslogo.png?url";
 // Components
 import Hero from "./components/Hero/Hero";
 import BasicInfo from "./components/BasicInfo/BasicInfo";
@@ -80,7 +78,7 @@ export default function App() {
 
       <img
         className="logo"
-        src={Logo}
+        src="/assets/kiwihackslogo.png"
         alt="KiwiHacks Kiwi Bird"
         fetchPriority="high"
         width="150"

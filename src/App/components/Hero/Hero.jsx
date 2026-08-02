@@ -1,68 +1,68 @@
 import "./Hero.css";
-import LogoText from "../../../assets/kiwihackstext.png?url";
-import StarsImage from "../../../assets/stars.png?url";
+
+const STARS_IMAGE = "/assets/stars.png";
 
 export default function Hero() {
   return (
     <header id="home">
       <img
-        src={StarsImage}
+        src={STARS_IMAGE}
         alt="Background Stars"
         className="stars"
         aria-hidden="true"
         draggable="false"
       />
       <img
-        src={StarsImage}
+        src={STARS_IMAGE}
         alt="Background Stars"
         className="stars"
         aria-hidden="true"
         draggable="false"
       />
       <img
-        src={StarsImage}
+        src={STARS_IMAGE}
         alt="Background Stars"
         className="stars"
         aria-hidden="true"
         draggable="false"
       />
       <img
-        src={StarsImage}
+        src={STARS_IMAGE}
         alt="Background Stars"
         className="stars"
         aria-hidden="true"
         draggable="false"
       />
       <img
-        src={StarsImage}
+        src={STARS_IMAGE}
         alt="Background Stars"
         className="stars"
         aria-hidden="true"
         draggable="false"
       />
       <img
-        src={StarsImage}
+        src={STARS_IMAGE}
         alt="Background Stars"
         className="stars"
         aria-hidden="true"
         draggable="false"
       />
       <img
-        src={StarsImage}
+        src={STARS_IMAGE}
         alt="Background Stars"
         className="stars"
         aria-hidden="true"
         draggable="false"
       />
       <img
-        src={StarsImage}
+        src={STARS_IMAGE}
         alt="Background Stars"
         className="stars"
         aria-hidden="true"
         draggable="false"
       />
       <img
-        src={StarsImage}
+        src={STARS_IMAGE}
         alt="Background Stars"
         className="stars"
         aria-hidden="true"
@@ -70,7 +70,7 @@ export default function Hero() {
       />
 
       <img
-        src={LogoText}
+        src="/assets/kiwihackstext.png"
         alt="Kiwihacks"
         className="kiwihacks-text"
         fetchPriority="high"

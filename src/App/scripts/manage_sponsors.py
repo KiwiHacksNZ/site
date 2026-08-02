@@ -7,8 +7,8 @@ from tkinter import messagebox, ttk
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 # src/App/scripts -> src/App/sponsors.json
 JSON_PATH = os.path.join(SCRIPT_DIR, '..', 'sponsors.json')
-# src/App/scripts -> src/assets/Sponsors
-ASSETS_DIR = os.path.join(SCRIPT_DIR, '..', '..', 'assets', 'Sponsors')
+# src/App/scripts -> public/assets/Sponsors
+ASSETS_DIR = os.path.join(SCRIPT_DIR, '..', '..', '..', 'public', 'assets', 'Sponsors')
 
 class SponsorApp(tk.Tk):
     def __init__(self):

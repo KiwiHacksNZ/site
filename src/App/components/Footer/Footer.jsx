@@ -1,6 +1,4 @@
 import "./Footer.css";
-import SignatureImage from "../../../assets/signatures.png?url";
-import SignatureWideImage from "../../../assets/signatures-wide.png?url";
 import {
   FaInstagram,
   FaLinkedin,
@@ -13,9 +11,9 @@ export default function Footer() {
     <footer>
       <div className="footer-signature-container">
         <picture>
-          <source srcSet={SignatureWideImage} media="(min-width: 768px)" />
+          <source srcSet="/assets/signatures-wide.png" media="(min-width: 768px)" />
           <img
-            src={SignatureImage}
+            src="/assets/signatures.png"
             alt="Signatures of the KiwiHacks team"
             className="signatures"
             draggable="false"

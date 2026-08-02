@@ -1,6 +1,4 @@
 import "./Swag.css";
-import Shirt_Front from "../../../assets/Swag/shirt-front.png?url";
-import Shirt_Back from "../../../assets/Swag/shirt-back.png?url";
 
 export default function Swag() {
   return (
@@ -14,7 +12,7 @@ export default function Swag() {
         <div className="swag-box">
           {/* Replace with your actual front T-shirt image import */}
           <img
-            src={Shirt_Front}
+            src="/assets/Swag/shirt-front.png"
             alt="KiwiHacks T-shirt Front"
             loading="lazy"
             draggable="false"
@@ -24,7 +22,7 @@ export default function Swag() {
         <div className="swag-box">
           {/* Replace with your actual actual back T-shirt image import */}
           <img
-            src={Shirt_Back}
+            src="/assets/Swag/shirt-back.png"
             alt="KiwiHacks T-shirt Back"
             loading="lazy"
             draggable="false"

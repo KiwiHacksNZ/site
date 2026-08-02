@@ -1,5 +1,4 @@
 import "./About.css";
-import ExampleImage from "../../../assets/example.png?url";
 
 export default function About() {
   return (
@@ -26,7 +25,7 @@ export default function About() {
       </div>
       <img
         className="example"
-        src={ExampleImage}
+        src="/assets/example.png"
         alt="Students hacking at previous events"
         loading="lazy"
       />

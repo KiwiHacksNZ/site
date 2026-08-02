@@ -1,6 +1,4 @@
 import "./DateChangePage.css";
-import Logo from "../assets/kiwihackslogo.png?url";
-import LogoText from "../assets/kiwihackstext.png?url";
 import Navbar from "../Navbar/Navbar";
 
 export default function DateChangePage() {
@@ -12,7 +10,7 @@ export default function DateChangePage() {
         <section className="date-hero-card">
           <div className="date-brand-stack">
             <img
-              src={Logo}
+              src="/assets/kiwihackslogo.png"
               alt="KiwiHacks logo"
               className="date-page-logo"
               fetchPriority="high"
@@ -20,7 +18,7 @@ export default function DateChangePage() {
               height="140"
             />
             <img
-              src={LogoText}
+              src="/assets/kiwihackstext.png"
               alt="KiwiHacks"
               className="date-page-wordmark"
               fetchPriority="high"
