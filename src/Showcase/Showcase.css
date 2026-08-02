@@ -30,7 +30,6 @@
   padding-bottom: 4rem;
 }
 
-.showcase-loading-state,
 .showcase-empty-state {
   width: min(760px, 92vw);
   margin: 5rem auto 0;
@@ -42,7 +41,6 @@
   text-align: center;
 }
 
-.showcase-loading-state h1,
 .showcase-empty-state h1 {
   margin: 0;
   color: #0d0d0d;
@@ -51,7 +49,6 @@
   line-height: 1;
 }
 
-.showcase-loading-state p,
 .showcase-empty-state p {
   margin: 0.75rem auto 0;
   color: #0d0d0d;

@@ -1,10 +1,6 @@
 import { useMemo, useState } from "react";
-import { useQuery } from "convex/react";
 import "./Showcase.css";
 import Navbar from "../Navbar/Navbar";
-import { api } from "../../convex/_generated/api";
-import { isConvexConfigured } from "../convexConfig";
-import AppConvexProvider from "../ConvexProvider";
 import {
   FaArrowUpRightFromSquare,
   FaChevronLeft,
@@ -12,14 +8,17 @@ import {
   FaCodeBranch,
 } from "react-icons/fa6";
 
-const emptyProjects = [];
-
 function AwardPill({ project, variant = "large" }) {
+  if (!project.place && !project.event) {
+    return null;
+  }
+
   return (
     <div className={`showcase-award showcase-award-${variant}`}>
       <span>{project.place}</span>
       <small>
-        {project.event} - {project.points} points
+        {project.event}
+        {typeof project.points === "number" ? ` - ${project.points} points` : null}
       </small>
     </div>
   );
@@ -32,35 +31,28 @@ function ProjectActions({ project, compact = false }) {
 
   return (
     <div className={className}>
-      <a href={project.repoUrl} target="_blank" rel="noreferrer">
-        <FaCodeBranch aria-hidden="true" />
-        Repo
-      </a>
-      <a href={project.demoUrl} target="_blank" rel="noreferrer">
-        <FaArrowUpRightFromSquare aria-hidden="true" />
-        Demo
-      </a>
+      {project.repoUrl ? (
+        <a href={project.repoUrl} target="_blank" rel="noreferrer">
+          <FaCodeBranch aria-hidden="true" />
+          Repo
+        </a>
+      ) : null}
+      {project.demoUrl ? (
+        <a href={project.demoUrl} target="_blank" rel="noreferrer">
+          <FaArrowUpRightFromSquare aria-hidden="true" />
+          Demo
+        </a>
+      ) : null}
     </div>
   );
 }
 
-function ShowcaseContent() {
-  const convexReady = isConvexConfigured();
-  const dbProjects = useQuery(
-    api.projects.list,
-    convexReady ? {} : "skip",
-  );
-  const isLoadingProjects = convexReady && dbProjects === undefined;
-  const visibleProjects = dbProjects ?? emptyProjects;
-  const featuredProjects = useMemo(
-    () => {
-      const featured = visibleProjects
-        .filter((project) => project.featured)
-        .slice(0, 3);
-      return featured.length > 0 ? featured : visibleProjects.slice(0, 3);
-    },
-    [visibleProjects],
-  );
+export default function Showcase({ projects = [] }) {
+  const featuredProjects = useMemo(() => {
+    const featured = projects.filter((project) => project.featured).slice(0, 3);
+    return featured.length > 0 ? featured : projects.slice(0, 3);
+  }, [projects]);
+
   const [activeFeaturedIndex, setActiveFeaturedIndex] = useState(0);
   const activeProject =
     featuredProjects[Math.min(activeFeaturedIndex, featuredProjects.length - 1)];
@@ -83,12 +75,7 @@ function ShowcaseContent() {
       <Navbar />
 
       <main className="showcase-main">
-        {isLoadingProjects ? (
-          <section className="showcase-loading-state" aria-live="polite">
-            <h1 className="display">Loading projects</h1>
-            <p>Fetching the latest showcase entries.</p>
-          </section>
-        ) : activeProject ? (
+        {activeProject ? (
           <section className="showcase-hero-carousel" aria-label="Featured projects">
             {hasMultipleFeaturedProjects ? (
               <button
@@ -103,7 +90,7 @@ function ShowcaseContent() {
 
             <article className="showcase-featured-card">
               <img
-                src={activeProject.imageUrl || activeProject.image}
+                src={activeProject.imageUrl}
                 alt={`${activeProject.title} project screenshot`}
                 className="showcase-featured-image"
                 draggable="false"
@@ -136,7 +123,7 @@ function ShowcaseContent() {
                   {featuredProjects.map((project, index) => (
                     <button
                       className={index === activeFeaturedIndex ? "active" : ""}
-                      key={project._id || project.id}
+                      key={project.id}
                       type="button"
                       onClick={() => setActiveFeaturedIndex(index)}
                       aria-label={`Show ${project.title}`}
@@ -153,13 +140,13 @@ function ShowcaseContent() {
           </section>
         )}
 
-        {!isLoadingProjects && visibleProjects.length > 0 ? (
+        {projects.length > 0 ? (
           <section className="showcase-projects-section">
             <div className="showcase-project-grid">
-              {visibleProjects.map((project) => (
-                <article className="showcase-project-card" key={project._id || project.id}>
+              {projects.map((project) => (
+                <article className="showcase-project-card" key={project.id}>
                   <img
-                    src={project.imageUrl || project.image}
+                    src={project.imageUrl}
                     alt={`${project.title} project screenshot`}
                     className="showcase-project-image"
                     loading="lazy"
@@ -183,13 +170,5 @@ function ShowcaseContent() {
         ) : null}
       </main>
     </>
-  );
-}
-
-export default function Showcase() {
-  return (
-    <AppConvexProvider>
-      <ShowcaseContent />
-    </AppConvexProvider>
   );
 }

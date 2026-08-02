@@ -1,10 +1,28 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import vercel from '@astrojs/vercel';
+import sanity from '@sanity/astro';
+import { loadEnv } from 'vite';
+
+// astro.config runs before Astro loads .env, so read it explicitly.
+const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
+  process.env.NODE_ENV,
+  process.cwd(),
+  '',
+);
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  integrations: [
+    sanity({
+      projectId: PUBLIC_SANITY_PROJECT_ID,
+      dataset: PUBLIC_SANITY_DATASET || 'production',
+      apiVersion: '2026-08-02',
+      useCdn: true,
+      studioBasePath: '/studio',
+    }),
+    react(),
+  ],
   output: 'server',
   adapter: vercel(),
   redirects: {

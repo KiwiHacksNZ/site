@@ -1,8 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Showcase from '../Showcase/Showcase.jsx';
+import { sanityClient } from 'sanity:client';
+import imageUrlBuilder from '@sanity/image-url';
+
+const builder = imageUrlBuilder(sanityClient);
+
+const projects = await sanityClient.fetch(
+  `*[_type == "project"] | order(sortOrder asc, _createdAt asc){
+    "id": _id,
+    title,
+    team,
+    description,
+    event,
+    place,
+    points,
+    repoUrl,
+    demoUrl,
+    featured,
+    image
+  }`,
+);
+
+const items = projects.map(({ image, ...project }) => ({
+  ...project,
+  imageUrl: image ? builder.image(image).width(1200).fit('max').auto('format').url() : null,
+}));
 ---
 
 <Layout title="Showcase | KiwiHacks">
-  <Showcase client:load />
+  <Showcase client:load projects={items} />
 </Layout>
