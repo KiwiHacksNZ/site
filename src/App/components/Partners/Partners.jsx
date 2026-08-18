@@ -46,11 +46,21 @@ export default function Partners() {
       ></div>
       <h1>Partners</h1>
 
-      <p className="partner-text partner-text-center">A HUGE thank you to our partners!</p>
-      {renderSponsorGrid(partnerSponsors)}
+      {partnerSponsors.length > 0 && (
+        <>
+          <p className="partner-text partner-text-center">
+            A HUGE thank you to our partners!
+          </p>
+          {renderSponsorGrid(partnerSponsors)}
+        </>
+      )}
 
-      <h2 className="partner-subheading mono">In-Kind Partners</h2>
-      {renderSponsorGrid(inKindSponsors, "in-kind-partners")}
+      {inKindSponsors.length > 0 && (
+        <>
+          <h2 className="partner-subheading mono">In-Kind Partners</h2>
+          {renderSponsorGrid(inKindSponsors, "in-kind-partners")}
+        </>
+      )}
 
       <p className="partner-text" data-role="partner-cta">
         {" "}
