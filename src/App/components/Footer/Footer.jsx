@@ -21,7 +21,7 @@ export default function Footer() {
         </picture>
       </div>
       <div className="footer-text">
-        <p className="footer-text-piece">© 2026 KiwiHacks</p>
+        <p className="footer-text-piece">© 2026 KiwiHacks Incorporated</p>
         <p className="footer-text-piece">
           Built with ❤️ by teens, for teens.
         </p>

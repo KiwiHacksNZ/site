@@ -24,6 +24,12 @@ export default function PrivacyPolicy() {
               Aotearoa. We are not a commercial business and do not sell products
               or services.
             </p>
+            <p className="pp-text">
+              KiwiHacks operates under KiwiHacks Incorporated, a registered
+              Incorporated Society (New Zealand Business Number 9429053360274,
+              Incorporated Societies registration number 50251308, incorporated
+              7 January 2026).
+            </p>
           </div>
 
           <div className="pp-section">

@@ -5,6 +5,13 @@
       "@type": "Organization",
       "@id": "https://kiwihacks.org/#org",
       "name": "KiwiHacks",
+      "legalName": "KiwiHacks Incorporated",
+      "foundingDate": "2026-01-07",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "NZBN",
+        "value": "9429053360274"
+      },
       "url": "https://kiwihacks.org/",
       "logo": "https://kiwihacks.org/favicon/android-chrome-512x512.png",
       "sameAs": [
