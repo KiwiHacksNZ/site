@@ -25,7 +25,7 @@ export default function About() {
       </div>
       <img
         className="example"
-        src="/assets/example.png"
+        src="/assets/example.jpg"
         alt="Students hacking at previous events"
         loading="lazy"
       />

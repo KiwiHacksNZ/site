@@ -50,5 +50,6 @@ export default defineConfig({
       "https://docs.google.com/document/d/14HMPfRkPQrFVf1E87cvsUqguILbtwoifEJ5hYUwhgRM/edit",
     "/coc": "/code-of-conduct",
     "/conduct": "/code-of-conduct",
+    "/privacy": "/privacy-policy",
   },
 });
