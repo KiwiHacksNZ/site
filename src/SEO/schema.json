@@ -95,25 +95,70 @@
     },
     {
       "@type": "Event",
-      "name": "KiwiHacks 2026",
-      "startDate": "2026-05-02T11:00",
-      "endDate": "2026-05-03T11:00",
+      "name": "KiwiHacks Nova - Wellington",
+      "startDate": "2026-09-28T09:00",
+      "endDate": "2026-09-29T17:00",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "eventStatus": "https://schema.org/EventScheduled",
       "location": {
         "@type": "Place",
-        "name": "GridAKL, John Lysaught building",
+        "name": "Venue to be confirmed",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "101 Pakenham Street West",
-          "addressLocality": "Auckland CBD",
-          "addressRegion": "Auckland",
-          "postalCode": "1010",
+          "addressLocality": "Wellington",
           "addressCountry": "NZ"
         }
       },
       "image": "https://kiwihacks.org/kiwihacksimage.png",
-      "description": "Auckland's free 24hr hackathon for teenage coders and innovators. Join KiwiHacks May 2-3, 2026 at GridAKL, John Lysaught building, 101 Pakenham Street West, Auckland CBD, Auckland 1010.",
+      "description": "KiwiHacks Nova is a free hackathon for teenage coders and innovators, coming to Wellington.",
+      "organizer": {
+        "@type": "Organization",
+        "name": "KiwiHacks",
+        "url": "https://kiwihacks.org/"
+      }
+    },
+    {
+      "@type": "Event",
+      "name": "KiwiHacks Nova - Christchurch",
+      "startDate": "2026-10-02T09:00",
+      "endDate": "2026-10-03T17:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Venue to be confirmed",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Christchurch",
+          "addressCountry": "NZ"
+        }
+      },
+      "image": "https://kiwihacks.org/kiwihacksimage.png",
+      "description": "KiwiHacks Nova is a free hackathon for teenage coders and innovators, coming to Christchurch.",
+      "organizer": {
+        "@type": "Organization",
+        "name": "KiwiHacks",
+        "url": "https://kiwihacks.org/"
+      }
+    },
+    {
+      "@type": "Event",
+      "name": "KiwiHacks Nova - Auckland",
+      "startDate": "2026-10-10T09:00",
+      "endDate": "2026-10-11T17:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "MIT Marae",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Manukau, Auckland",
+          "addressCountry": "NZ"
+        }
+      },
+      "image": "https://kiwihacks.org/kiwihacksimage.png",
+      "description": "KiwiHacks Nova is a free hackathon for teenage coders and innovators, at MIT Marae in Manukau, Auckland.",
       "organizer": {
         "@type": "Organization",
         "name": "KiwiHacks",

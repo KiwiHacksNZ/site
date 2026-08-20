@@ -135,8 +135,21 @@ export default function Showcase({ projects = [] }) {
           </section>
         ) : (
           <section className="showcase-empty-state">
-            <h1 className="display">No projects yet</h1>
-            <p>Projects will appear here after they are added to the showcase.</p>
+            <h1 className="display">Nova projects are coming soon</h1>
+            <p>
+              KiwiHacks Nova runs in Wellington, Christchurch, and Auckland this
+              September and October. Winning and standout projects from each
+              event will be added here after they wrap up. In the meantime, see
+              what past KiwiHackers have built on our{" "}
+              <a href="https://github.com/orgs/KiwiHacksNZ" target="_blank" rel="noreferrer">
+                GitHub
+              </a>{" "}
+              or follow along on{" "}
+              <a href="https://www.instagram.com/kiwihacks/" target="_blank" rel="noreferrer">
+                Instagram
+              </a>
+              .
+            </p>
           </section>
         )}
 
