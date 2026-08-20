@@ -1,7 +1,7 @@
 import Navbar from "../Navbar/Navbar";
 // Components
 import Hero from "./components/Hero/Hero";
-import BasicInfo from "./components/BasicInfo/BasicInfo";
+import NovaEvents from "./components/NovaEvents/NovaEvents";
 import About from "./components/About/About";
 import Swag from "./components/Swag/Swag";
 import Prizes from "./components/Prizes/Prizes";
@@ -106,6 +106,7 @@ export default function App() {
         </a> */}
         </div>
 
+        <NovaEvents />
         <About />
         <FAQ />
         <Partners />
