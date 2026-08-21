@@ -71,7 +71,6 @@ export default function Footer() {
       </div>
       <div className="footer-important-links">
         <p>Important Links</p>
-        <a href="../team">Team</a>
         <a href="../code-of-conduct">Code of Conduct</a>
         <a href="../privacy-policy">Privacy Policy</a>
       </div>
