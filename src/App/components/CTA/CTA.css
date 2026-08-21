@@ -20,6 +20,7 @@
 }
 
 .nova-last-button {
+  display: inline-block;
   padding: 1rem;
   padding-left: 4rem;
   padding-right: 4rem;
@@ -49,7 +50,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .last-button {
+  .nova-last-button {
     width: 80%;
     padding: 1rem;
     display: block;
