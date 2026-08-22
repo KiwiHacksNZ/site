@@ -24,6 +24,17 @@
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
+.team-socials svg {
+  display: block;
+}
+
+/* Font Awesome doesn't normalise how much of its box each glyph fills, and the
+   phone fills almost all of its, so it reads bigger than the rest at the same
+   font size. */
+.team-social-phone svg {
+  font-size: 0.8em;
+}
+
 /* Bright blue sat on the card's light blue background and all but vanished. */
 .team-socials a:hover {
   color: var(--dark-green);
