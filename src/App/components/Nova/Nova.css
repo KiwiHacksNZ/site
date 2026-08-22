@@ -52,3 +52,97 @@
     font-size: 1.2rem;
   }
 }
+
+.nova-copy {
+  max-width: 62ch;
+  margin: 2.5rem auto 0;
+}
+
+.nova-copy p {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 0 1rem !important;
+  font-size: 1.2rem;
+}
+
+.nova-cities {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  max-width: 800px;
+  margin: 2.5rem auto 0;
+  padding: 0;
+}
+
+.nova-city {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 1.5rem 1rem;
+  background: #fff;
+  border: 1.5px dashed #161e5a;
+  border-radius: 15px;
+}
+
+.nova-city h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: var(--very-dark-green);
+}
+
+.nova-city-date {
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0.2rem 0 0.75rem !important;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+.nova-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2.75rem;
+}
+
+.nova-primary {
+  padding: 1rem 3.5rem;
+  background: #8b59a3;
+  border: 1.5px dashed #161e5a;
+  font-size: 1.1rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.nova-primary:hover {
+  box-shadow: 0 8px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+  .nova-copy p {
+    font-size: 1.05rem;
+  }
+
+  .nova-cities {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .nova-primary {
+    width: 80%;
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
+/* Without this the anchors inherit the browser's default blue, and the
+   squiggle follows via currentColor. */
+.nova-city .squiggle,
+.nova-actions .squiggle {
+  color: var(--dark-green);
+  font-weight: 600;
+}

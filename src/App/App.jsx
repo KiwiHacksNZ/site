@@ -4,7 +4,6 @@ import Hero from "./components/Hero/Hero";
 import Projects from "./components/Projects/Projects";
 import About from "./components/About/About";
 import Nova from "./components/Nova/Nova";
-import Programs from "./components/Programs/Programs";
 import Benefits from "./components/Benefits/Benefits";
 import FAQ from "./components/FAQ/FAQ";
 import Partners from "./components/Partners/Partners";
@@ -56,7 +55,6 @@ export default function App({ projects = [] }) {
         <Projects projects={projects} />
         <About />
         <Nova />
-        <Programs />
         <Benefits />
         <Partners />
         <FAQ />

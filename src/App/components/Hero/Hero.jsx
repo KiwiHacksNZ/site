@@ -88,7 +88,7 @@ export default function Hero() {
         <a className="hero-join" href="/discord">
           <b>Join us!</b>
         </a>
-        <SquiggleLink className="hero-secondary" href="#programs">
+        <SquiggleLink className="hero-secondary" href="#nova">
           See what's on &rarr;
         </SquiggleLink>
       </div>

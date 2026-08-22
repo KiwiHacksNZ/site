@@ -33,7 +33,7 @@ const faqs = [
       <>
         KiwiHacks Nova is our next hackathon, and it&apos;s taking place in
         Auckland, Wellington, and Christchurch! Everything we&apos;re running
-        right now is listed <a href="#programs">further up this page</a>, and new
+        right now is listed <a href="#nova">further up this page</a>, and new
         events get announced in our <a href="/discord">Discord</a> first.
       </>
     ),
