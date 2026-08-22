@@ -18,13 +18,15 @@
 }
 
 .team-socials a {
-  color: black;
-  font-size: 1.5rem;
-  transition: all 0.3s ease;
+  color: var(--very-dark-green);
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
+/* Bright blue sat on the card's light blue background and all but vanished. */
 .team-socials a:hover {
-  color: var(--bright-blue, #36c6fb);
+  color: var(--dark-green);
   transform: translateY(-3px);
 }
 
