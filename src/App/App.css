@@ -304,33 +304,34 @@ p {
   }
 }
 
-/* Hand-drawn underline. The real path is a random one generated per link by
-   useSquiggle, handed over as custom properties; the plain wave below is the
-   fallback that shows before the island mounts. */
+/* Hand-drawn underline, drawn and animated per link by useSquiggle. Colour
+   follows the link's own text colour, so the light-on-purple CTA needs no
+   variant of its own. */
 .squiggle {
+  position: relative;
+  display: inline-block;
   text-decoration: none;
   padding-bottom: 11px;
-  background-repeat: repeat-x;
-  background-position: 0 bottom;
-  background-size: var(--squiggle-size, 20px 10px);
-  background-image: var(--squiggle, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0.5 10 5T20 5' fill='none' stroke='%2376b070' stroke-opacity='1' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"));
 }
 
-.squiggle:hover {
-  background-image: var(--squiggle-hover, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0.5 10 5T20 5' fill='none' stroke='%232e522b' stroke-opacity='1' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"));
-  animation: squiggle-slide var(--squiggle-duration, 0.7s) linear infinite;
+.squiggle-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: visible;
+  pointer-events: none;
 }
 
-.squiggle-light {
-  background-image: var(--squiggle, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0.5 10 5T20 5' fill='none' stroke='%23ffffff' stroke-opacity='0.55' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"));
+.squiggle-line path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-opacity: 0.75;
+  transition: stroke-opacity 0.2s ease;
 }
 
-.squiggle-light:hover {
-  background-image: var(--squiggle-hover, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0.5 10 5T20 5' fill='none' stroke='%23ffffff' stroke-opacity='1' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"));
-}
-
-@keyframes squiggle-slide {
-  to {
-    background-position: var(--squiggle-shift, 20px) bottom;
-  }
+.squiggle:hover .squiggle-line path {
+  stroke-opacity: 1;
 }

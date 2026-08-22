@@ -1,20 +1,19 @@
 import { useSquiggle } from "../useSquiggle";
 
-export default function SquiggleLink({
-  light = false,
-  className = "",
-  children,
-  ...rest
-}) {
-  const ref = useSquiggle({ light });
+export default function SquiggleLink({ className = "", children, ...rest }) {
+  const { link, path, height } = useSquiggle();
 
   return (
-    <a
-      {...rest}
-      ref={ref}
-      className={`squiggle${light ? " squiggle-light" : ""} ${className}`.trim()}
-    >
+    <a {...rest} ref={link} className={`squiggle ${className}`.trim()}>
       {children}
+      <svg
+        className="squiggle-line"
+        height={height}
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path ref={path} />
+      </svg>
     </a>
   );
 }

@@ -10,7 +10,7 @@ export default function CTA() {
         <a href="/discord" className="nova-sign-up-link nova-last-button">
           Join KiwiHacks!
         </a>
-        <SquiggleLink light href="#programs" className="cta-secondary">
+        <SquiggleLink href="#programs" className="cta-secondary">
           Explore current events &rarr;
         </SquiggleLink>
       </div>

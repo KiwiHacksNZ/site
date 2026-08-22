@@ -1,9 +1,36 @@
-const rand = (min, max) => min + Math.random() * (max - min);
+// A loose hand-drawn line for link underlines. The shape comes from value
+// noise sampled in a world space that scrolls, so raising `offset` over time
+// pans the whole line left to right and keeps feeding in new shape.
 
-// Catmull-Rom through the points, converted to cubic Béziers, so the line
-// wanders smoothly instead of visibly hinging at each point.
+function hash(n, seed) {
+  let h = Math.imul(n ^ seed, 2246822519);
+  h = Math.imul(h ^ (h >>> 13), 3266489917);
+  return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
+}
+
+const smoothstep = (t) => t * t * (3 - 2 * t);
+
+function noise(x, seed) {
+  const i = Math.floor(x);
+  const a = hash(i, seed);
+  const b = hash(i + 1, seed);
+  return a + (b - a) * smoothstep(x - i);
+}
+
+// Two octaves at unrelated frequencies, so the line doesn't read as a plain
+// sine wave the way a single one does. Gained up and clamped, because the raw
+// sum rarely comes near its own limits and leaves the line looking flat.
+function wobble(x, seed) {
+  const sum =
+    (noise(x, seed) - 0.5) * 1.3 + (noise(x * 2.37 + 11.7, seed + 1) - 0.5) * 0.7;
+
+  return Math.max(-1, Math.min(1, sum * 2.1));
+}
+
+// Catmull-Rom through the points as cubic Béziers, so the line curves rather
+// than hinging at every sample.
 function smoothPath(points) {
-  let d = `M${points[0].x} ${points[0].y.toFixed(2)}`;
+  let d = `M${points[0].x.toFixed(2)} ${points[0].y.toFixed(2)}`;
 
   for (let i = 0; i < points.length - 1; i += 1) {
     const p0 = points[i - 1] || points[i];
@@ -30,66 +57,71 @@ function smoothPath(points) {
   return d;
 }
 
-// One tile of underline. Both ends sit on the baseline at a matching angle so
-// the tile can repeat seamlessly at any link width.
-export function randomSquiggle({
-  height = 13,
-  baseline = 8.5,
-  amplitude = 2.1,
-  step = [11, 19],
-  loopChance = 0.055,
-  maxLoops = 2,
-  loopHeight = [7, 9.5],
-  loopWidth = [4, 6.5],
-  width = [200, 320],
+export const SQUIGGLE_HEIGHT = 13;
+
+export function squigglePath({
+  width,
+  height = SQUIGGLE_HEIGHT,
+  offset = 0,
+  seed = 1,
+  amplitude = 2.9,
+  cell = 27,
+  sampleStep = 9,
+  loopDensity = 0.13,
+  loopWidth = 5.5,
+  loopHeight = [7, 9],
 } = {}) {
-  const tileWidth = Math.round(rand(width[0], width[1]));
-  const points = [{ x: 0, y: baseline }];
+  const baseline = height - 4.5;
+  const span = Math.max(width, 24);
+  const steps = Math.max(3, Math.round(span / sampleStep));
+  const points = [];
 
-  let x = 0;
-  let above = Math.random() < 0.5;
-  let loops = 0;
+  const yAt = (x) => {
+    const w = (x - offset) / cell;
+    // A slow envelope so the wobble grows and eases off along the line instead
+    // of holding one amplitude the whole way.
+    const envelope = 0.55 + 0.45 * noise(w * 0.21 + 31.7, seed + 7);
+    return baseline + wobble(w, seed) * amplitude * envelope;
+  };
 
-  while (x < tileWidth - step[1]) {
-    const gap = rand(step[0], step[1]);
-    x = Math.min(x + gap, tileWidth - step[0]);
-
-    // Never against the edge, where the tile seam would cut a loop in half.
-    const canLoop =
-      loops < maxLoops && x > tileWidth * 0.12 && x < tileWidth * 0.88;
-
-    if (canLoop && Math.random() < loopChance) {
-      loops += 1;
-      x = x - gap + rand(loopWidth[0], loopWidth[1]);
-      points.push({
-        x: Number(x.toFixed(2)),
-        y: baseline,
-        loop: rand(loopHeight[0], loopHeight[1]),
-      });
-      above = Math.random() < 0.5;
-      continue;
-    }
-
-    const offset = rand(amplitude * 0.45, amplitude);
-    points.push({
-      x: Number(x.toFixed(2)),
-      y: Number((baseline + (above ? -offset : offset)).toFixed(2)),
-    });
-    above = !above;
+  for (let i = 0; i <= steps; i += 1) {
+    const x = (span * i) / steps;
+    points.push({ x, y: yAt(x) });
   }
 
-  points.push({ x: tileWidth, y: baseline });
+  // Loops live at fixed world positions, so they drift along with the pan
+  // rather than sitting at a fixed spot on screen.
+  const loops = [];
+  const first = Math.floor(-offset / cell) - 1;
+  const last = Math.ceil((span - offset) / cell) + 1;
 
-  return { d: smoothPath(points), width: tileWidth, height };
-}
+  for (let c = first; c <= last; c += 1) {
+    if (hash(c, seed + 101) > loopDensity) continue;
 
-export function squiggleUri({ d, width, height }, stroke, opacity = 1) {
-  const svg =
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">` +
-    `<path d="${d}" fill="none" stroke="${stroke}" stroke-opacity="${opacity}"` +
-    ` stroke-width="2.4" stroke-linecap="round"/></svg>`;
+    const x = (c + hash(c, seed + 202)) * cell + offset;
+    // Keep clear of both caps, so a loop is never half-drawn.
+    if (x < 12 || x + loopWidth > span - 12) continue;
 
-  // Fully encoded, so the url() needs no quotes and stays valid inside an
-  // inline style attribute.
-  return `url(data:image/svg+xml,${encodeURIComponent(svg)})`;
+    loops.push({
+      x,
+      height: loopHeight[0] + hash(c, seed + 303) * (loopHeight[1] - loopHeight[0]),
+    });
+  }
+
+  // Splice right to left so earlier insertions don't shift later indices.
+  loops
+    .sort((a, b) => b.x - a.x)
+    .forEach((loop) => {
+      const at = points.findIndex((point) => point.x > loop.x);
+      if (at < 1) return;
+
+      points.splice(
+        at,
+        0,
+        { x: loop.x, y: yAt(loop.x) },
+        { x: loop.x + loopWidth, y: yAt(loop.x + loopWidth), loop: loop.height },
+      );
+    });
+
+  return smoothPath(points);
 }
