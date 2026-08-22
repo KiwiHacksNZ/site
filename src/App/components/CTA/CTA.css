@@ -58,3 +58,35 @@
     box-sizing: border-box;
   }
 }
+
+.cta-actions {
+  display: flex;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta-secondary {
+  color: white;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.45);
+}
+
+.cta-secondary:hover {
+  border-bottom-color: white;
+}
+
+.cta-fineprint {
+  font-size: 0.9rem !important;
+  width: auto !important;
+  opacity: 0.8;
+  margin-top: 1rem !important;
+}
+
+.cta-actions .nova-last-button {
+  margin: 0;
+}

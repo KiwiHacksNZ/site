@@ -42,10 +42,10 @@ export default function FAQ() {
       <div className="faq-box">
         <h2 className="mono faq-question">When's the next event?</h2>
         <p className="faq-answer">
-          KiwiHacks Nova is our next hackathon! It's taking place in Auckland,
-          Wellington, and Christchurch!{" "}
-          <a href="https://nova.kiwihacks.org">Visit the website</a> for more
-          info!
+          KiwiHacks Nova is our next hackathon, and it's taking place in
+          Auckland, Wellington, and Christchurch! Everything we're running right
+          now is listed <a href="#programs">further up this page</a>, and new
+          events get announced in our <a href="/discord">Discord</a> first.
         </p>
       </div>
       {/* TODO: Add back when fixed — these images break layout on large screens

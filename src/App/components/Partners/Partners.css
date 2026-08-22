@@ -6,10 +6,18 @@
   background-color: rgba(118, 176, 112, 0.15);
 }
 
-.partnerships h1 {
+.partnerships h2 {
+  font-size: 2.6rem;
+  color: var(--very-dark-green);
   margin: 0;
   padding: 0;
   padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .partnerships h2 {
+    font-size: 2rem;
+  }
 }
 
 .partnerships .partner-subheading {

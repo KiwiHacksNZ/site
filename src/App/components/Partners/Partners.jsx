@@ -44,9 +44,12 @@ export default function Partners() {
         style={{ backgroundImage: "url(/assets/tape.png)" }}
         aria-hidden="true"
       ></div>
-      <h1>Partners</h1>
+      <h2>Run by teens, made possible by our partners.</h2>
 
-      <p className="partner-text partner-text-center">A HUGE thank you to our partners!</p>
+      <p className="partner-text partner-text-center">
+        KiwiHacks is free for every Kiwi high schooler, and it stays that way
+        because of the people below. A HUGE thank you to our partners!
+      </p>
       {renderSponsorGrid(partnerSponsors)}
 
       <h2 className="partner-subheading mono">In-Kind Partners</h2>

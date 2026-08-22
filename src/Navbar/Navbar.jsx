@@ -23,18 +23,19 @@ export default function Navbar() {
       <div className={`nav-links ${isOpen ? "open" : ""}`}>
         <a href="../" className="nav-link" onClick={close}>Home</a>
         <a href="../#about" className="nav-link" onClick={close}>About</a>
-        <a href="../showcase" className="nav-link" onClick={close}>Showcase</a>
+        <a href="../#programs" className="nav-link" onClick={close}>Events</a>
+        <a href="../showcase" className="nav-link" onClick={close}>Projects</a>
+        <a href="../#community" className="nav-link" onClick={close}>Community</a>
+        <a href="../team" className="nav-link" onClick={close}>Team</a>
         <a href="../#faq" className="nav-link" onClick={close}>FAQ</a>
-        <a href="../#partnerships" className="nav-link" onClick={close}>Partners</a>
-        <a href="../team" className="nav-link" onClick={close}>Meet The Team</a>
         <a
           className="nav-signup"
-          href="../signup"
+          href="../discord"
           target="_blank"
           rel="noopener noreferrer"
           onClick={close}
         >
-          <b>Sign up for KiwiHacks</b>
+          <b>Join us!</b>
         </a>
       </div>
     </nav>

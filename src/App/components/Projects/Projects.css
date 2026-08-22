@@ -1,0 +1,120 @@
+.projects {
+  padding: 4rem 1.5rem;
+}
+
+.projects h2 {
+  font-size: 2.6rem;
+  margin: 0;
+  color: var(--very-dark-green);
+}
+
+.projects-lede {
+  text-align: center !important;
+  width: auto !important;
+  max-width: 60ch;
+  margin: 1rem auto 2.5rem;
+  font-size: 1.2rem;
+}
+
+.project-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1.5px dashed var(--dark-green);
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 6px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.project-body {
+  padding: 1.25rem;
+}
+
+.project-body h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: var(--very-dark-green);
+}
+
+.project-team {
+  width: auto !important;
+  padding: 0.35rem 0 0 !important;
+  margin: 0 !important;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.project-description {
+  width: auto !important;
+  padding: 0.75rem 0 0 !important;
+  margin: 0 !important;
+  font-size: 1rem;
+}
+
+.project-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.project-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--dark-green);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-bottom: 2px solid var(--medium-light-green);
+}
+
+.project-actions a:hover {
+  border-bottom-color: var(--dark-green);
+}
+
+.projects-more {
+  display: inline-block;
+  margin-top: 2.5rem;
+  color: var(--dark-green);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-bottom: 2px solid var(--medium-light-green);
+}
+
+.projects-more:hover {
+  border-bottom-color: var(--dark-green);
+}
+
+@media screen and (max-width: 768px) {
+  .projects h2 {
+    font-size: 2rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
