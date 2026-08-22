@@ -1,4 +1,5 @@
 import "./Projects.css";
+import SquiggleLink from "../SquiggleLink";
 import { FaArrowUpRightFromSquare, FaCodeBranch } from "react-icons/fa6";
 
 export default function Projects({ projects = [] }) {
@@ -35,16 +36,16 @@ export default function Projects({ projects = [] }) {
               <p className="project-description">{project.description}</p>
               <div className="project-actions">
                 {project.demoUrl ? (
-                  <a className="squiggle" href={project.demoUrl} target="_blank" rel="noreferrer">
+                  <SquiggleLink href={project.demoUrl} target="_blank" rel="noreferrer">
                     <FaArrowUpRightFromSquare aria-hidden="true" />
                     Try it out
-                  </a>
+                  </SquiggleLink>
                 ) : null}
                 {project.repoUrl ? (
-                  <a className="squiggle" href={project.repoUrl} target="_blank" rel="noreferrer">
+                  <SquiggleLink href={project.repoUrl} target="_blank" rel="noreferrer">
                     <FaCodeBranch aria-hidden="true" />
                     Source
-                  </a>
+                  </SquiggleLink>
                 ) : null}
               </div>
             </div>
@@ -52,9 +53,9 @@ export default function Projects({ projects = [] }) {
         ))}
       </ul>
 
-      <a className="projects-more squiggle" href="/showcase">
+      <SquiggleLink className="projects-more" href="/showcase">
         See every project &rarr;
-      </a>
+      </SquiggleLink>
     </section>
   );
 }

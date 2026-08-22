@@ -304,32 +304,33 @@ p {
   }
 }
 
-/* Hand-drawn underline. A 20px-wide tile holding one full wave, so it repeats
-   seamlessly at any link width — and can slide by exactly one tile on hover. */
+/* Hand-drawn underline. The real path is a random one generated per link by
+   useSquiggle, handed over as custom properties; the plain wave below is the
+   fallback that shows before the island mounts. */
 .squiggle {
   text-decoration: none;
-  padding-bottom: 9px;
+  padding-bottom: 11px;
   background-repeat: repeat-x;
   background-position: 0 bottom;
-  background-size: 20px 10px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0.5 10 5T20 5' fill='none' stroke='%2376b070' stroke-opacity='1' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: var(--squiggle-size, 20px 10px);
+  background-image: var(--squiggle, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0.5 10 5T20 5' fill='none' stroke='%2376b070' stroke-opacity='1' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"));
 }
 
 .squiggle:hover {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0.5 10 5T20 5' fill='none' stroke='%232e522b' stroke-opacity='1' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
-  animation: squiggle-slide 0.7s linear infinite;
+  background-image: var(--squiggle-hover, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0.5 10 5T20 5' fill='none' stroke='%232e522b' stroke-opacity='1' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"));
+  animation: squiggle-slide var(--squiggle-duration, 0.7s) linear infinite;
 }
 
 .squiggle-light {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0.5 10 5T20 5' fill='none' stroke='%23ffffff' stroke-opacity='0.55' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: var(--squiggle, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0.5 10 5T20 5' fill='none' stroke='%23ffffff' stroke-opacity='0.55' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"));
 }
 
 .squiggle-light:hover {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0.5 10 5T20 5' fill='none' stroke='%23ffffff' stroke-opacity='1' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: var(--squiggle-hover, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0.5 10 5T20 5' fill='none' stroke='%23ffffff' stroke-opacity='1' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"));
 }
 
 @keyframes squiggle-slide {
   to {
-    background-position: 20px bottom;
+    background-position: var(--squiggle-shift, 20px) bottom;
   }
 }

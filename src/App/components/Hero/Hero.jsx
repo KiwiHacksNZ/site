@@ -1,4 +1,5 @@
 import "./Hero.css";
+import SquiggleLink from "../SquiggleLink";
 
 const STARS_IMAGE = "/assets/stars.png";
 
@@ -87,9 +88,9 @@ export default function Hero() {
         <a className="hero-join" href="/discord">
           <b>Join us!</b>
         </a>
-        <a className="hero-secondary squiggle" href="#programs">
+        <SquiggleLink className="hero-secondary" href="#programs">
           See what's on &rarr;
-        </a>
+        </SquiggleLink>
       </div>
 
       <p className="mono hero-fineprint">

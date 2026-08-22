@@ -1,4 +1,5 @@
 import "./Benefits.css";
+import SquiggleLink from "../SquiggleLink";
 import { FaDiscord, FaLaptopCode, FaShirt, FaTrophy } from "react-icons/fa6";
 
 const benefits = [
@@ -44,9 +45,9 @@ export default function Benefits() {
             <h3>{benefit.title}</h3>
             <p>{benefit.body}</p>
             {benefit.href ? (
-              <a href={benefit.href} className="benefit-link squiggle">
+              <SquiggleLink href={benefit.href} className="benefit-link">
                 {benefit.linkText} &rarr;
-              </a>
+              </SquiggleLink>
             ) : null}
           </li>
         ))}
