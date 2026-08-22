@@ -7,13 +7,6 @@ const stats = [
   { value: "100%", label: "run by high schoolers" },
 ];
 
-// Dates and the sign-up link both come from nova.kiwihacks.org.
-const cities = [
-  { name: "Wellington", date: "28–29 Sep", slug: "wellington" },
-  { name: "Christchurch", date: "2–3 Oct", slug: "christchurch" },
-  { name: "Auckland", date: "10–11 Oct", slug: "auckland" },
-];
-
 export default function Nova() {
   return (
     <section id="nova" className="nova">
@@ -44,22 +37,6 @@ export default function Nova() {
         </p>
       </div>
 
-      <ul className="nova-cities">
-        {cities.map(({ name, date, slug }) => (
-          <li key={slug} className="nova-city">
-            <h3>{name}</h3>
-            <p className="mono nova-city-date">{date}</p>
-            <SquiggleLink
-              href={`https://nova.kiwihacks.org/${slug}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Details &rarr;
-            </SquiggleLink>
-          </li>
-        ))}
-      </ul>
-
       <div className="nova-actions">
         <a
           className="nova-sign-up-link nova-primary"
@@ -67,14 +44,14 @@ export default function Nova() {
           target="_blank"
           rel="noreferrer"
         >
-          <b>Sign up for Nova!</b>
+          <b>Sign up</b>
         </a>
         <SquiggleLink
           href="https://nova.kiwihacks.org"
           target="_blank"
           rel="noreferrer"
         >
-          Explore the Nova site &rarr;
+          View site &rarr;
         </SquiggleLink>
       </div>
     </section>

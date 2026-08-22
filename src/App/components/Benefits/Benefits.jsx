@@ -1,26 +1,19 @@
 import "./Benefits.css";
 import SquiggleLink from "../SquiggleLink";
-import { FaDiscord, FaLaptopCode, FaShirt, FaTrophy } from "react-icons/fa6";
+import { FaDiscord, FaLaptopCode, FaShirt } from "react-icons/fa6";
 
 const benefits = [
   {
     Icon: FaDiscord,
-    title: "The Discord",
+    title: "The Community",
     body: "Where KiwiHacks actually lives between events. Share what you're building, get unstuck, find teammates, and find out about new events first.",
     href: "/discord",
     linkText: "Join the Discord",
   },
   {
     Icon: FaLaptopCode,
-    title: "Workshops for beginners",
+    title: "Workshops",
     body: "Never written a line of code? Every hackathon runs free workshops on the basics, and there are always mentors around. Everyone finishes a project.",
-  },
-  {
-    Icon: FaTrophy,
-    title: "A place to show it off",
-    body: "Projects built at our events go up on the showcase, so what you make at a weekend hackathon doesn't disappear when the weekend ends.",
-    href: "/showcase",
-    linkText: "See the showcase",
   },
   {
     Icon: FaShirt,
