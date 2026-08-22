@@ -44,7 +44,7 @@ export default function Benefits() {
             <h3>{benefit.title}</h3>
             <p>{benefit.body}</p>
             {benefit.href ? (
-              <a href={benefit.href} className="benefit-link">
+              <a href={benefit.href} className="benefit-link squiggle">
                 {benefit.linkText} &rarr;
               </a>
             ) : null}

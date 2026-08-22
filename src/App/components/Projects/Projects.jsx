@@ -35,13 +35,13 @@ export default function Projects({ projects = [] }) {
               <p className="project-description">{project.description}</p>
               <div className="project-actions">
                 {project.demoUrl ? (
-                  <a href={project.demoUrl} target="_blank" rel="noreferrer">
+                  <a className="squiggle" href={project.demoUrl} target="_blank" rel="noreferrer">
                     <FaArrowUpRightFromSquare aria-hidden="true" />
                     Try it out
                   </a>
                 ) : null}
                 {project.repoUrl ? (
-                  <a href={project.repoUrl} target="_blank" rel="noreferrer">
+                  <a className="squiggle" href={project.repoUrl} target="_blank" rel="noreferrer">
                     <FaCodeBranch aria-hidden="true" />
                     Source
                   </a>
@@ -52,7 +52,7 @@ export default function Projects({ projects = [] }) {
         ))}
       </ul>
 
-      <a className="projects-more" href="/showcase">
+      <a className="projects-more squiggle" href="/showcase">
         See every project &rarr;
       </a>
     </section>

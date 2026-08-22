@@ -11,7 +11,7 @@ export default function CTA() {
         </a>
         <a
           href="#programs"
-          className="cta-secondary"
+          className="cta-secondary squiggle squiggle-light"
         >
           Explore current events &rarr;
         </a>

@@ -87,7 +87,7 @@ export default function Hero() {
         <a className="hero-join" href="/discord">
           <b>Join us!</b>
         </a>
-        <a className="hero-secondary" href="#programs">
+        <a className="hero-secondary squiggle" href="#programs">
           See what's on &rarr;
         </a>
       </div>

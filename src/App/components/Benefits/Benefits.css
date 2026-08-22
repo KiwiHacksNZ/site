@@ -60,12 +60,6 @@
   color: var(--dark-green);
   font-weight: 600;
   font-size: 0.95rem;
-  text-decoration: none;
-  border-bottom: 2px solid var(--medium-light-green);
-}
-
-.benefit-link:hover {
-  border-bottom-color: var(--dark-green);
 }
 
 @media screen and (max-width: 768px) {
