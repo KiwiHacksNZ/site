@@ -17,8 +17,7 @@ function noise(x, seed) {
   return a + (b - a) * smoothstep(x - i);
 }
 
-// Two octaves at unrelated frequencies, so the line doesn't read as a plain
-// sine wave the way a single one does. Gained up and clamped, because the raw
+// Two octaves at unrelated frequencies. Gained up and clamped, because the raw
 // sum rarely comes near its own limits and leaves the line looking flat.
 function wobble(x, seed) {
   const sum =
@@ -65,6 +64,10 @@ export function squigglePath({
   offset = 0,
   seed = 1,
   amplitude = 2.9,
+  wavelength = 26,
+  // How much of the shape is a clean wave rather than noise. The noise is kept
+  // on at a low weight so the wave still drifts instead of marching.
+  sineWeight = 0.78,
   cell = 27,
   sampleStep = 9,
   loopDensity = 0.13,
@@ -77,11 +80,15 @@ export function squigglePath({
   const points = [];
 
   const yAt = (x) => {
-    const w = (x - offset) / cell;
-    // A slow envelope so the wobble grows and eases off along the line instead
-    // of holding one amplitude the whole way.
-    const envelope = 0.55 + 0.45 * noise(w * 0.21 + 31.7, seed + 7);
-    return baseline + wobble(w, seed) * amplitude * envelope;
+    const travelled = x - offset;
+    const w = travelled / cell;
+    // A slow envelope so the wave breathes along its length instead of holding
+    // one amplitude the whole way.
+    const envelope = 0.72 + 0.28 * noise(w * 0.21 + 31.7, seed + 7);
+    const wave = Math.sin((travelled / wavelength) * Math.PI * 2);
+    const shape = wave * sineWeight + wobble(w, seed) * (1 - sineWeight);
+
+    return baseline + shape * amplitude * envelope;
   };
 
   for (let i = 0; i <= steps; i += 1) {
