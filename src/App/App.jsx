@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Projects from "./components/Projects/Projects";
 import About from "./components/About/About";
+import Stats from "./components/Stats/Stats";
 import Programs from "./components/Programs/Programs";
 import Benefits from "./components/Benefits/Benefits";
 import FAQ from "./components/FAQ/FAQ";
@@ -36,25 +37,6 @@ export default function App({ projects = [] }) {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        } else {
-          entry.target.classList.remove("show");
-        }
-      });
-    });
-
-    const hiddenElements = document.querySelectorAll(".faq-box");
-    hiddenElements.forEach((el) => observer.observe(el));
-
-    return () => {
-      hiddenElements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
-
   return (
     <>
       <Navbar />
@@ -73,6 +55,7 @@ export default function App({ projects = [] }) {
         <Hero />
         <Projects projects={projects} />
         <About />
+        <Stats />
         <Programs />
         <Benefits />
         <Partners />

@@ -297,7 +297,6 @@ p {
   .partner:hover,
   .footer-link:hover,
   .signatures:hover,
-  .example:hover,
   .date-change-chip:hover {
     transform: none !important;
     scale: none !important;

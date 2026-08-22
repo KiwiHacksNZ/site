@@ -21,10 +21,9 @@ export default function Programs() {
         style={{ backgroundImage: "url(/assets/tape.png)" }}
         aria-hidden="true"
       ></div>
-      <h2>Imagine what you could build.</h2>
+      <h2>Everything we&apos;re running right now.</h2>
       <p className="programs-lede">
-        Everything below is free, open to any high schooler in New Zealand, and
-        happening right now.
+        Every one of these is free and open to any high schooler in New Zealand.
       </p>
 
       <ul className="program-grid">

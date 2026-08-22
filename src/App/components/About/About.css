@@ -1,7 +1,7 @@
 .text {
   margin: 0;
   padding: 1rem;
-  width: 60%;
+  width: 54%;
 }
 
 .about {
@@ -25,20 +25,8 @@
 }
 
 .about-text {
-  font-size: 1.5rem;
-  width: 50vw;
-}
-
-.example {
-  width: 35%;
-  height: 35%;
-  margin: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.example:hover {
-  transform: scale(1.02);
-  box-shadow: var(--dark-green) 0px 4px 8px 0px;
+  font-size: 1.4rem;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -63,47 +51,16 @@
     width: 100%;
     font-size: 1.2rem;
   }
-
-  .example {
-    width: 80%;
-    height: auto;
-  }
 }
 
-.about-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.5rem;
-  margin: 2rem 0 0;
-  padding: 0 1rem;
-}
-
-.about-stat dt {
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: var(--dark-green);
-  line-height: 1;
-}
-
-.about-stat dd {
-  margin: 0.4rem 0 0;
-  font-size: 0.95rem;
-  text-align: left;
-  max-width: 14ch;
+.about-photos {
+  width: 42%;
+  padding: 1rem;
 }
 
 @media screen and (max-width: 768px) {
-  .about-stats {
-    gap: 1.5rem;
-    justify-content: center;
-  }
-
-  .about-stat dt {
-    font-size: 2rem;
-  }
-
-  .about-stat dd {
-    text-align: center;
-    margin-inline: auto;
+  .about-photos {
+    width: 90%;
+    padding: 0;
   }
 }

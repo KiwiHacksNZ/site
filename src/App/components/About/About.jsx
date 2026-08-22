@@ -1,9 +1,13 @@
 import "./About.css";
+import Carousel from "../Carousel/Carousel";
 
-const stats = [
-  { value: "3", label: "cities running events" },
-  { value: "100+", label: "teenage participants" },
-  { value: "100%", label: "run by high schoolers" },
+const photos = [
+  { src: "/assets/gallery/DSCF3841.jpg", alt: "Students working together at a KiwiHacks event" },
+  { src: "/assets/gallery/DSCF4012.jpg", alt: "A hardware project taking shape on a workbench" },
+  { src: "/assets/gallery/DSCF2200.jpg", alt: "Hackers deep in a project at KiwiHacks" },
+  { src: "/assets/gallery/DSCF3768.jpg", alt: "Students showing off what they built" },
+  { src: "/assets/gallery/DSCF3771.jpg", alt: "Soldering and tinkering at a KiwiHacks event" },
+  { src: "/assets/gallery/DSCF7194.jpg", alt: "The KiwiHacks crew mid-hackathon" },
 ];
 
 export default function About() {
@@ -31,22 +35,10 @@ export default function About() {
           No matter your skill level, you&apos;re welcome. Just sign up, show up,
           and give it a go.
         </p>
-
-        <dl className="about-stats">
-          {stats.map(({ value, label }) => (
-            <div key={label} className="about-stat">
-              <dt>{value}</dt>
-              <dd>{label}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
-      <img
-        className="example"
-        src="/assets/example.jpg"
-        alt="Students hacking at previous events"
-        loading="lazy"
-      />
+      <div className="about-photos">
+        <Carousel photos={photos} />
+      </div>
     </section>
   );
 }
