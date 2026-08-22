@@ -13,7 +13,7 @@ const benefits = [
   {
     Icon: FaLaptopCode,
     title: "Workshops",
-    body: "Never written a line of code? Every hackathon runs free workshops on the basics, and there are always mentors around. Everyone finishes a project.",
+    body: "Never written a line of code? Every hackathon runs workshops, and there are always mentors around. Everyone finishes a project.",
   },
   {
     Icon: FaShirt,
