@@ -1,14 +1,14 @@
-.stats {
+.nova {
   padding: 4rem 1.5rem;
 }
 
-.stats h2 {
+.nova h2 {
   font-size: 3rem;
   color: var(--very-dark-green);
   margin: 0 0 2.5rem;
 }
 
-.stats-grid {
+.nova-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: start;
@@ -17,38 +17,38 @@
   padding: 0;
 }
 
-.stat dt {
+.nova-stat dt {
   font-size: 2.1rem;
   line-height: 1.2;
   color: var(--very-dark-green);
 }
 
-.stat dd {
+.nova-stat dd {
   margin: 0.6rem 0 0;
   font-size: 1.45rem;
   color: var(--very-dark-green);
 }
 
 @media screen and (max-width: 768px) {
-  .stats {
+  .nova {
     padding: 2.5rem 1.5rem;
   }
 
-  .stats h2 {
+  .nova h2 {
     font-size: 2rem;
     margin-bottom: 1.75rem;
   }
 
-  .stats-grid {
+  .nova-stats {
     grid-template-columns: 1fr;
     gap: 1.75rem;
   }
 
-  .stat dt {
+  .nova-stat dt {
     font-size: 1.9rem;
   }
 
-  .stat dd {
+  .nova-stat dd {
     font-size: 1.2rem;
   }
 }

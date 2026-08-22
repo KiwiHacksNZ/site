@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Projects from "./components/Projects/Projects";
 import About from "./components/About/About";
-import Stats from "./components/Stats/Stats";
+import Nova from "./components/Nova/Nova";
 import Programs from "./components/Programs/Programs";
 import Benefits from "./components/Benefits/Benefits";
 import FAQ from "./components/FAQ/FAQ";
@@ -55,7 +55,7 @@ export default function App({ projects = [] }) {
         <Hero />
         <Projects projects={projects} />
         <About />
-        <Stats />
+        <Nova />
         <Programs />
         <Benefits />
         <Partners />
