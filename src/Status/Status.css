@@ -1,0 +1,303 @@
+@font-face {
+  font-family: 'ABeeZee';
+  src: url("/fonts/ABeeZee.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url("/fonts/SourceCodePro.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  --bright-blue: #36c6fb;
+  --light-blue: #91e2ffce;
+  --very-light-blue: #baedff;
+  --very-dark-green: #132f1e;
+  --dark-green: #2e522b;
+  --medium-green: #76b070;
+  --semi-opaque-green: #64d6ff4d;
+  --medium-light-green: #76b07080;
+}
+
+.status-main {
+  min-height: calc(100vh - 78px);
+  padding: 2rem 1rem 2.5rem;
+  background: #EAE6E2;
+}
+
+.status-card {
+  width: min(900px, 94vw);
+  margin: 0 auto;
+  background: rgba(118, 176, 112, 0.16);
+  border: 1.5px dashed var(--very-dark-green);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 30px rgba(19, 47, 30, 0.12);
+  text-align: left;
+}
+
+.status-title {
+  text-align: center;
+  color: var(--very-dark-green);
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  margin: 0 0 0.4rem;
+  line-height: 1.1;
+}
+
+.status-subtitle {
+  text-align: center;
+  width: min(660px, 95%);
+  margin: 0 auto 1.5rem;
+  color: var(--very-dark-green);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+}
+
+/* ── Overall banner ── */
+
+.status-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  border: 1.5px dashed var(--very-dark-green);
+  border-radius: 16px;
+  padding: 1rem 1.4rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.1rem;
+  color: var(--very-dark-green);
+}
+
+.status-banner.all-good  { background: rgba(118, 176, 112, 0.3); }
+.status-banner.degraded  { background: rgba(227, 160, 8, 0.22); }
+.status-banner.down      { background: rgba(214, 69, 69, 0.2); }
+.status-banner.loading   { background: rgba(54, 198, 251, 0.12); }
+
+.status-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid var(--very-dark-green);
+  flex: none;
+}
+
+.status-dot.up       { background: var(--medium-green); }
+.status-dot.degraded { background: #e3a008; }
+.status-dot.down     { background: #d64545; }
+.status-dot.unknown  { background: var(--very-light-blue); }
+
+/* ── Range picker, in the site's dashed chip idiom ── */
+
+.status-range-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.status-range-label {
+  color: var(--dark-green);
+  font-size: 1.35rem;
+  margin: 0;
+}
+
+.status-range {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.status-range button {
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--very-dark-green);
+  background: transparent;
+  border: 1.5px dashed var(--very-dark-green);
+  border-radius: 14px;
+  padding: 0.35rem 0.85rem;
+  cursor: pointer;
+  transition: background 0.25s ease, box-shadow 0.3s ease;
+}
+
+.status-range button:hover {
+  background: var(--very-light-blue);
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+}
+
+.status-range button[aria-pressed="true"] {
+  background: var(--light-blue);
+  font-weight: 700;
+}
+
+/* ── Service rows ── */
+
+.status-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.status-item {
+  background: rgba(54, 198, 251, 0.12);
+  border: 1.5px dashed var(--very-dark-green);
+  border-radius: 16px;
+  padding: 1.25rem 1.4rem;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.status-item:hover {
+  box-shadow: var(--very-dark-green) 0px 4px 8px 0px;
+  transform: translateY(-2px);
+}
+
+.status-item-head {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.status-item-name {
+  color: var(--dark-green);
+  font-size: 1.35rem;
+  margin: 0;
+}
+
+.status-item-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.status-item-name a:hover { color: var(--bright-blue); }
+
+.status-chip {
+  margin-left: auto;
+  border: 1.5px dashed var(--very-dark-green);
+  border-radius: 14px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--very-dark-green);
+  white-space: nowrap;
+}
+
+.status-chip.up       { background: var(--medium-light-green); }
+.status-chip.degraded { background: #f6dfa4; }
+.status-chip.down     { background: #f5c2c2; }
+
+.status-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 2rem;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--very-dark-green);
+}
+
+.status-meta li {
+  font-size: 0.95rem;
+}
+
+.status-meta .label {
+  color: rgba(19, 47, 30, 0.7);
+}
+
+.status-meta .value {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Uptime bar ── */
+
+.status-bar {
+  margin-top: 0.85rem;
+  height: 10px;
+  border: 1.5px dashed var(--very-dark-green);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  overflow: hidden;
+}
+
+.status-bar span {
+  display: block;
+  height: 100%;
+  background: var(--medium-green);
+}
+
+.status-bar.degraded span { background: #e3a008; }
+.status-bar.down span     { background: #d64545; }
+
+/* ── Footnote + CTA ── */
+
+.status-note {
+  color: var(--very-dark-green);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 1.25rem 0 0;
+  text-align: center;
+}
+
+.status-note a {
+  color: var(--dark-green);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.status-note a:hover { color: var(--bright-blue); }
+
+.status-cta-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.status-primary-cta {
+  display: inline-block;
+  color: var(--very-dark-green);
+  text-decoration: none;
+  background: var(--medium-green);
+  border-radius: 14px;
+  padding: 0.95rem 1.8rem;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.status-primary-cta:hover {
+  background: #5c8f57;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ── States ── */
+
+.status-message {
+  text-align: center;
+  color: var(--very-dark-green);
+  font-size: 1.03rem;
+  padding: 1.5rem 0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .status-card {
+    width: 95%;
+    padding: 1.4rem 1rem;
+  }
+
+  .status-subtitle { width: 96%; }
+  .status-item { padding: 1rem; }
+  .status-chip { margin-left: 0; }
+
+  .status-primary-cta { transition: none; }
+  .status-primary-cta:hover { transform: none; box-shadow: none; }
+  .status-item:hover { transform: none; box-shadow: none; }
+}
