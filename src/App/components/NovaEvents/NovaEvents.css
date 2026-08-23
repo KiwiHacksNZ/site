@@ -1,0 +1,91 @@
+.nova-events {
+  padding: 4rem 2rem;
+  background: transparent;
+  color: var(--very-dark-green);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nova-events h1 {
+  margin: 0 0 0.5rem 0;
+  color: var(--very-dark-green);
+  font-size: 2.5rem;
+}
+
+.nova-events-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  max-width: 640px;
+}
+
+.nova-events-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.nova-event-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem 1.5rem;
+  width: clamp(250px, 30%, 300px);
+  border: 1.5px dashed var(--very-dark-green);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nova-event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.nova-event-city {
+  font-size: 1.6rem;
+  margin: 0 0 0.5rem 0;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px dashed rgba(19, 47, 30, 0.2);
+  width: 100%;
+}
+
+.nova-event-dates {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.nova-event-venue {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.nova-event-venue.confirmed {
+  color: var(--dark-green);
+  font-weight: 600;
+  opacity: 1;
+}
+
+.nova-events-cta {
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .nova-events-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nova-event-card {
+    width: 100%;
+    max-width: 350px;
+  }
+}
