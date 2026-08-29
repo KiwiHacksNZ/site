@@ -25,7 +25,7 @@ const benefits = [
 export default function Benefits() {
   return (
     <section id="community" className="benefits">
-      <h2>Everything that comes with joining.</h2>
+      <h2 className="mono">Everything that comes with joining.</h2>
       <p className="benefits-lede">
         KiwiHacks isn&apos;t just the events &mdash; here&apos;s what you get as
         part of the club.

@@ -77,7 +77,7 @@ export default function Hero() {
         fetchPriority="high"
         draggable="false"
       />
-      <h1 className="hero-headline">Where Kiwi teens make cool stuff.</h1>
+      <h1 className="mono hero-headline">Where Kiwi teens make cool stuff.</h1>
       <p className="hero-lede">
         KiwiHacks is New Zealand's high school hackathon club &mdash; a
         community of teenagers who build things together, run entirely by
@@ -94,7 +94,7 @@ export default function Hero() {
       </div>
 
       <p className="mono hero-fineprint">
-        Free, forever. Open to any high schooler in NZ, 13&ndash;18.
+        Free, forever. Open to anyone in NZ, 13&ndash;18.
       </p>
     </header>
   );

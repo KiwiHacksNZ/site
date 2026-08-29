@@ -7,7 +7,7 @@
 
 .subtitle {
   font-weight: 400;
-  color: #132f1e;
+  color: var(--very-dark-green);
   margin: 0;
   padding: 0 1.5rem;
   margin-bottom: 1rem;
@@ -143,8 +143,8 @@
 }
 
 .hero-join:hover {
-  background: #88bc82;
-  box-shadow: 0 8px 6px rgba(0, 0, 0, 0.2);
+  background: var(--dark-green);
+  box-shadow: 0 8px 6px rgba(46, 82, 43, 0.2);
 }
 
 .hero-secondary {

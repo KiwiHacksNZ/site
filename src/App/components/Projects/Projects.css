@@ -39,7 +39,7 @@
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 6px rgba(46, 82, 43, 0.15);
 }
 
 .project-image {

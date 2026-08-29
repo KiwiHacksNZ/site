@@ -9,7 +9,7 @@ export default function Projects({ projects = [] }) {
 
   return (
     <section id="projects" className="projects">
-      <h2>Made by Kiwi teens.</h2>
+      <h2 className="mono">Made by Kiwi teens.</h2>
       <p className="projects-lede">
         Real projects built at our hackathons, by high schoolers who mostly
         hadn&apos;t met each other that morning.

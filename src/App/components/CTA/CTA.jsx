@@ -15,7 +15,7 @@ export default function CTA() {
         </SquiggleLink>
       </div>
       <p className="mono cta-fineprint">
-        Free, forever. Open to any high schooler in NZ, 13&ndash;18.
+        Free, forever. Open to anyone in NZ, 13&ndash;18.
       </p>
     </section>
   );

@@ -10,7 +10,9 @@
 
 .nova-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  gap: 4rem;
   align-items: start;
   max-width: 1000px;
   margin: 0 auto;
@@ -80,14 +82,14 @@
 
 .nova-primary {
   padding: 1rem 3.5rem;
-  background: #8b59a3;
-  border: 1.5px dashed #161e5a;
+  background: var(--nova-purple);
+  border: 1.5px dashed var(--nova-indigo);
   font-size: 1.1rem;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .nova-primary:hover {
-  box-shadow: 0 8px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 6px rgba(46, 82, 43, 0.2);
   transform: translateY(-2px);
 }
 

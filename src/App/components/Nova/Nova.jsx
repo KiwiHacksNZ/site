@@ -10,7 +10,7 @@ const stats = [
 export default function Nova() {
   return (
     <section id="nova" className="nova">
-      <h2>But for Nova, we&apos;re going national.</h2>
+      <h2 className="mono">But for Nova, we&apos;re going national.</h2>
 
       <dl className="nova-stats">
         {stats.map(({ value, label }) => (
