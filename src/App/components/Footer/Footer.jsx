@@ -73,6 +73,7 @@ export default function Footer() {
         <p>Important Links</p>
         <a href="../code-of-conduct">Code of Conduct</a>
         <a href="../privacy-policy">Privacy Policy</a>
+        <a href="../status">Status</a>
       </div>
     </footer>
   );
