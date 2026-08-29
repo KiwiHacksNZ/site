@@ -6,15 +6,26 @@ const faqs = [
     question: "What is KiwiHacks?",
     answer: (
       <>
-        KiwiHacks is New Zealand&apos;s first High School Hackathon club! We run
-        hackathons for high schoolers (aged 13-18) by high schoolers.
+        KiwiHacks is New Zealand&apos;s first high school hackathon club! We run
+        hackathons for teenagers aged 13&ndash;18, organised entirely by high
+        schoolers.
       </>
     ),
   },
   {
     question: "Who can attend KiwiHacks events?",
     answer: (
-      <>All high-school students 18 and under are welcome at KiwiHacks events!</>
+      <>Anyone in New Zealand aged 13&ndash;18 is welcome at KiwiHacks events!</>
+    ),
+  },
+  {
+    question: "How do I join KiwiHacks?",
+    answer: (
+      <>
+        Jump into our <a href="/discord">Discord</a> &mdash; that&apos;s where the
+        club lives day to day. It&apos;s free, there&apos;s nothing to fill in,
+        and new events get announced there first.
+      </>
     ),
   },
   {
@@ -31,10 +42,9 @@ const faqs = [
     question: "When's the next event?",
     answer: (
       <>
-        KiwiHacks Nova is our next hackathon, and it&apos;s taking place in
-        Auckland, Wellington, and Christchurch! Everything we&apos;re running
-        right now is listed <a href="#nova">further up this page</a>, and new
-        events get announced in our <a href="/discord">Discord</a> first.
+        Everything we&apos;re running right now is listed{" "}
+        <a href="#nova">further up this page</a>, and new events get announced in
+        our <a href="/discord">Discord</a> first.
       </>
     ),
   },
