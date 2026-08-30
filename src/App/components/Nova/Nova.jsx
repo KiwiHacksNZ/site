@@ -2,9 +2,9 @@ import "./Nova.css";
 import SquiggleLink from "../SquiggleLink";
 
 const stats = [
-  { value: "3", label: "events" },
-  { value: "300+", label: "teenage participants" },
-  { value: "100%", label: "run by high schoolers" },
+  { value: "3", label: "cities" },
+  { value: "300+", label: "high schoolers" },
+  { value: "$0", label: "to take part" },
 ];
 
 export default function Nova() {
@@ -24,7 +24,7 @@ export default function Nova() {
       <div className="nova-copy">
         <p>
           KiwiHacks Nova is a constellation of three hackathons across New
-          Zealand &mdash; three cities, three weekends, three free 24-hour
+          Zealand: three cities, three weekends, three free 24-hour
           hackathons for high schoolers. A nova is a star that suddenly bursts
           bright, and that&apos;s the idea: light up Wellington, Christchurch,
           and Auckland with students building real things.

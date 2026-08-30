@@ -29,7 +29,7 @@ function subscribe(advance) {
   };
 }
 
-const PAN_SPEED = 11; // px/sec — slow enough to read as the line redrawing itself
+const PAN_SPEED = 11; // px/sec - slow enough to read as the line redrawing itself
 const HOVER_SPEED = 34;
 
 export function useSquiggle() {
@@ -52,7 +52,7 @@ export function useSquiggle() {
     draw();
 
     // Matches the site's blanket rule of no animation on small screens or for
-    // anyone asking for reduced motion — they get a still squiggle.
+    // anyone asking for reduced motion - they get a still squiggle.
     const still = window.matchMedia(
       "(prefers-reduced-motion: reduce), (max-width: 768px)",
     );

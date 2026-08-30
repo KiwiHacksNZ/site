@@ -18,7 +18,7 @@ const benefits = [
   {
     Icon: FaShirt,
     title: "Free swag, food, and entry",
-    body: "Our partners cover the lot. Stickers, shirts, meals, snacks, and a venue — you bring a laptop and something to sleep on.",
+    body: "Our partners cover the lot. Stickers, shirts, meals, snacks, and a venue. You bring a laptop and something to sleep on.",
   },
 ];
 
@@ -27,7 +27,7 @@ export default function Benefits() {
     <section id="community" className="benefits">
       <h2 className="mono">Everything that comes with joining.</h2>
       <p className="benefits-lede">
-        KiwiHacks isn&apos;t just the events &mdash; here&apos;s what you get as
+        KiwiHacks isn&apos;t just the events. Here&apos;s what you get as
         part of the club.
       </p>
 

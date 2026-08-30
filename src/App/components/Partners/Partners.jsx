@@ -62,8 +62,8 @@ export default function Partners() {
       </p>
       <br />
       <p className="partner-text" data-role="partner-contact">
-        If you're interested in making the hackathon better by partnering
-        with KiwiHacks, please reach out to{" "}
+        If you're interested in making KiwiHacks better by partnering
+        with us, please reach out to{" "}
         <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a>.
       </p>
       <br />

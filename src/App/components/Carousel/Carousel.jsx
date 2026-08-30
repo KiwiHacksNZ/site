@@ -37,7 +37,7 @@ export default function Carousel({ photos, label = "Photos from our events" }) {
   }, [active, paused, goTo]);
 
   // The track is a snap-scroll container, so which photo is showing comes from
-  // its scroll position — that keeps swipe, arrows, and dots all in agreement.
+  // its scroll position - that keeps swipe, arrows, and dots all in agreement.
   const onScroll = () => {
     const track = trackRef.current;
     if (track) setActive(Math.round(track.scrollLeft / track.clientWidth));
