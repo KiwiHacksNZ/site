@@ -16,27 +16,20 @@ export default function About() {
       <div className="text">
         <h2 className="mono">About KiwiHacks</h2>
         <p className="about-text">
-          KiwiHacks is New Zealand&apos;s first high school hackathon club,
-          built and run entirely by teenagers. Every event, every poster, and
-          every site we have made, including this one, was put together by New
-          Zealand high schoolers.
+          KiwiHacks is New Zealand's first high school hackathon club, running
+          hackathons for high school students 18 and under. Our events's are a
+          chance to meet new people, learn some new skills, and build something
+          you're actually proud of, whether that's an app, game, website, robot,
+          or a chair that runs away from you.
         </p>
         <p className="about-text">
-          A KiwiHacks event is a chance to meet new people, learn new skills,
-          and build something you are actually proud of, whether that is an app,
-          a game, a website, a hardware project, or something nobody has seen
-          before. Mentors are around for the entire event, and
-          beginner-friendly workshops mean you do not need any prior experience
-          to get started.
+          KiwiHacks is run by high schoolers, for high schoolers, meaning every
+          site (yes, even this one!), piece of art, event, and everything else
+          was made by like-minded Kiwi high schoolers who are building a
+          community of like-minded Kiwi high schoolers through KiwiHacks!
         </p>
         <p className="about-text">
-          We have run these before. Our organisers ran hackathons in Auckland
-          before KiwiHacks existed, and at KiwiHacks &rsquo;26 earlier this year
-          over 100 high schoolers turned up and every team left with a project
-          they built themselves. This year we are taking KiwiHacks nationwide.
-        </p>
-        <p className="about-text">
-          Whatever your skill level, you are welcome. Just sign up, show up, and
+          No matter your skill level, you're welcome. Just sign up, show up, and
           give it a go.
         </p>
       </div>

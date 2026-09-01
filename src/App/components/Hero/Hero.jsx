@@ -86,13 +86,6 @@ export default function Hero() {
         organised by high schoolers.
       </p>
 
-      <div className="hero-banner">
-        <p className="mono">
-          On now &middot; KiwiHacks Nova &middot; Wellington, Christchurch,
-          Auckland
-        </p>
-      </div>
-
       <div className="hero-actions">
         <a className="hero-join" href="/discord">
           <b>Join the Discord</b>

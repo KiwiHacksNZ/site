@@ -179,34 +179,3 @@
   }
 }
 
-.hero-banner {
-  margin: 1.75rem auto 0;
-  max-width: 46ch;
-  padding: 0.9rem 1.75rem;
-  border-radius: 15px;
-  border: 1.5px dashed var(--very-light-blue);
-  background: var(--very-dark-green);
-  position: relative;
-  z-index: 10;
-}
-
-.hero-banner p {
-  margin: 0;
-  color: var(--very-light-blue);
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-align: center !important;
-  width: auto !important;
-}
-
-@media screen and (max-width: 768px) {
-  .hero-banner {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-  }
-
-  .hero-banner p {
-    font-size: 0.85rem;
-  }
-}
