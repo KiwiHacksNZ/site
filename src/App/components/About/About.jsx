@@ -14,26 +14,30 @@ export default function About() {
   return (
     <section id="about" className="about">
       <div className="text">
-        <h2>Run by teens, for teens.</h2>
+        <h2 className="mono">About KiwiHacks</h2>
         <p className="about-text">
-          KiwiHacks is New Zealand&apos;s first high school hackathon club. Every
-          site (yes, even this one), every piece of art, every event, and
-          everything else was made by Kiwi high schoolers, because a club
-          for high schoolers should be run by them.
+          KiwiHacks is New Zealand&apos;s first high school hackathon club,
+          built and run entirely by teenagers. Every event, every poster, and
+          every site we have made, including this one, was put together by New
+          Zealand high schoolers.
         </p>
         <p className="about-text">
-          Our events are a chance to meet new people, learn some new skills, and
-          build something you&apos;re actually proud of: an app, a game, a
-          website, a robot, or a chair that runs away from you.
+          A KiwiHacks event is a chance to meet new people, learn new skills,
+          and build something you are actually proud of, whether that is an app,
+          a game, a website, a hardware project, or something nobody has seen
+          before. Mentors are around for the entire event, and
+          beginner-friendly workshops mean you do not need any prior experience
+          to get started.
         </p>
         <p className="about-text">
-          We&apos;ve done this before. Our organisers ran hackathons like
-          Scrapyard and Counterspell in Auckland before KiwiHacks existed, and
-          this year we&apos;re taking KiwiHacks nationwide.
+          We have run these before. Our organisers ran hackathons in Auckland
+          before KiwiHacks existed, and at KiwiHacks &rsquo;26 earlier this year
+          over 100 high schoolers turned up and every team left with a project
+          they built themselves. This year we are taking KiwiHacks nationwide.
         </p>
         <p className="about-text">
-          No matter your skill level, you&apos;re welcome. Just sign up, show up,
-          and give it a go.
+          Whatever your skill level, you are welcome. Just sign up, show up, and
+          give it a go.
         </p>
       </div>
       <div className="about-photos">

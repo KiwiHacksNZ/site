@@ -9,10 +9,10 @@ export default function Projects({ projects = [] }) {
 
   return (
     <section id="projects" className="projects">
-      <h2 className="mono">Made by Kiwi teens.</h2>
+      <h2 className="mono">Built at our hackathons</h2>
       <p className="projects-lede">
-        Real projects built at our hackathons, by high schoolers who mostly
-        hadn&apos;t met each other that morning.
+        Every one of these was made in a weekend by New Zealand high schoolers,
+        most of whom had not met their team that morning.
       </p>
 
       <ul className="project-grid">
@@ -54,7 +54,7 @@ export default function Projects({ projects = [] }) {
       </ul>
 
       <SquiggleLink className="projects-more" href="/showcase">
-        See every project &rarr;
+        See all the projects &rarr;
       </SquiggleLink>
     </section>
   );

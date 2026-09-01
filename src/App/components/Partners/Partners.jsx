@@ -44,11 +44,11 @@ export default function Partners() {
         style={{ backgroundImage: "url(/assets/tape.png)" }}
         aria-hidden="true"
       ></div>
-      <h2 className="mono">Run by teens, made possible by our partners.</h2>
+      <h2 className="mono">Our partners</h2>
 
       <p className="partner-text partner-text-center">
-        KiwiHacks is free for every attendee, and it stays that way
-        because of the people below. A HUGE thank you to our partners!
+        KiwiHacks is free for everyone who attends, and it stays that way
+        because of the organisations below. Thank you.
       </p>
       {renderSponsorGrid(partnerSponsors)}
 
@@ -57,18 +57,18 @@ export default function Partners() {
 
       <p className="partner-text" data-role="partner-cta">
         {" "}
-        By becoming a partner, you support the next generation of innovators
-        and gain visibility for your brand within the tech community.
+        Partnering with KiwiHacks supports the next generation of New Zealand
+        builders, and puts your brand in front of the students, whanau, and
+        mentors who come to our events.
       </p>
       <br />
       <p className="partner-text" data-role="partner-contact">
-        If you're interested in making KiwiHacks better by partnering
-        with us, please reach out to{" "}
+        If you would like to partner with KiwiHacks, email{" "}
         <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a>.
       </p>
       <br />
       <p className="partner-text" data-role="partner-thanks">
-        We're really grateful for your support.
+        We reply fast, and we are grateful for every bit of support.
       </p>
     </section>
   );

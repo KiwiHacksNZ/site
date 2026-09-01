@@ -6,25 +6,28 @@ const faqs = [
     question: "What is KiwiHacks?",
     answer: (
       <>
-        KiwiHacks is New Zealand&apos;s first high school hackathon club! We run
-        hackathons for teenagers aged 13-18, organised entirely by high
-        schoolers.
+        KiwiHacks is New Zealand&apos;s first high school hackathon club. We run
+        free hackathons for high school students, and everything is organised by
+        high schoolers.
       </>
     ),
   },
   {
     question: "Who can attend KiwiHacks events?",
     answer: (
-      <>Anyone in New Zealand aged 13-18 is welcome at KiwiHacks events!</>
+      <>
+        Any high school student in New Zealand, years 9 to 13. Come on your own
+        or bring a team of friends. No experience is needed.
+      </>
     ),
   },
   {
     question: "How do I join KiwiHacks?",
     answer: (
       <>
-        Jump into our <a href="/discord">Discord</a>. That&apos;s where the
-        club lives day to day. It&apos;s free, there&apos;s nothing to fill in,
-        and new events get announced there first.
+        Join the <a href="/discord">Discord</a>. That is where the club lives day
+        to day. It is free, there is no form to fill in, and new events are
+        announced there first.
       </>
     ),
   },
@@ -32,9 +35,19 @@ const faqs = [
     question: "I'm not a good coder. Can I come?",
     answer: (
       <>
-        Absolutely. KiwiHacks is for creatives of all skill levels! We run
-        workshops for beginners on how to code the basics, and everyone will
-        finish a project at our hackathons.
+        Yes. Total beginners are welcome and a lot of KiwiHackers write their
+        first line of code at an event. We run workshops and have mentors on hand
+        all weekend. Designers, artists, and storytellers fit right in too.
+      </>
+    ),
+  },
+  {
+    question: "What should I bring to a hackathon?",
+    answer: (
+      <>
+        A laptop and charger, any devices you want to build with, a water bottle,
+        and a sleeping bag if you want to rest. Our events run for 24 hours, so
+        pack like a sleepover. We cover the food, Wi-Fi, and the space.
       </>
     ),
   },
@@ -42,18 +55,29 @@ const faqs = [
     question: "When's the next event?",
     answer: (
       <>
-        Everything we&apos;re running right now is listed{" "}
-        <a href="#nova">further up this page</a>, and new events get announced in
-        our <a href="/discord">Discord</a> first.
+        Everything we are running right now is{" "}
+        <a href="#nova">further up this page</a>. New events are announced in the{" "}
+        <a href="/discord">Discord</a> first.
       </>
     ),
   },
   {
-    question: "All this, for free?",
+    question: "All of this, for free?",
     answer: (
       <>
-        Yep! KiwiHacks events (and swag!) are completely free thanks to our
-        generous sponsors. Just sign up, turn up, and have fun!
+        Yes, completely free to attend. Food, mentors, workshops, and swag are
+        all covered by our sponsors. Cost is never a barrier at KiwiHacks.
+      </>
+    ),
+  },
+  {
+    question: "How about safety?",
+    answer: (
+      <>
+        Our events are supervised by the KiwiHacks team around the clock. There
+        is a secure venue with check-in and check-out, first aid on site, a clear{" "}
+        <a href="/code-of-conduct">code of conduct</a>, and guardian contact
+        details collected at sign-up.
       </>
     ),
   },
@@ -61,14 +85,15 @@ const faqs = [
     question: "What if my parents are concerned?",
     answer: (
       <>
-        We understand that parents want to ensure their children are safe. Check
-        out our{" "}
+        We are happy to talk. We run parent information sessions before each
+        event, the venue is supervised the whole time, and a signed waiver is
+        required to take part. Our{" "}
         <a href="./parents-guide" target="_blank">
           parents guide
-        </a>
-        . If your parents have any questions or concerns, we&apos;re here to help
-        - please have them reach out to us at{" "}
-        <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a>!
+        </a>{" "}
+        covers most of it, and they can email{" "}
+        <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a> with anything
+        else.
       </>
     ),
   },
@@ -76,8 +101,8 @@ const faqs = [
     question: "What if I have more questions?",
     answer: (
       <>
-        No worries, just contact us! Feel free to reach out to us via email at{" "}
-        <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a>.
+        Email <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a> or join
+        the KiwiHackers <a href="/discord">Discord</a>. We reply fast.
       </>
     ),
   },

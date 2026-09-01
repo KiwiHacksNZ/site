@@ -5,30 +5,30 @@ import { FaDiscord, FaLaptopCode, FaShirt } from "react-icons/fa6";
 const benefits = [
   {
     Icon: FaDiscord,
-    title: "The Community",
-    body: "Where KiwiHacks actually lives between events. Share what you're building, get unstuck, find teammates, and find out about new events first.",
+    title: "The Discord",
+    body: "This is where KiwiHackers are in between events. Ask for help when you are stuck, show people what you are making, find a team, and hear about new events first.",
     href: "/discord",
     linkText: "Join the Discord",
   },
   {
     Icon: FaLaptopCode,
-    title: "Workshops",
-    body: "Never written a line of code? Every hackathon runs workshops, and there are always mentors around. Everyone finishes a project.",
+    title: "Workshops and mentors",
+    body: "Total beginners are welcome, and a lot of KiwiHackers write their first line of code at an event. We run workshops and have mentors on hand all weekend. Designers, artists, and storytellers fit right in too.",
   },
   {
     Icon: FaShirt,
-    title: "Free swag, food, and entry",
-    body: "Our partners cover the lot. Stickers, shirts, meals, snacks, and a venue. You bring a laptop and something to sleep on.",
+    title: "Free entry, food, and swag",
+    body: "Food, mentors, workshops, and swag are all covered by our sponsors. You bring a laptop and charger, a water bottle, and a sleeping bag. Cost is never a barrier at KiwiHacks.",
   },
 ];
 
 export default function Benefits() {
   return (
     <section id="community" className="benefits">
-      <h2 className="mono">Everything that comes with joining.</h2>
+      <h2 className="mono">Being a KiwiHacker</h2>
       <p className="benefits-lede">
-        KiwiHacks isn&apos;t just the events. Here&apos;s what you get as
-        part of the club.
+        KiwiHacks is not only the events. Here is what you get the rest of the
+        year.
       </p>
 
       <ul className="benefit-grid">

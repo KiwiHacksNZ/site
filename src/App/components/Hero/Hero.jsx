@@ -77,24 +77,34 @@ export default function Hero() {
         fetchPriority="high"
         draggable="false"
       />
-      <h1 className="mono hero-headline">Where Kiwi teens make cool projects.</h1>
+      <h1 className="mono hero-headline">
+        New Zealand&apos;s high school hackathon club.
+      </h1>
       <p className="hero-lede">
-        KiwiHacks is New Zealand's high school hackathon club: a
-        community of teenagers who build things together, run entirely by
-        teenagers.
+        We run free hackathons for high school students across New Zealand, and
+        a Discord where KiwiHackers hang out in between them. Everything is
+        organised by high schoolers.
       </p>
+
+      <div className="hero-banner">
+        <p className="mono">
+          On now &middot; KiwiHacks Nova &middot; Wellington, Christchurch,
+          Auckland
+        </p>
+      </div>
 
       <div className="hero-actions">
         <a className="hero-join" href="/discord">
-          <b>Join us!</b>
+          <b>Join the Discord</b>
         </a>
         <SquiggleLink className="hero-secondary" href="#nova">
-          See what's on &rarr;
+          Read about Nova &rarr;
         </SquiggleLink>
       </div>
 
       <p className="mono hero-fineprint">
-        Free, forever. Open to anyone in NZ, 13-18.
+        Free to join. Open to any high school student in New Zealand, years 9 to
+        13.
       </p>
     </header>
   );

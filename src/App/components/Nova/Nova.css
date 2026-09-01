@@ -111,3 +111,10 @@
   color: var(--dark-green);
   font-weight: 600;
 }
+
+.nova-lede {
+  max-width: 48ch;
+  margin: 0.75rem auto 0;
+  font-size: 1.25rem;
+  text-align: center;
+}

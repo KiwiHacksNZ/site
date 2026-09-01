@@ -52,9 +52,9 @@ export default function App({ projects = [] }) {
 
       <main>
         <Hero />
-        <Projects projects={projects} />
-        <About />
         <Nova />
+        <About />
+        <Projects projects={projects} />
         <Benefits />
         <Partners />
         <FAQ />
