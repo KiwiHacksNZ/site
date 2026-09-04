@@ -1,6 +1,6 @@
 import "./Benefits.css";
 import SquiggleLink from "../SquiggleLink";
-import { FaDiscord, FaLaptopCode, FaShirt } from "react-icons/fa6";
+import { FaDiscord, FaNoteSticky, FaPizzaSlice } from "react-icons/fa6";
 
 const benefits = [
   {
@@ -11,14 +11,14 @@ const benefits = [
     linkText: "Join the Discord",
   },
   {
-    Icon: FaLaptopCode,
-    title: "Workshops and mentors",
-    body: "Total beginners are welcome, and a lot of KiwiHackers write their first line of code at an event. We run workshops and have mentors on hand all weekend. Designers, artists, and storytellers fit right in too.",
+    Icon: FaNoteSticky,
+    title: "Free stickers",
+    body: "Ship something in the Discord and we will mail you KiwiHacks stickers, anywhere in New Zealand. Post a project with a screenshot and a link, fill in the short form the bot sends you, and they turn up in your letterbox.",
   },
   {
-    Icon: FaShirt,
-    title: "Free entry, food, and swag",
-    body: "Food, mentors, workshops, and swag are all covered by our sponsors. You bring a laptop and charger, a water bottle, and a sleeping bag. Cost is never a barrier at KiwiHacks.",
+    Icon: FaPizzaSlice,
+    title: "Community lockins",
+    body: "Come into the office from 10am to 4pm to build projects, meet up with your friends, and have fun together. Free pizza, and you only need to bring a laptop and charger.",
   },
 ];
 
@@ -36,7 +36,7 @@ export default function Benefits() {
           <li key={benefit.title} className="benefit-card">
             <benefit.Icon className="benefit-icon" aria-hidden="true" />
             <h3>{benefit.title}</h3>
-            <p>{benefit.body}</p>
+            {benefit.body ? <p>{benefit.body}</p> : null}
             {benefit.href ? (
               <SquiggleLink href={benefit.href} className="benefit-link">
                 {benefit.linkText} &rarr;
