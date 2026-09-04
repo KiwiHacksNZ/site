@@ -57,7 +57,8 @@ export default function PrivacyPolicy() {
               </li>
               <li>
                 <strong>Community platforms</strong> - your username and
-                activity if you join our Discord server, which has its own
+                activity if you join our <a href="/discord">Discord</a> server, which
+                has its own
                 privacy terms set by Discord.
               </li>
               <li>

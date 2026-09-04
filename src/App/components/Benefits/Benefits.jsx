@@ -13,12 +13,25 @@ const benefits = [
   {
     Icon: FaNoteSticky,
     title: "Free stickers",
-    body: "Ship something in the Discord and we will mail you KiwiHacks stickers, anywhere in New Zealand. Post a project with a screenshot and a link, fill in the short form the bot sends you, and they turn up in your letterbox.",
+    body: (
+      <>
+        Ship something in the <a href="/discord">Discord</a> and we will mail you
+        KiwiHacks stickers, anywhere in New Zealand. Post a project with a
+        screenshot and a link, fill in the short form the bot sends you, and they
+        turn up in your letterbox.
+      </>
+    ),
   },
   {
     Icon: FaPizzaSlice,
-    title: "Community lockins",
-    body: "Come into the office from 10am to 4pm to build projects, meet up with your friends, and have fun together. Free pizza, and you only need to bring a laptop and charger.",
+    title: "Community lock-ins",
+    body: (
+      <>
+        Once a month, come into the office from 10am to 4pm to build projects,
+        meet up with your friends, and have fun together. Free pizza. Invites go
+        out in the <a href="/discord">Discord</a>.
+      </>
+    ),
   },
 ];
 

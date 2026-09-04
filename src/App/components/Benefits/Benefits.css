@@ -71,3 +71,13 @@
     grid-template-columns: 1fr;
   }
 }
+
+.benefit-card p a {
+  color: var(--dark-green);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.benefit-card p a:hover {
+  color: var(--very-dark-green);
+}

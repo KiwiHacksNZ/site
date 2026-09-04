@@ -72,6 +72,8 @@ export default function Hero() {
 
       <img
         src="/assets/kiwihackstext.png"
+        width="1000"
+        height="211"
         alt="Kiwihacks"
         className="kiwihacks-text"
         fetchPriority="high"
@@ -82,7 +84,8 @@ export default function Hero() {
       </h1>
       <p className="hero-lede">
         We run free hackathons for high school students across New Zealand, and
-        a Discord where KiwiHackers hang out in between them. Everything is
+        a <a href="/discord">Discord</a> where KiwiHackers hang out in between them.
+        Everything is
         organised by high schoolers.
       </p>
 

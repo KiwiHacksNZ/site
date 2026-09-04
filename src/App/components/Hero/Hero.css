@@ -1,5 +1,6 @@
 .kiwihacks-text {
   width: 30%;
+  height: auto;
   margin-top: 0;
 -webkit-user-drag: none;
   user-select: none;
@@ -131,12 +132,22 @@
   z-index: 10;
 }
 
+.hero-lede a {
+  color: var(--dark-green);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.hero-lede a:hover {
+  color: var(--very-dark-green);
+}
+
 .hero-join {
   padding: 1rem 4rem;
   border-radius: 15px;
   background: var(--medium-green);
   border: 1.5px dashed var(--very-dark-green);
-  color: white;
+  color: var(--very-dark-green);
   text-decoration: none;
   font-size: 1.2rem;
   transition: background 0.3s ease, box-shadow 0.3s ease;

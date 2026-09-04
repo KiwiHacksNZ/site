@@ -91,6 +91,16 @@
   font-size: 1.15rem;
 }
 
+.faq-answer a {
+  color: var(--very-dark-green);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.faq-answer a:hover {
+  color: var(--dark-green);
+}
+
 /* Shared by every taped section divider, not just the FAQ. */
 .tape-divider-container {
   width: 100%;
