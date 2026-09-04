@@ -14,6 +14,8 @@ export default function Footer() {
           <source srcSet="/assets/signatures-wide.png" media="(min-width: 768px)" />
           <img
             src="/assets/signatures.png"
+            width="1584"
+            height="396"
             alt="Signatures of the KiwiHacks team"
             className="signatures"
             draggable="false"

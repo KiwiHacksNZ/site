@@ -1,6 +1,6 @@
 @font-face {
   font-family: "ABeeZee";
-  src: url("/font/ABeeZee.ttf") format("truetype");
+  src: url("/fonts/ABeeZee.ttf") format("truetype");
   font-display: swap;
 }
 
@@ -19,6 +19,10 @@
   --medium-green: #76b070;
   --semi-opaque-green: #64d6ff4d;
   --medium-light-green: #76b07080;
+
+  /* Nova sub-brand - only for Nova-specific UI, not general site chrome. */
+  --nova-purple: #8b59a3;
+  --nova-indigo: #161e5a;
 }
 
 html,
@@ -297,9 +301,40 @@ p {
   .partner:hover,
   .footer-link:hover,
   .signatures:hover,
-  .example:hover,
   .date-change-chip:hover {
     transform: none !important;
     scale: none !important;
   }
+}
+
+/* Hand-drawn underline, drawn and animated per link by useSquiggle. Colour
+   follows the link's own text colour, so the light-on-purple CTA needs no
+   variant of its own. */
+.squiggle {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  padding-bottom: 11px;
+}
+
+.squiggle-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.squiggle-line path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-opacity: 0.75;
+  transition: stroke-opacity 0.2s ease;
+}
+
+.squiggle:hover .squiggle-line path {
+  stroke-opacity: 1;
 }

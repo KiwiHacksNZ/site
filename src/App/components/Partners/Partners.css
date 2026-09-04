@@ -6,10 +6,18 @@
   background-color: rgba(118, 176, 112, 0.15);
 }
 
-.partnerships h1 {
+.partnerships h2 {
+  font-size: 2.6rem;
+  color: var(--very-dark-green);
   margin: 0;
   padding: 0;
   padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .partnerships h2 {
+    font-size: 2rem;
+  }
 }
 
 .partnerships .partner-subheading {
@@ -44,6 +52,7 @@
 .partner {
   display: flex;
   flex-direction: column;
+  /* Tinted, not white: some partner logos (e.g. xyz-white-logo.svg) are white. */
   background-color: rgba(118, 176, 112, 0.3);
   width: 200px;
   height: 160px;
@@ -51,9 +60,8 @@
   justify-content: center;
   border-radius: 15px;
   padding: 1.5rem;
-  box-shadow: rgba(46, 82, 43, 0.1) 0px 2px 8px 0px;
-  transition: all 0.3s ease;
-  border: 2px solid rgba(46, 82, 43, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1.5px dashed var(--dark-green);
   flex: 0 0 auto;
 }
 
@@ -64,7 +72,7 @@
 
 .partner-link {
   text-decoration: none;
-  color: #132f1e;
+  color: var(--very-dark-green);
 }
 
 .partner-img {
@@ -79,10 +87,8 @@
 }
 
 .partner:hover {
-  background-color: rgba(118, 176, 112, 0.5);
-  box-shadow: rgba(46, 82, 43, 0.2) 0px 4px 12px 0px;
-  transform: translateY(-2px);
-  border-color: rgba(46, 82, 43, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 6px rgba(46, 82, 43, 0.15);
 }
 
 .partner:hover img {

@@ -1,0 +1,120 @@
+.nova {
+  padding: 4rem 1.5rem;
+}
+
+.nova h2 {
+  font-size: 3rem;
+  color: var(--very-dark-green);
+  margin: 0 0 2.5rem;
+}
+
+.nova-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 4rem;
+  align-items: start;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.nova-stat dt {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  color: var(--very-dark-green);
+}
+
+.nova-stat dd {
+  margin: 0.6rem 0 0;
+  font-size: 1.45rem;
+  color: var(--very-dark-green);
+}
+
+@media screen and (max-width: 768px) {
+  .nova {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .nova h2 {
+    font-size: 2rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .nova-stats {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .nova-stat dt {
+    font-size: 1.9rem;
+  }
+
+  .nova-stat dd {
+    font-size: 1.2rem;
+  }
+}
+
+.nova-copy {
+  max-width: 62ch;
+  margin: 2.5rem auto 0;
+}
+
+.nova-copy p {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 0 1rem !important;
+  font-size: 1.2rem;
+}
+
+
+
+
+
+.nova-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2.75rem;
+}
+
+.nova-primary {
+  padding: 1rem 3.5rem;
+  background: var(--nova-purple);
+  border: 1.5px dashed var(--nova-indigo);
+  font-size: 1.1rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.nova-primary:hover {
+  box-shadow: 0 8px 6px rgba(46, 82, 43, 0.2);
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+  .nova-copy p {
+    font-size: 1.05rem;
+  }
+
+  .nova-primary {
+    width: 80%;
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
+/* Without this the anchors inherit the browser's default blue, and the
+   squiggle follows via currentColor. */
+.nova-actions .squiggle {
+  color: var(--dark-green);
+  font-weight: 600;
+}
+
+.nova-lede {
+  max-width: 48ch;
+  margin: 0.75rem auto 0;
+  font-size: 1.25rem;
+  text-align: center;
+}
