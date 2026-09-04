@@ -56,6 +56,34 @@
   transform: rotate(180deg);
 }
 
+/* Animating a <details> needs keyword sizes to be interpolatable, and
+   ::details-content stays display:none while closed, so the transition has to
+   survive a discrete property change. */
+.faq-box {
+  interpolate-size: allow-keywords;
+}
+
+.faq-box::details-content {
+  block-size: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    block-size 0.3s ease,
+    opacity 0.25s ease,
+    content-visibility 0.3s allow-discrete;
+}
+
+.faq-box[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-box::details-content {
+    transition: none;
+  }
+}
+
 .faq-answer {
   width: 100% !important;
   margin: 0 !important;
