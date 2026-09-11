@@ -16,7 +16,7 @@ const faqs = [
     question: "Who can attend KiwiHacks events?",
     answer: (
       <>
-        Any high school student in New Zealand, years 9 to 13. Come on your own
+        Any high school student in New Zealand, aged 13 to 18. Come on your own
         or bring a team of friends. No experience is needed.
       </>
     ),
@@ -25,9 +25,9 @@ const faqs = [
     question: "How do I join KiwiHacks?",
     answer: (
       <>
-        Join the <a href="/discord">Discord</a>. That is where the club lives day
-        to day. It is free, there is no form to fill in, and new events are
-        announced there first.
+        Join the <a href="/discord">Discord</a>. That&apos;s where the club lives
+        day to day. It&apos;s free, there&apos;s no form to fill in, and new
+        events are announced there first.
       </>
     ),
   },
@@ -55,7 +55,7 @@ const faqs = [
     question: "When's the next event?",
     answer: (
       <>
-        Everything we are running right now is{" "}
+        Everything we&apos;re running right now is{" "}
         <a href="#nova">further up this page</a>. New events are announced in the{" "}
         <a href="/discord">Discord</a> first.
       </>
@@ -74,8 +74,9 @@ const faqs = [
     question: "How about safety?",
     answer: (
       <>
-        Our events are supervised by the KiwiHacks team around the clock. There
-        is a secure venue with check-in and check-out, first aid on site, a clear{" "}
+        Our events are supervised by the KiwiHacks team around the clock.
+        There&apos;s a secure venue with check-in and check-out, first aid on
+        site, a clear{" "}
         <a href="/code-of-conduct">code of conduct</a>, and guardian contact
         details collected at sign-up.
       </>
@@ -85,7 +86,7 @@ const faqs = [
     question: "What if my parents are concerned?",
     answer: (
       <>
-        We are happy to talk. We run parent information sessions before each
+        We&apos;re happy to talk. We run parent information sessions before each
         event, the venue is supervised the whole time, and a signed waiver is
         required to take part. Our{" "}
         <a href="./parents-guide" target="_blank">

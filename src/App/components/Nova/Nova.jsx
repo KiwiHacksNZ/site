@@ -29,13 +29,13 @@ export default function Nova() {
           KiwiHacks Nova is a constellation of three hackathons across New
           Zealand. Three cities, three weekends, three free 24-hour hackathons
           for high schoolers. A nova is a star that suddenly bursts bright, and
-          that is the idea: light up Wellington, Christchurch, and Auckland with
-          students building real things.
+          that&apos;s the idea: light up Wellington, Christchurch, and Auckland
+          with students building real things.
         </p>
         <p>
           You team up, you get 24 hours, and you finish something. Mentors will
           be around for the entire event, and beginner-friendly workshops mean
-          you do not need any prior experience to get started. Food, drinks, and
+          you don&apos;t need any prior experience to get started. Food, drinks, and
           swag are all included, and everything is completely free.
         </p>
       </div>

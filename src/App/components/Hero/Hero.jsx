@@ -84,9 +84,8 @@ export default function Hero() {
       </h1>
       <p className="hero-lede">
         We run free hackathons for high school students across New Zealand, and
-        a <a href="/discord">Discord</a> where KiwiHackers hang out in between them.
-        Everything is
-        organised by high schoolers.
+        a <a href="/discord">Discord</a> where KiwiHackers hang out in between
+        them. Everything is organised by high schoolers.
       </p>
 
       <div className="hero-actions">
@@ -99,8 +98,7 @@ export default function Hero() {
       </div>
 
       <p className="mono hero-fineprint">
-        Free to join. Open to any high school student in New Zealand, years 9 to
-        13.
+        Free to join. Open to any high school student in New Zealand, 13 to 18.
       </p>
     </header>
   );

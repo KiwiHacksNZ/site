@@ -12,7 +12,7 @@ export default function Projects({ projects = [] }) {
       <h2 className="mono">Built at our hackathons</h2>
       <p className="projects-lede">
         Every one of these was made in a weekend by New Zealand high schoolers,
-        most of whom had not met their team that morning.
+        most of whom hadn&apos;t met their team that morning.
       </p>
 
       <ul className="project-grid">

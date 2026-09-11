@@ -15,8 +15,7 @@ export default function CTA() {
         </SquiggleLink>
       </div>
       <p className="mono cta-fineprint">
-        Free to join. Open to any high school student in New Zealand, years 9 to
-        13.
+        Free to join. Open to any high school student in New Zealand, 13 to 18.
       </p>
     </section>
   );

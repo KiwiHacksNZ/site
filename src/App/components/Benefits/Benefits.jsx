@@ -6,7 +6,7 @@ const benefits = [
   {
     Icon: FaDiscord,
     title: "The Discord",
-    body: "This is where KiwiHackers are in between events. Ask for help when you are stuck, show people what you are making, find a team, and hear about new events first.",
+    body: "This is where KiwiHackers are in between events. Ask for help when you're stuck, show people what you're making, find a team, and hear about new events first.",
     href: "/discord",
     linkText: "Join the Discord",
   },
@@ -15,7 +15,7 @@ const benefits = [
     title: "Free stickers",
     body: (
       <>
-        Ship something in the <a href="/discord">Discord</a> and we will mail you
+        Ship something in the <a href="/discord">Discord</a> and we&apos;ll mail you
         KiwiHacks stickers, anywhere in New Zealand. Post a project with a
         screenshot and a link, fill in the short form the bot sends you, and they
         turn up in your letterbox.
@@ -40,8 +40,8 @@ export default function Benefits() {
     <section id="community" className="benefits">
       <h2 className="mono">Being a KiwiHacker</h2>
       <p className="benefits-lede">
-        KiwiHacks is not only the events. Here is what you get the rest of the
-        year.
+        KiwiHacks isn&apos;t only the events. Here&apos;s what you get for the
+        rest of the year.
       </p>
 
       <ul className="benefit-grid">

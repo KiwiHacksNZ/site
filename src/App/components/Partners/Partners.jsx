@@ -52,13 +52,13 @@ export default function Partners() {
       </p>
       {renderSponsorGrid(partnerSponsors)}
 
-      <h2 className="partner-subheading mono">In-Kind Partners</h2>
+      <h2 className="partner-subheading mono">In-kind partners</h2>
       {renderSponsorGrid(inKindSponsors, "in-kind-partners")}
 
       <p className="partner-text" data-role="partner-cta">
         {" "}
         Partnering with KiwiHacks supports the next generation of New Zealand
-        builders, and puts your brand in front of the students, whanau, and
+        builders, and puts your brand in front of the students, whānau, and
         mentors who come to our events.
       </p>
       <br />
@@ -68,7 +68,7 @@ export default function Partners() {
       </p>
       <br />
       <p className="partner-text" data-role="partner-thanks">
-        We reply fast, and we are grateful for every bit of support.
+        We reply fast, and we&apos;re grateful for every bit of support.
       </p>
     </section>
   );
