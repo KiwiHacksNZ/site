@@ -25,7 +25,7 @@
           "@type": "Person",
           "name": "Niko Purdie",
           "jobTitle": "Chief KiwiHacker",
-          "image": "https://kiwihacks.org/team/niko.jpg",
+          "image": "https://kiwihacks.org/assets/People/niko.jpg",
           "sameAs": [
             "https://github.com/N1k0s1",
             "https://www.linkedin.com/in/nikopurdie?originalSubdomain=nz",
@@ -36,7 +36,7 @@
           "@type": "Person",
           "name": "Sebastian Johnson",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/team/sebastian.jpg",
+          "image": "https://kiwihacks.org/assets/People/sebastian.jpg",
           "sameAs": [
             "https://github.com/pakkid",
             "https://instagram.com/le_snakey",
@@ -47,7 +47,7 @@
           "@type": "Person",
           "name": "Kyle Bendall",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/team/kyle.jpg",
+          "image": "https://kiwihacks.org/assets/People/kyle.jpg",
           "sameAs": [
             "https://gitlab.com/dekoder-py",
             "https://github.com/Dekoder-py",
@@ -58,7 +58,7 @@
           "@type": "Person",
           "name": "Josh Palmer",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/team/josh.jpg",
+          "image": "https://kiwihacks.org/assets/People/josh.jpg",
           "sameAs": [
             "https://gitlab.com/castawhat",
             "https://github.com/heycastawhat",
@@ -69,7 +69,7 @@
           "@type": "Person",
           "name": "Audrey Shi",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/team/audrey.jpg",
+          "image": "https://kiwihacks.org/assets/People/audrey.jpg",
           "sameAs": [
             "https://www.linkedin.com/in/audrey-shi-0657213b4/"
           ]
@@ -78,7 +78,7 @@
           "@type": "Person",
           "name": "Christie Berenshteyn",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/team/christie.jpg",
+          "image": "https://kiwihacks.org/assets/People/christie.jpg",
           "sameAs": [
             "https://github.com/Christie125"
           ]
@@ -87,13 +87,13 @@
           "@type": "Person",
           "name": "Maggie Berenshteyn",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/team/maggie.jpg"
+          "image": "https://kiwihacks.org/assets/People/maggie.jpg"
         },
         {
           "@type": "Person",
           "name": "Kiera Langridge",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/team/kiera.jpg",
+          "image": "https://kiwihacks.org/assets/People/kiera.jpg",
           "sameAs": [
             "https://www.linkedin.com/in/kiera-langridge-459098322/"
           ]
