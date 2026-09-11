@@ -76,6 +76,9 @@ export default function Footer() {
         <a href="../code-of-conduct">Code of Conduct</a>
         <a href="../privacy-policy">Privacy Policy</a>
         <a href="../status">Status</a>
+        <a href="/llms.txt" title="Plain-text summary of this site for language models">
+          llms.txt
+        </a>
       </div>
     </footer>
   );
