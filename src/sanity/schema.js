@@ -42,7 +42,7 @@ export const project = defineType({
       name: 'place',
       title: 'Placing',
       type: 'string',
-      description: 'e.g. "1st Place" — shown on the award pill',
+      description: 'e.g. "1st Place" - shown on the award pill',
     }),
     defineField({
       name: 'points',

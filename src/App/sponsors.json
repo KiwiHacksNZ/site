@@ -1,65 +1,44 @@
 [
   {
-    "name": "Extraordinary Pay",
-    "url": "https://www.extraordinarypay.com/",
-    "logo": "extraordinary-logo.svg",
-    "alt": "Extraordinary Pay Logo",
-    "inKind": false
+    "name": "GD1",
+    "url": "https://gd1.vc",
+    "logo": "gd1-logo.svg",
+    "alt": "GD1 Logo",
+    "tier": "gold"
   },
   {
-    "name": "Blackbird Foundation",
-    "url": "https://www.blackbird.foundation/",
-    "logo": "blackbird-foundation-logo.svg",
-    "alt": "Blackbird Foundation Logo",
-    "inKind": false
+    "name": "Simplicity",
+    "url": "https://simplicity.kiwi",
+    "logo": "simplicity-logo.svg",
+    "alt": "Simplicity Logo",
+    "tier": "gold"
   },
   {
-    "name": "Vercel",
-    "url": "https://www.vercel.com/",
-    "logo": "vercel-logotype-light.svg",
-    "alt": "Vercel Logo",
-    "inKind": false
+    "name": "Auror",
+    "url": "https://www.auror.co",
+    "logo": "auror-logo.svg",
+    "alt": "Auror Logo",
+    "tier": "silver"
   },
   {
     "name": "FireEyes",
     "url": "https://fireeyes.xyz",
     "logo": "fireeyes-logo.svg",
     "alt": "FireEyes Logo",
-    "inKind": false
-  },
-  {
-    "name": "Hack Club",
-    "url": "https://www.hackclub.com",
-    "logo": "hackclub-logo.svg",
-    "alt": "Hack Club Flag Logo",
-    "inKind": false
-  },
-  {
-    "name": "ElevenLabs",
-    "url": "https://www.elevenlabs.io/",
-    "logo": "elevenlabs-logo-black.svg",
-    "alt": "ElevenLabs Logo",
-    "inKind": true
+    "tier": "silver"
   },
   {
     "name": ".xyz domains",
     "url": "https://www.gen.xyz/",
     "logo": "xyz-white-logo.svg",
     "alt": ".xyz domains Logo",
-    "inKind": true
+    "tier": "in-kind"
   },
   {
     "name": "Canva",
     "url": "https://www.canva.com/",
     "logo": "canva-logo.svg",
     "alt": "Canva Logo",
-    "inKind": true
-  },
-  {
-    "name": "PhaseOneVentures",
-    "url": "https://www.phaseone.ventures/",
-    "logo": "phaseoneventures-logo.svg",
-    "alt": "Phase One Ventures Logo",
-    "inKind": false
+    "tier": "in-kind"
   }
 ]

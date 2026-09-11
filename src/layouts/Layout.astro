@@ -2,11 +2,25 @@
 import ForkPreviewPage from '../ForkPreviewPage/ForkPreviewPage.jsx';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
-import { seoHeadHtml } from "../SEO/seoConfig.js";
+import { buildSeoHead } from "../SEO/seoConfig.js";
 import '../index.css';
 import '../App/App.css';
 
-const { title = "KiwiHacks", isSeoEnabled = import.meta.env.VITE_SEO === "true" } = Astro.props;
+const {
+  title,
+  description,
+  noindex,
+  isSeoEnabled = import.meta.env.VITE_SEO === "true",
+} = Astro.props;
+
+// The title a page passes is now honoured: it used to be dropped, because the
+// SEO head carried its own hardcoded homepage title.
+const seoHeadHtml = buildSeoHead({
+  pathname: Astro.url.pathname,
+  title,
+  description,
+  noindex,
+});
 ---
 
 <html lang="en">
@@ -22,7 +36,7 @@ const { title = "KiwiHacks", isSeoEnabled = import.meta.env.VITE_SEO === "true" 
       <Fragment set:html={seoHeadHtml} />
     ) : (
       <>
-        <title>KiwiHacks Fork Preview</title>
+        <title>{title ?? "KiwiHacks Fork Preview"}</title>
         <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,max-image-preview:none" />
       </>
     )}

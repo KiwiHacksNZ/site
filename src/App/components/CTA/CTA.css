@@ -3,8 +3,8 @@
   padding: 2rem;
   padding-bottom: 4rem;
   text-align: center;
-  background-color: #4152c8b2;
-  color: white
+  background-color: rgba(118, 176, 112, 0.15);
+  color: var(--very-dark-green)
 }
 
 .cta p {
@@ -24,7 +24,9 @@
   padding: 1rem;
   padding-left: 4rem;
   padding-right: 4rem;
-  background: #8b59a3;
+  background: var(--very-light-blue);
+  border: 1.5px dashed var(--very-dark-green);
+  color: var(--very-dark-green);
   margin: 3rem;
   font-weight: 600;
   font-size: 1.2rem;
@@ -32,7 +34,8 @@
 }
 
 .nova-last-button:hover {
-  box-shadow: 0 8px 6px rgba(0, 0, 0, 0.2);
+  background: var(--bright-blue);
+  box-shadow: 0 8px 6px rgba(46, 82, 43, 0.2);
   transform: translateY(-2px);
 }
 
@@ -57,4 +60,30 @@
     margin: 2rem auto;
     box-sizing: border-box;
   }
+}
+
+.cta-actions {
+  display: flex;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta-secondary {
+  color: var(--dark-green);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.cta-fineprint {
+  font-size: 0.9rem !important;
+  width: auto !important;
+  opacity: 0.8;
+  margin-top: 1rem !important;
+}
+
+.cta-actions .nova-last-button {
+  margin: 0;
 }

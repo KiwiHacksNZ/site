@@ -33,6 +33,7 @@ export function TeamMemberCard({ member }) {
           return (
             <a
               key={`${member.name}-${link.type}`}
+              className={`team-social team-social-${link.type}`}
               href={link.href}
               aria-label={link.label}
               target={isExternalLink(link.href) ? "_blank" : undefined}

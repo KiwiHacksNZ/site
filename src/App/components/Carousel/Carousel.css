@@ -1,0 +1,131 @@
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  border-radius: 15px;
+  border: 1.5px dashed var(--dark-green);
+  background: #fff;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+}
+
+.carousel-counter {
+  position: absolute;
+  right: 0.9rem;
+  top: 0.9rem;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0.2rem 0.6rem !important;
+  border-radius: 999px;
+  background: rgba(19, 47, 30, 0.88);
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: calc(50% - 1.4rem);
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: none;
+  border-radius: 999px;
+  background: rgba(19, 47, 30, 0.6);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  background: var(--very-dark-green);
+}
+
+.carousel-arrow-prev {
+  left: 0.9rem;
+}
+
+.carousel-arrow-next {
+  right: 0.9rem;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.15rem;
+  margin-top: 0.9rem;
+}
+
+/* px, not rem: the target minimum is an absolute 24px and the root font here
+   is 14px. The button is the transparent touch target; ::before is the dot you
+   actually see, so the visual size is unchanged. */
+.carousel-dot {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.carousel-dot::before {
+  content: "";
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 999px;
+  background: var(--medium-light-green);
+  transition: width 0.2s ease, background 0.2s ease;
+}
+
+.carousel-dot.is-active {
+  width: 32px;
+}
+
+.carousel-dot.is-active::before {
+  width: 1.5rem;
+  background: var(--dark-green);
+}
+
+/* Arrows are always available on touch, where there is no hover to reveal
+   them; on pointer devices they stay out of the way until needed. */
+@media (hover: hover) {
+  .carousel-arrow {
+    opacity: 0;
+  }
+
+  .carousel:hover .carousel-arrow,
+  .carousel:focus-within .carousel-arrow {
+    opacity: 1;
+  }
+}

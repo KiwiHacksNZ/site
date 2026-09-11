@@ -14,6 +14,8 @@ export default function Footer() {
           <source srcSet="/assets/signatures-wide.png" media="(min-width: 768px)" />
           <img
             src="/assets/signatures.png"
+            width="1584"
+            height="396"
             alt="Signatures of the KiwiHacks team"
             className="signatures"
             draggable="false"
@@ -74,6 +76,9 @@ export default function Footer() {
         <a href="../code-of-conduct">Code of Conduct</a>
         <a href="../privacy-policy">Privacy Policy</a>
         <a href="../status">Status</a>
+        <a href="/llms.txt" title="Plain-text summary of this site for language models">
+          llms.txt
+        </a>
       </div>
     </footer>
   );

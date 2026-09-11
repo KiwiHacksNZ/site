@@ -1,8 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import App from '../App/App.jsx';
+import { sanityClient } from '../sanity/client';
+import imageUrlBuilder from '@sanity/image-url';
+
+const projects = sanityClient
+  ? await sanityClient.fetch(
+      `*[_type == "project" && featured == true] | order(sortOrder asc, _createdAt asc)[0...3]{
+        "id": _id,
+        title,
+        team,
+        description,
+        event,
+        repoUrl,
+        demoUrl,
+        image
+      }`,
+    )
+  : [];
+
+const builder = sanityClient ? imageUrlBuilder(sanityClient) : null;
+
+const featured = projects.map(({ image, ...project }) => ({
+  ...project,
+  imageUrl: image ? builder.image(image).width(900).fit('max').auto('format').url() : null,
+}));
 ---
 
 <Layout>
-  <App client:load />
+  <App client:load projects={featured} />
 </Layout>

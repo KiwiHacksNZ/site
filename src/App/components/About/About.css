@@ -1,7 +1,7 @@
 .text {
   margin: 0;
   padding: 1rem;
-  width: 60%;
+  width: 54%;
 }
 
 .about {
@@ -16,21 +16,17 @@
   justify-content: center;
 }
 
+.about .text h2 {
+  font-size: 2.6rem;
+  color: var(--very-dark-green);
+  text-align: left;
+  margin: 0 0 0.5rem;
+  padding: 0 1rem;
+}
+
 .about-text {
-  font-size: 1.5rem;
-  width: 50vw;
-}
-
-.example {
-  width: 35%;
-  height: 35%;
-  margin: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.example:hover {
-  transform: scale(1.02);
-  box-shadow: var(--dark-green) 0px 4px 8px 0px;
+  font-size: 1.4rem;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -46,13 +42,25 @@
     margin-bottom: 2rem;
   }
 
+  .about .text h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
   .about-text {
     width: 100%;
     font-size: 1.2rem;
   }
+}
 
-  .example {
-    width: 80%;
-    height: auto;
+.about-photos {
+  width: 42%;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .about-photos {
+    width: 90%;
+    padding: 0;
   }
 }
