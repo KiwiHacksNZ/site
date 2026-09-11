@@ -21,9 +21,21 @@
 }
 
 .partnerships .partner-subheading {
-  margin: 0.5rem auto 0;
+  font-size: 1.7rem;
+  color: var(--very-dark-green);
+  margin: 2rem auto 0;
   padding: 0;
   text-align: center;
+}
+
+.partnerships .partner-subheading-first {
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .partnerships .partner-subheading {
+    font-size: 1.4rem;
+  }
 }
 
 .partnerships p {
@@ -46,7 +58,7 @@
   gap: 1.2rem 1.2rem;
   width: min(95%, 920px);
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 1.2rem 0 2rem;
 }
 
 .partner {
@@ -94,4 +106,52 @@
 .partner:hover img {
   opacity: 1;
   transform: scale(1.05);
+}
+
+.partner[data-tier="gold"] {
+  width: 240px;
+  height: 180px;
+  border-width: 2.5px;
+  background-color: rgba(118, 176, 112, 0.42);
+}
+
+.partner[data-tier="gold"] .partner-img {
+  max-width: 180px;
+  max-height: 100px;
+}
+
+.partner[data-tier="bronze"] {
+  width: 170px;
+  height: 135px;
+  border-width: 1px;
+}
+
+.partner[data-tier="bronze"] .partner-img {
+  max-width: 120px;
+  max-height: 64px;
+}
+
+/* Fallback for a partner who has not sent a logo file yet. */
+.partner-name {
+  font-family: "Source Code Pro";
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--very-dark-green);
+  text-align: center;
+  margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .partner,
+  .partner[data-tier="gold"] {
+    width: 160px;
+    height: 130px;
+    padding: 1rem;
+  }
+
+  .partner .partner-img,
+  .partner[data-tier="gold"] .partner-img {
+    max-width: 115px;
+    max-height: 62px;
+  }
 }

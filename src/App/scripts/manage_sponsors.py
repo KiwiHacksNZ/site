@@ -7,6 +7,8 @@ from tkinter import messagebox, ttk
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 # src/App/scripts -> src/App/sponsors.json
 JSON_PATH = os.path.join(SCRIPT_DIR, '..', 'sponsors.json')
+# Must match TIERS in Partners.jsx, including the order.
+TIERS = ['gold', 'silver', 'bronze', 'in-kind']
 # src/App/scripts -> public/assets/Sponsors
 ASSETS_DIR = os.path.join(SCRIPT_DIR, '..', '..', '..', 'public', 'assets', 'Sponsors')
 
@@ -55,8 +57,10 @@ class SponsorApp(tk.Tk):
         self.entry_alt = ttk.Entry(self.form_frame)
         self.entry_alt.pack(fill=tk.X, pady=(0, 10))
 
-        self.var_inkind = tk.BooleanVar()
-        ttk.Checkbutton(self.form_frame, text="In-Kind Sponsor", variable=self.var_inkind).pack(anchor=tk.W, pady=(0, 10))
+        ttk.Label(self.form_frame, text="Tier").pack(anchor=tk.W)
+        self.combo_tier = ttk.Combobox(self.form_frame, values=TIERS, state='readonly')
+        self.combo_tier.current(0)
+        self.combo_tier.pack(fill=tk.X, pady=(0, 10))
 
         ttk.Button(self.form_frame, text="Save", command=self.save_sponsor).pack(fill=tk.X, pady=10)
         
@@ -90,7 +94,7 @@ class SponsorApp(tk.Tk):
     def refresh_list(self):
         self.listbox.delete(0, tk.END)
         for s in self.sponsors:
-            self.listbox.insert(tk.END, s.get('name', 'Unknown'))
+            self.listbox.insert(tk.END, f"{s.get('name', 'Unknown')}  ({s.get('tier', '?')})")
 
     def on_select(self, event):
         selection = self.listbox.curselection()
@@ -109,9 +113,10 @@ class SponsorApp(tk.Tk):
         self.entry_alt.delete(0, tk.END)
         self.entry_alt.insert(0, sp.get('alt', ''))
         
-        self.combo_logo.set(sp.get('logo', ''))
+        self.combo_logo.set(sp.get('logo') or '')
         
-        self.var_inkind.set(sp.get('inKind', False))
+        tier = sp.get('tier', TIERS[0])
+        self.combo_tier.set(tier if tier in TIERS else TIERS[0])
 
     def clear_form(self):
         self.current_index = None
@@ -120,7 +125,7 @@ class SponsorApp(tk.Tk):
         self.entry_alt.delete(0, tk.END)
         if self.logos:
             self.combo_logo.current(0)
-        self.var_inkind.set(False)
+        self.combo_tier.current(0)
         self.listbox.selection_clear(0, tk.END)
 
     def save_sponsor(self):
@@ -128,18 +133,19 @@ class SponsorApp(tk.Tk):
         url = self.entry_url.get().strip()
         logo = self.combo_logo.get().strip()
         alt = self.entry_alt.get().strip()
-        in_kind = self.var_inkind.get()
+        tier = self.combo_tier.get().strip()
         
-        if not name or not url or not logo:
-            messagebox.showwarning("Validation Error", "Name, URL, and Logo are required.")
+        if not name or not url:
+            messagebox.showwarning("Validation Error", "Name and URL are required.")
             return
 
+        # Logo is optional: a partner with no logo file renders as their name.
         sp = {
             "name": name,
             "url": url,
-            "logo": logo,
+            "logo": logo or None,
             "alt": alt,
-            "inKind": in_kind
+            "tier": tier
         }
 
         if self.current_index is not None:
