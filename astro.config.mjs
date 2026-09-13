@@ -51,5 +51,23 @@ export default defineConfig({
     "/coc": "/code-of-conduct",
     "/conduct": "/code-of-conduct",
     "/privacy": "/privacy-policy",
+    "/nova-akl-mentors-sheet":
+      "https://drive.google.com/file/d/1josXmaASoc66Zbrc5FZvuFxWoiReDWlQ/view?usp=drive_link",
+    "/nova-akl-mentors": "/nova-akl-mentors-sheet",
+    "/nova-akl-attendees-sheet":
+      "https://drive.google.com/file/d/1aR_0QKX7U5rO029tFq03zywKhk7X_L3O/view?usp=drive_link",
+    "/nova-akl-attendees": "/nova-akl-attendees-sheet",
+    "/nova-wlg-mentors-sheet":
+      "https://drive.google.com/file/d/1SXgWNfE91MndE6r3ANQz1OlFKgnS3tI_/view?usp=drive_link",
+    "/nova-wlg-mentors": "/nova-wlg-mentors-sheet",
+    "/nova-wlg-attendees-sheet":
+      "https://drive.google.com/file/d/1uWC1D_Nc9Xe-Zymf0akAaVKxyMEnyJ7k/view?usp=drive_link",
+    "/nova-wlg-attendees": "/nova-wlg-attendees-sheet",
+    "/nova-chch-mentors-sheet":
+      "https://drive.google.com/file/d/1S4u6tw085OXozlxGrRvdQG9zvxkuVTUJ/view?usp=sharing",
+    "/nova-chch-mentors": "/nova-chch-mentors-sheet",
+    "/nova-chch-attendees-sheet":
+      "https://drive.google.com/file/d/1e0_QPnEppkqR2qsapVLl8loRBzbgcyFQ/view?usp=sharing",
+    "/nova-chch-attendees": "/nova-chch-attendees-sheet",
   },
 });
