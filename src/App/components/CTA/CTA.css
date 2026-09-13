@@ -4,7 +4,7 @@
   padding-bottom: 4rem;
   text-align: center;
   background-color: rgba(118, 176, 112, 0.15);
-  color: var(--very-dark-green)
+  color: var(--very-dark-green);
 }
 
 .cta p {
@@ -30,7 +30,9 @@
   margin: 3rem;
   font-weight: 600;
   font-size: 1.2rem;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
 .nova-last-button:hover {
@@ -50,16 +52,6 @@
 
 .lastp {
   margin-bottom: 3rem !important;
-}
-
-@media screen and (max-width: 768px) {
-  .nova-last-button {
-    width: 80%;
-    padding: 1rem;
-    display: block;
-    margin: 2rem auto;
-    box-sizing: border-box;
-  }
 }
 
 .cta-actions {
@@ -86,4 +78,31 @@
 
 .cta-actions .nova-last-button {
   margin: 0;
+}
+
+/* Mobile overrides go last: several base rules above use !important at the
+   same specificity, so anything declared earlier loses to them. */
+@media screen and (max-width: 768px) {
+  .nova-last-button {
+    width: 80%;
+    padding: 1rem;
+    display: block;
+    margin: 2rem auto;
+    box-sizing: border-box;
+  }
+
+  /* The desktop 60% column plus 2rem of side padding leaves ~135px for text
+     on a 375px screen - narrower than the button under it - so every line
+     wraps three or more times. The section's own 2rem is the whole gutter
+     we need here. */
+  .cta p {
+    width: 100% !important;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Give the fineprint room to clear the squiggle under "See what's on". */
+  .cta-fineprint {
+    margin-top: 1.75rem !important;
+  }
 }

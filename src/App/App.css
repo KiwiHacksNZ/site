@@ -227,10 +227,13 @@ p {
     overflow-x: hidden;
   }
 
-  /* Disable Animations & Transitions */
-  *,
-  *::before,
-  *::after {
+  /* Disable Animations & Transitions.
+     Still the default for the whole site. A component that has been checked
+     on a phone can opt its subtree back in with `allow-motion` (see FAQ.css);
+     the reduced-motion block below deliberately has no such exemption. */
+  *:not(.allow-motion, .allow-motion *),
+  *:not(.allow-motion, .allow-motion *)::before,
+  *:not(.allow-motion, .allow-motion *)::after {
     transition: none !important;
     animation: none !important;
     transform: none !important;

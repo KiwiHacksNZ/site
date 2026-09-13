@@ -18,19 +18,66 @@
 }
 
 .faq-box {
+  /* Tuned down on small screens further below. */
+  --faq-pop-scale: 1.018;
+  --faq-pop-tilt: -0.3deg;
+
   background: var(--bright-blue);
   border-radius: 15px;
   box-shadow: var(--very-dark-green) 0px 2px 4px 0px;
   text-align: left;
   overflow: hidden;
-  transition: box-shadow 0.3s ease;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
-.faq-box:hover {
-  box-shadow: var(--very-dark-green) 0px 6px 12px 0px;
+/* Hover cues only where a real cursor exists. On touch these would otherwise
+   latch onto the last-tapped box and sit there looking stuck. */
+@media (hover: hover) and (pointer: fine) {
+  .faq-box:hover {
+    box-shadow: var(--very-dark-green) 0px 6px 12px 0px;
+    transform: translateY(-2px);
+  }
+
+  /* A small "go on, open me" nudge while closed. */
+  .faq-box:not([open]) .faq-question:hover .faq-chevron {
+    transform: translateY(3px);
+  }
+}
+
+/* What touch gets instead of hover: the box gives under the finger the moment
+   it lands, well before the open animation starts. */
+.faq-box:has(.faq-question:active) {
+  transform: scale(0.985);
+  transition-duration: 0.09s;
+}
+
+/* A quick papery squish when a box springs open. */
+@keyframes faq-pop {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  35% {
+    transform: scale(var(--faq-pop-scale)) rotate(var(--faq-pop-tilt));
+  }
+  70% {
+    transform: scale(0.997) rotate(0.2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.faq-box[open] {
+  animation: faq-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .faq-question {
+  /* Our own press feedback replaces the grey tap flash, and `manipulation`
+     drops the double-tap-zoom wait so the toggle fires on touchend. */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -49,7 +96,8 @@
 .faq-chevron {
   flex-shrink: 0;
   font-size: 0.95rem;
-  transition: transform 0.25s ease;
+  /* Overshoot easing so the arrow flops past 180 and settles back. */
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .faq-box[open] .faq-chevron {
@@ -68,9 +116,9 @@
   opacity: 0;
   overflow: hidden;
   transition:
-    block-size 0.3s ease,
+    block-size 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.25s ease,
-    content-visibility 0.3s allow-discrete;
+    content-visibility 0.42s allow-discrete;
 }
 
 .faq-box[open]::details-content {
@@ -82,6 +130,35 @@
   .faq-box::details-content {
     transition: none;
   }
+
+  .faq-box,
+  .faq-box[open],
+  .faq-box[open] .faq-answer,
+  .faq-chevron {
+    animation: none;
+    transition: none;
+  }
+
+  .faq-box:hover,
+  .faq-box:has(.faq-question:active) {
+    transform: none;
+  }
+}
+
+/* The answer drifts down into place just behind the box's squish. */
+@keyframes faq-answer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-box[open] .faq-answer {
+  animation: faq-answer-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.06s both;
 }
 
 .faq-answer {
@@ -115,6 +192,32 @@
 }
 
 @media screen and (max-width: 768px) {
+  /* Same motion, less dwell. A 500ms flourish reads as lag when you're
+     thumbing down a list; the tilt also shrinks because a near-full-width
+     box swings its corners much further at the same angle. */
+  .faq-box {
+    --faq-pop-scale: 1.012;
+    --faq-pop-tilt: -0.2deg;
+  }
+
+  .faq-box[open] {
+    animation-duration: 0.38s;
+  }
+
+  .faq-chevron {
+    transition-duration: 0.34s;
+  }
+
+  .faq-box[open] .faq-answer {
+    animation-duration: 0.3s;
+    animation-delay: 0.04s;
+  }
+
+  .faq-box::details-content {
+    /* block-size, opacity, content-visibility — in declaration order. */
+    transition-duration: 0.32s, 0.2s, 0.32s;
+  }
+
   .faq-section h2 {
     font-size: 2rem;
   }
