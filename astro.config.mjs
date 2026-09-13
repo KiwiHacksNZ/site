@@ -43,11 +43,11 @@ export default defineConfig({
     "/countmein": "https://kiwihacks.fillout.com/nova",
     "/signup": "https://kiwihacks.fillout.com/nova",
     "/parents-guide":
-      "https://docs.google.com/document/d/14HMPfRkPQrFVf1E87cvsUqguILbtwoifEJ5hYUwhgRM/edit",
+      "https://docs.google.com/document/d/1ck6-ESzkWb7PadIQX_ifBKSJMPxpNK-LlxT3_3YLtvk/edit",
     "/parentsguide":
-      "https://docs.google.com/document/d/14HMPfRkPQrFVf1E87cvsUqguILbtwoifEJ5hYUwhgRM/edit",
+      "https://docs.google.com/document/d/1ck6-ESzkWb7PadIQX_ifBKSJMPxpNK-LlxT3_3YLtvk/edit",
     "/parents":
-      "https://docs.google.com/document/d/14HMPfRkPQrFVf1E87cvsUqguILbtwoifEJ5hYUwhgRM/edit",
+      "https://docs.google.com/document/d/1ck6-ESzkWb7PadIQX_ifBKSJMPxpNK-LlxT3_3YLtvk/edit",
     "/coc": "/code-of-conduct",
     "/conduct": "/code-of-conduct",
     "/privacy": "/privacy-policy",
