@@ -12,9 +12,9 @@ export default function FAQ() {
       ></div>
       <h2 className="mono">FAQ</h2>
 
-      <div className="faq-list">
+      <div className="faq-list allow-motion">
         {faqs.map(({ question, answer }) => (
-          <details className="faq-box" key={question}>
+          <details className="faq-box" name="faq" key={question}>
             <summary className="mono faq-question">
               {question}
               <FaChevronDown className="faq-chevron" aria-hidden="true" />
