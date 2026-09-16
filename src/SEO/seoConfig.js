@@ -27,6 +27,10 @@ const PAGES = {
     description:
       "How KiwiHacks collects, uses and protects the personal information of the high schoolers and guardians who sign up to our events.",
   },
+  "/safeguarding": {
+    description:
+      "How KiwiHacks keeps the high schoolers at our events safe: our safeguarding commitments, the people responsible, and how to raise a concern.",
+  },
   "/status": {
     description: "Live status of KiwiHacks services and event sign-ups.",
   },
