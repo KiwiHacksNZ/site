@@ -35,8 +35,10 @@ const DROP_WITH_CONTENT = new Set(["script", "style", "head", "title", "meta", "
 
 const VOID_TAGS = new Set(["br", "hr", "img"]);
 
-// Google's export puts the document title in an <h1>, and the page supplies its
-// own <h1>, so doc headings shift down one level to keep a single page title.
+// The page supplies its own <h1> (from the document's title paragraph), so the
+// document's headings shift down one level to keep a single page title. A doc
+// that uses Heading 1 as its title instead of the title style therefore renders
+// that title as its first section.
 const DEMOTE = { h1: "h2", h2: "h3", h3: "h4", h4: "h5", h5: "h6", h6: "h6" };
 
 // Google expresses bold/italic/underline as classes in a <style> block, not as
@@ -89,6 +91,9 @@ function cleanHref(rawHref) {
     }
   }
   if (/^(https?:|mailto:|tel:)/i.test(href)) return href;
+  // "//host" is scheme-relative, not a path: it leaves the site. Anyone who can
+  // edit the document could otherwise smuggle an outbound link past this check.
+  if (href.startsWith("//")) return null;
   if (href.startsWith("#") || href.startsWith("/")) return href;
   return null;
 }
@@ -275,8 +280,16 @@ function restructureOutline(html) {
 }
 
 // The table of contents exports as a run of links with the printed page number
-// stuck on the end, which means nothing on a web page.
+// stuck on the end, which means nothing on a web page. Only the part before the
+// first section is searched, so a cross-reference inside the body ("see section
+// 4") is left where the document put it.
 function extractContents(html) {
+  const firstSection = html.search(/<h2\b/);
+  if (firstSection > 0) {
+    const head = extractContents(html.slice(0, firstSection));
+    return { body: head.body + html.slice(firstSection), entries: head.entries };
+  }
+
   const entryRe =
     /<p[^>]*>\s*(?:<(?:strong|em)>\s*)*<a href="(#[^"]+)"[^>]*>([\s\S]*?)<\/a>\s*(?:<\/(?:strong|em)>\s*)*<\/p>/g;
   const entries = [];
