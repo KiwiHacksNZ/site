@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../Navbar/Navbar.jsx';
+import { loadGoogleDoc, splitIntoSections } from '../Safeguarding/googleDoc.js';
+import '../Safeguarding/Safeguarding.css';
+
+// The live safeguarding document. Paste either the doc ID or the full Google
+// Docs URL here (or set SAFEGUARDING_DOC_ID in the environment to override it
+// without a deploy). The doc must be shared as "anyone with the link can view".
+const SAFEGUARDING_DOC = import.meta.env.SAFEGUARDING_DOC_ID
+  ?? 'https://docs.google.com/document/d/1jr9OUuv1H4SAeE9UqS3pqn0ozBMjGEtwtrS_yHYKha4/edit';
+
+// Accept a pasted URL as well as a bare ID, because the URL is what people copy.
+const docId = (SAFEGUARDING_DOC.match(/\/document\/d\/([a-zA-Z0-9_-]+)/) ?? [null, SAFEGUARDING_DOC])[1];
+
+// A Google Doc that uses tabs exports only its first tab, so the tabs to show
+// have to be named here, in the order they should appear on the page. Open a
+// tab in the doc and copy the t.xxxx value out of the address bar. Leave this
+// empty if the safeguarding doc is a single-tab document.
+const SAFEGUARDING_TABS = [];
+
+const doc = await loadGoogleDoc(docId, { tabIds: SAFEGUARDING_TABS });
+const docUrl = `https://docs.google.com/document/d/${docId}/view`;
+const { lead, sections } = splitIntoSections(doc.html);
+
+// Fetched per request, but the CDN holds it for five minutes and will serve the
+// last copy for a day while it refreshes, so an edit in the doc shows up shortly
+// without every visit hitting Google.
+Astro.response.headers.set(
+  'Cache-Control',
+  'public, max-age=0, s-maxage=300, stale-while-revalidate=86400',
+);
+
+const heading = doc.title || 'Safeguarding';
+---
+
+<Layout
+  title={`${heading} | KiwiHacks`}
+  description="How KiwiHacks keeps the high schoolers at our events safe: our safeguarding commitments, the people responsible, and how to raise a concern."
+>
+  <Navbar client:load />
+
+  <main class="sg-main">
+    <section class="sg-card">
+      <h1 class="sg-title mono">{heading}</h1>
+
+      {doc.ok ? (
+        <>
+          {(doc.subtitles?.length || lead) && (
+            <div class="sg-lead">
+              {doc.subtitles?.map((subtitle) => <p class="sg-standfirst">{subtitle}</p>)}
+              {lead && <Fragment set:html={lead} />}
+            </div>
+          )}
+
+          {doc.contents?.length > 0 && (
+            <nav class="sg-contents" aria-label="Contents">
+              <ul>
+                {doc.contents.map((entry) => (
+                  <li><a href={entry.href} set:html={entry.label} /></li>
+                ))}
+              </ul>
+            </nav>
+          )}
+
+          {sections.map((section) => (
+            <div class="sg-section" set:html={section} />
+          ))}
+
+          <p class="sg-note">
+            This page updates automatically from the{' '}
+            <a href={docUrl} target="_blank" rel="noopener noreferrer">
+              KiwiHacks Safeguarding Policy document
+            </a>, so it always matches the latest version.
+          </p>
+        </>
+      ) : (
+        <div class="sg-section">
+          <p class="sg-text">
+            We couldn't load the safeguarding document just now. It lives in a
+            Google Doc, which you can{' '}
+            <a href={docUrl} target="_blank" rel="noopener noreferrer">open directly</a>{' '}
+            while we sort this out.
+          </p>
+          <p class="sg-text sg-reason">Reason: {doc.error}</p>
+        </div>
+      )}
+
+      <div class="sg-cta-row">
+        <a class="sg-primary-cta" href="/">
+          <b>Back to Home</b>
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>

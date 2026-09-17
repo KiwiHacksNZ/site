@@ -1,0 +1,356 @@
+/* The live Google Doc, laid out exactly like /code-of-conduct: one green card,
+   a dashed sky-blue box per section. The document supplies no class names of
+   its own, so the element selectors below do the work the CoC page does with
+   .coc-text / .coc-list. */
+
+.sg-main {
+  min-height: calc(100vh - 78px);
+  padding: 2rem 1rem 2.5rem;
+  background: #EAE6E2;
+}
+
+.sg-card {
+  counter-reset: sg-section;
+  width: min(900px, 94vw);
+  margin: 0 auto;
+  background: rgba(118, 176, 112, 0.16);
+  border: 1.5px dashed var(--very-dark-green);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 30px rgba(19, 47, 30, 0.12);
+  text-align: left;
+}
+
+.sg-title {
+  text-align: center;
+  color: var(--very-dark-green);
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  margin: 0 0 0.4rem;
+  line-height: 1.1;
+}
+
+/* Anything the document says before its first heading reads as the standfirst. */
+.sg-lead {
+  text-align: center;
+  width: min(660px, 95%);
+  margin: 0 auto 1.5rem;
+}
+
+.sg-lead p {
+  color: var(--very-dark-green);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  width: 100%;
+  padding: 0;
+  margin: 0 0 0.5rem;
+}
+
+.sg-lead p:last-child {
+  margin-bottom: 0;
+}
+
+/* Contents, from the document's own table of contents (its page numbers are
+   dropped - they mean nothing here). */
+.sg-contents {
+  margin: 0 0 1rem;
+  padding: 1rem 1.4rem;
+  background: rgba(118, 176, 112, 0.2);
+  border: 1.5px dashed var(--very-dark-green);
+  border-radius: 16px;
+}
+
+.sg-contents ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.25rem 1.5rem;
+}
+
+.sg-contents a {
+  color: var(--dark-green);
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1.5px dashed transparent;
+}
+
+.sg-contents a:hover {
+  color: var(--very-dark-green);
+  border-bottom-color: var(--very-dark-green);
+}
+
+/* The document is a numbered outline, and the numbering is part of how people
+   cite it ("see 3.2"), so it is rebuilt here: Google's own numbers live in CSS
+   counters that are thrown away with the rest of its stylesheet. */
+.sg-section {
+  counter-increment: sg-section;
+  counter-reset: sg-subsection;
+  background: rgba(54, 198, 251, 0.12);
+  border: 1.5px dashed var(--very-dark-green);
+  border-radius: 16px;
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 1rem;
+}
+
+/* Section title, from a top-level heading in the document. */
+.sg-section h2 {
+  color: var(--dark-green);
+  scroll-margin-top: 6rem;
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  text-align: left;
+  margin: 0 0 0.5rem;
+  scroll-margin-top: 6rem;
+}
+
+.sg-section h2::before {
+  content: counter(sg-section) ". ";
+}
+
+.sg-section h3 {
+  counter-increment: sg-subsection;
+}
+
+.sg-section h3::before {
+  content: counter(sg-section) "." counter(sg-subsection) ". ";
+}
+
+.sg-section h3,
+.sg-section h4,
+.sg-section h5,
+.sg-section h6 {
+  color: var(--very-dark-green);
+  font-size: 1.08rem;
+  font-weight: 700;
+  text-align: left;
+  line-height: 1.4;
+  margin: 1rem 0 0.35rem;
+  scroll-margin-top: 6rem;
+}
+
+/* App.css sets a global p { width: 50%; padding: 1rem; margin: auto }, which
+   would carve a narrow column out of the middle of every box. */
+.sg-section p,
+.sg-text {
+  color: var(--very-dark-green);
+  font-size: 1.03rem;
+  line-height: 1.7;
+  width: 100%;
+  padding: 0;
+  margin: 0 0 0.6rem;
+}
+
+.sg-section p:last-child,
+.sg-text:last-child {
+  margin-bottom: 0;
+}
+
+.sg-section ul,
+.sg-section ol {
+  color: var(--very-dark-green);
+  font-size: 1.03rem;
+  line-height: 1.8;
+  margin: 0 0 0.6rem;
+  padding-left: 1.4rem;
+}
+
+.sg-section ul { list-style: disc; }
+.sg-section ol { list-style: decimal; }
+
+.sg-section a,
+.sg-lead a,
+.sg-text a {
+  color: var(--dark-green);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.sg-section a:hover,
+.sg-lead a:hover,
+.sg-text a:hover {
+  color: var(--bright-blue);
+}
+
+/* Google bolds its outline headings through a span; the heading styles already
+   carry the weight, so the extra <strong> would only fight them. */
+.sg-section h2 strong,
+.sg-section h3 strong,
+.sg-section h4 strong {
+  font-weight: inherit;
+}
+
+/* Bullets nested deeper in the document's outline stay visibly nested. */
+.sg-section ul[data-depth="3"],
+.sg-section ol[data-depth="3"] {
+  padding-left: 2.6rem;
+  list-style: circle;
+}
+
+.sg-section ul[data-depth="4"],
+.sg-section ol[data-depth="4"] {
+  padding-left: 3.8rem;
+  list-style: square;
+}
+
+/* Figtree ships no italic face and the site disables font synthesis, so
+   emphasis from the document would otherwise be invisible. */
+.sg-section em,
+.sg-section i,
+.sg-lead em {
+  font-style: italic;
+  font-synthesis: style;
+}
+
+.sg-section img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 14px;
+}
+
+.sg-section hr {
+  border: 0;
+  border-top: 1.5px dashed rgba(19, 47, 30, 0.3);
+  margin: 1.2rem 0;
+}
+
+.sg-section blockquote {
+  margin: 0 0 0.6rem;
+  padding: 0.5rem 1rem;
+  border-left: 3px solid var(--medium-green);
+}
+
+/* A wide table scrolls inside its own box instead of stretching the card. */
+.sg-section table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 0.6rem;
+  font-size: 0.97rem;
+}
+
+.sg-section th,
+.sg-section td {
+  border: 1.5px dashed rgba(19, 47, 30, 0.35);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.sg-section th {
+  background: rgba(118, 176, 112, 0.18);
+  font-weight: 700;
+}
+
+.sg-reason {
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.85rem;
+  color: rgba(19, 47, 30, 0.7);
+}
+
+/* Says where the page's content actually comes from. */
+.sg-note {
+  width: 100%;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  text-align: center;
+  color: var(--dark-green);
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.sg-note a {
+  color: var(--dark-green);
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.sg-note a:hover {
+  color: var(--bright-blue);
+}
+
+.sg-cta-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.sg-primary-cta {
+  display: inline-block;
+  color: var(--very-dark-green);
+  text-decoration: none;
+  background: var(--medium-green);
+  border-radius: 14px;
+  padding: 0.95rem 1.8rem;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sg-primary-cta:hover {
+  background: #5c8f57;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 6px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .sg-card {
+    width: 95%;
+    padding: 1.4rem 1rem;
+  }
+
+  .sg-lead {
+    width: 96%;
+  }
+
+  /* Contents, from the document's own table of contents (its page numbers are
+   dropped - they mean nothing here). */
+.sg-contents {
+  margin: 0 0 1rem;
+  padding: 1rem 1.4rem;
+  background: rgba(118, 176, 112, 0.2);
+  border: 1.5px dashed var(--very-dark-green);
+  border-radius: 16px;
+}
+
+.sg-contents ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.25rem 1.5rem;
+}
+
+.sg-contents a {
+  color: var(--dark-green);
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1.5px dashed transparent;
+}
+
+.sg-contents a:hover {
+  color: var(--very-dark-green);
+  border-bottom-color: var(--very-dark-green);
+}
+
+.sg-section {
+    padding: 1rem;
+  }
+
+  .sg-primary-cta {
+    transition: none;
+  }
+
+  .sg-primary-cta:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

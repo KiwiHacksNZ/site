@@ -48,6 +48,8 @@ export default defineConfig({
       "https://docs.google.com/document/d/1ck6-ESzkWb7PadIQX_ifBKSJMPxpNK-LlxT3_3YLtvk/edit",
     "/parents":
       "https://docs.google.com/document/d/1ck6-ESzkWb7PadIQX_ifBKSJMPxpNK-LlxT3_3YLtvk/edit",
+    "/safeguarding-policy": "/safeguarding",
+    "/child-safety": "/safeguarding",
     "/coc": "/code-of-conduct",
     "/conduct": "/code-of-conduct",
     "/privacy": "/privacy-policy",
