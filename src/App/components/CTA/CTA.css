@@ -24,9 +24,8 @@
   padding: 1rem;
   padding-left: 4rem;
   padding-right: 4rem;
-  background: var(--very-light-blue);
+  background: var(--bright-blue);
   border: 1.5px dashed var(--very-dark-green);
-  color: var(--very-dark-green);
   margin: 3rem;
   font-weight: 600;
   font-size: 1.2rem;
@@ -35,8 +34,16 @@
     transform 0.3s ease;
 }
 
+/* The Discord button also carries .nova-sign-up-link, which paints text white
+   for the purple Nova button. White on this blue is 2:1, so pin the dark green
+   with a compound selector - matching on class order alone is a coin flip that
+   depends on which stylesheet the bundler emits last. */
+.nova-sign-up-link.nova-last-button,
+.nova-last-button {
+  color: var(--very-dark-green);
+}
+
 .nova-last-button:hover {
-  background: var(--bright-blue);
   box-shadow: 0 8px 6px rgba(46, 82, 43, 0.2);
   transform: translateY(-2px);
 }
