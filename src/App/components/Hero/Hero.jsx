@@ -85,7 +85,8 @@ export default function Hero() {
       <p className="hero-lede">
         We run free hackathons for high school students across New Zealand, and
         a <a href="/discord">Discord</a> where KiwiHackers hang out in between
-        them. Everything is organised by high schoolers.
+        them. We&apos;re a non-profit, and everything is organised by high
+        schoolers.
       </p>
 
       <div className="hero-actions">

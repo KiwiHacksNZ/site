@@ -4,13 +4,21 @@ export const SITE = "https://kiwihacks.org";
 
 const DEFAULT_TITLE = "KiwiHacks - New Zealand's High School Hackathon Club";
 const DEFAULT_DESCRIPTION =
-  "KiwiHacks is New Zealand's high school hackathon club - free events for teenage coders and innovators, run by high schoolers, for high schoolers. KiwiHacks Nova is coming to Auckland, Wellington, and Christchurch.";
+  "KiwiHacks is New Zealand's high school hackathon club - a non-profit running free events for teenage coders and innovators, run by high schoolers, for high schoolers. KiwiHacks Nova is coming to Auckland, Wellington, and Christchurch.";
 const OG_IMAGE = `${SITE}/kiwihacksimage.jpg`;
 
 // Per-route overrides. A page not listed here still gets its own canonical and
 // its own title; it just falls back to the site description.
 const PAGES = {
   "/": {},
+  "/about": {
+    description:
+      "About KiwiHacks, a New Zealand non-profit run by high schoolers: our mission, the free hackathons we run, who we serve, and our legal details.",
+  },
+  "/contact": {
+    description:
+      "How to contact KiwiHacks: email team@kiwihacks.org, our postal address, and where to go with sponsorship, parent, and safety questions.",
+  },
   "/team": {
     description:
       "The high schoolers who run KiwiHacks. Meet the organisers behind New Zealand's high school hackathon club and KiwiHacks Nova.",

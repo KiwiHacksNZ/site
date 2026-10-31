@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Status.css";
 import Navbar from "../Navbar/Navbar";
+import Footer from "../App/components/Footer/Footer";
 
 // Uptime data is produced by KiwiHacksNZ/status (Upptime), which re-checks every
 // five minutes on GitHub Actions and commits the summary back to the repo. Reading
@@ -163,7 +164,7 @@ export default function Status() {
 
           <p className="status-note">
             Something broken that is not listed here? Email{" "}
-            <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a>. Full
+            <a href="mailto:team@kiwihacks.org">team@kiwihacks.org</a>. Full
             incident history lives on{" "}
             <a href={STATUS_REPO} target="_blank" rel="noopener noreferrer">
               GitHub
@@ -178,6 +179,8 @@ export default function Status() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </>
   );
 }

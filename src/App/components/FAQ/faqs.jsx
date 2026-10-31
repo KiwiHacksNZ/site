@@ -91,7 +91,7 @@ export const faqs = [
           parents guide
         </a>{" "}
         covers most of it, and they can email{" "}
-        <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a> with anything
+        <a href="mailto:team@kiwihacks.org">team@kiwihacks.org</a> with anything
         else.
       </>
     ),
@@ -100,7 +100,7 @@ export const faqs = [
     question: "What if I have more questions?",
     answer: (
       <>
-        Email <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a> or join
+        Email <a href="mailto:team@kiwihacks.org">team@kiwihacks.org</a> or join
         the KiwiHackers <a href="/discord">Discord</a>. We reply fast.
       </>
     ),

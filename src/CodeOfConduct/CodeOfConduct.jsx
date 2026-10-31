@@ -1,5 +1,6 @@
 import "./CodeOfConduct.css";
 import Navbar from "../Navbar/Navbar";
+import Footer from "../App/components/Footer/Footer";
 
 export default function CodeOfConduct() {
   return (
@@ -231,6 +232,8 @@ export default function CodeOfConduct() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </>
   );
 }
