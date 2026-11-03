@@ -39,9 +39,9 @@ export default function AboutPage() {
                 nothing.
               </li>
               <li>
-                <strong>KiwiHacks Nova.</strong> Three free 24-hour hackathons
-                in Auckland, Wellington, and Christchurch, for more than 300
-                high schoolers. See <a href="/#nova">Nova</a>.
+                <strong>KiwiHacks Nova.</strong> In September and October 2026
+                we ran three free 24-hour hackathons in Wellington,
+                Christchurch, and Auckland. See <a href="/#nova">Nova</a>.
               </li>
               <li>
                 <strong>A year-round community.</strong> Our{" "}

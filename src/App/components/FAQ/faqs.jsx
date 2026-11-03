@@ -53,8 +53,8 @@ export const faqs = [
     question: "When's the next event?",
     answer: (
       <>
-        Everything we&apos;re running right now is{" "}
-        <a href="#nova">further up this page</a>. New events are announced in the{" "}
+        Our last event, <a href="#nova">KiwiHacks Nova</a>, wrapped up in
+        October 2026. New events are announced in the{" "}
         <a href="/discord">Discord</a> first.
       </>
     ),

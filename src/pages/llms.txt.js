@@ -104,8 +104,9 @@ function buildDocument() {
     "",
     "## Events",
     "",
-    "KiwiHacks Nova is a series of three free 24-hour hackathons for high school",
-    "students, one in each of three cities.",
+    "KiwiHacks Nova was a series of three free 24-hour hackathons for high school",
+    "students, one in each of three cities, held in September and October 2026.",
+    "New events are announced in the Discord first.",
     "",
   );
 
@@ -160,7 +161,6 @@ function buildDocument() {
     `- [Code of conduct](${SITE}/code-of-conduct)`,
     `- [Privacy policy](${SITE}/privacy-policy)`,
     `- [Status](${SITE}/status)`,
-    `- [Sign up for KiwiHacks Nova](https://kiwihacks.fillout.com/nova)`,
     `- [KiwiHacks Nova site](https://nova.kiwihacks.org)`,
     ...(org.sameAs ?? [])
       .filter((url) => !url.startsWith(`${SITE}/`))

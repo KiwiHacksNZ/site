@@ -12,7 +12,8 @@ export default function Nova() {
     <section id="nova" className="nova">
       <h2 className="mono">KiwiHacks Nova</h2>
       <p className="nova-lede">
-        Three free 24-hour hackathons for high school students, in three cities.
+        Three free 24-hour hackathons for high school students, in three cities,
+        in September and October 2026.
       </p>
 
       <dl className="nova-stats">
@@ -26,28 +27,23 @@ export default function Nova() {
 
       <div className="nova-copy">
         <p>
-          KiwiHacks Nova is a constellation of three hackathons across New
+          KiwiHacks Nova was a constellation of three hackathons across New
           Zealand. Three cities, three weekends, three free 24-hour hackathons
           for high schoolers. A nova is a star that suddenly bursts bright, and
-          that&apos;s the idea: light up Wellington, Christchurch, and Auckland
+          that was the idea: light up Wellington, Christchurch, and Auckland
           with students building real things.
         </p>
         <p>
-          You team up, you get 24 hours, and you finish something. Mentors will
-          be around for the entire event, and beginner-friendly workshops mean
-          you don&apos;t need any prior experience to get started. Food, drinks, and
-          swag are all included, and everything is completely free.
+          Teams got 24 hours to build something and finish it. Mentors were
+          around for the entire event, and beginner-friendly workshops meant
+          nobody needed any prior experience to get started. Food, drinks, and
+          swag were all included, and everything was completely free.
         </p>
       </div>
 
       <div className="nova-actions">
-        <a
-          className="nova-sign-up-link nova-primary"
-          href="https://kiwihacks.fillout.com/nova"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <b>Sign up for Nova</b>
+        <a className="nova-sign-up-link nova-primary" href="/discord">
+          <b>Hear about the next one</b>
         </a>
         <SquiggleLink
           href="https://nova.kiwihacks.org"
