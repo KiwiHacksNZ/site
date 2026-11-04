@@ -59,7 +59,7 @@ export default function ContactPage() {
           </div>
 
           <div className="pp-section">
-            <h2 className="pp-heading mono">Something specific?</h2>
+            <h2 className="pp-heading mono">Got something specific?</h2>
             <ul className="pp-list">
               <li>
                 <strong>Sponsors and partners:</strong> email{" "}

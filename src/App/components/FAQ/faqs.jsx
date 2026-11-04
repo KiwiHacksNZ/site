@@ -101,7 +101,7 @@ export const faqs = [
     answer: (
       <>
         Email <a href="mailto:team@kiwihacks.org">team@kiwihacks.org</a> or join
-        the KiwiHackers <a href="/discord">Discord</a>. We reply fast.
+        the KiwiHackers <a href="/discord">Discord</a>. We reply fast!
       </>
     ),
   },

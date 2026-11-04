@@ -19,10 +19,11 @@ export default function About() {
         <p className="about-text">
           KiwiHacks is New Zealand&apos;s first high school hackathon club, a
           non-profit running free hackathons for high school students aged 13
-          to 18. Our events
-          are a chance to meet new people, learn some new skills, and build
-          something you&apos;re actually proud of, whether that&apos;s an app, a
-          game, a website, a robot, or a chair that runs away from you.
+          to 18 years. Our events are a chance to meet new people, learn new
+          skills, and build something you&apos;re actually proud of! Our
+          KiwiHackers design their own games from art to physics, build rocket
+          simulators and robots you can control with your phone, and much,
+          much more.
         </p>
         <p className="about-text">
           It&apos;s run by high schoolers, for high schoolers. Every site (yes,
