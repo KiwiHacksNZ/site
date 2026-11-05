@@ -1,5 +1,6 @@
 import "./About.css";
 import Carousel from "../Carousel/Carousel";
+import SquiggleLink from "../SquiggleLink";
 
 const photos = [
   { src: "/assets/gallery/DSCF3841.jpg", alt: "Students working together at a KiwiHacks event" },
@@ -16,11 +17,13 @@ export default function About() {
       <div className="text">
         <h2 className="mono">About KiwiHacks</h2>
         <p className="about-text">
-          KiwiHacks is New Zealand&apos;s first high school hackathon club,
-          running hackathons for high school students aged 13 to 18. Our events
-          are a chance to meet new people, learn some new skills, and build
-          something you&apos;re actually proud of, whether that&apos;s an app, a
-          game, a website, a robot, or a chair that runs away from you.
+          KiwiHacks is New Zealand&apos;s first high school hackathon club, a
+          non-profit running free hackathons for high school students aged 13
+          to 18 years. Our events are a chance to meet new people, learn new
+          skills, and build something you&apos;re actually proud of! Our
+          KiwiHackers design their own games from art to physics, build rocket
+          simulators and robots you can control with your phone, and much,
+          much more.
         </p>
         <p className="about-text">
           It&apos;s run by high schoolers, for high schoolers. Every site (yes,
@@ -31,6 +34,9 @@ export default function About() {
         <p className="about-text">
           No matter your skill level, you&apos;re welcome. Just sign up, show up,
           and give it a go.
+        </p>
+        <p className="about-text">
+          <SquiggleLink href="/about">More about us &rarr;</SquiggleLink>
         </p>
       </div>
       <div className="about-photos">

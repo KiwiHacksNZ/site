@@ -5,6 +5,7 @@ import {
   FaGithub,
   FaDiscord,
 } from "react-icons/fa6";
+import { ORG } from "../../../org";
 
 export default function Footer() {
   return (
@@ -23,9 +24,17 @@ export default function Footer() {
         </picture>
       </div>
       <div className="footer-text">
-        <p className="footer-text-piece">© 2026 KiwiHacks Incorporated</p>
+        <p className="footer-text-piece">© 2026 {ORG.legalName}</p>
         <p className="footer-text-piece">
           Built with ❤️ by teens, for teens.
+        </p>
+        <p className="footer-text-piece footer-legal">
+          A New Zealand non-profit incorporated society · NZBN {ORG.nzbn} ·
+          Society no. {ORG.societyNumber}
+        </p>
+        <p className="footer-text-piece footer-legal">
+          {ORG.address.join(", ")} ·{" "}
+          <a href={`mailto:${ORG.email}`}>{ORG.email}</a>
         </p>
         <p className="footer-text-piece">
           <a
@@ -73,8 +82,11 @@ export default function Footer() {
       </div>
       <div className="footer-important-links">
         <p>Important Links</p>
+        <a href="../about">About Us</a>
+        <a href="../contact">Contact</a>
         <a href="../code-of-conduct">Code of Conduct</a>
         <a href="../privacy-policy">Privacy Policy</a>
+        <a href="../safeguarding">Safeguarding</a>
         <a href="../status">Status</a>
         <a href="/llms.txt" title="Plain-text summary of this site for language models">
           llms.txt

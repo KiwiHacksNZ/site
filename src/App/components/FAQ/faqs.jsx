@@ -53,8 +53,8 @@ export const faqs = [
     question: "When's the next event?",
     answer: (
       <>
-        Everything we&apos;re running right now is{" "}
-        <a href="#nova">further up this page</a>. New events are announced in the{" "}
+        Our last event, <a href="#nova">KiwiHacks Nova</a>, wrapped up in
+        October 2026. New events are announced in the{" "}
         <a href="/discord">Discord</a> first.
       </>
     ),
@@ -91,7 +91,7 @@ export const faqs = [
           parents guide
         </a>{" "}
         covers most of it, and they can email{" "}
-        <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a> with anything
+        <a href="mailto:team@kiwihacks.org">team@kiwihacks.org</a> with anything
         else.
       </>
     ),
@@ -100,8 +100,8 @@ export const faqs = [
     question: "What if I have more questions?",
     answer: (
       <>
-        Email <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a> or join
-        the KiwiHackers <a href="/discord">Discord</a>. We reply fast.
+        Email <a href="mailto:team@kiwihacks.org">team@kiwihacks.org</a> or join
+        the KiwiHackers <a href="/discord">Discord</a>. We reply fast!
       </>
     ),
   },

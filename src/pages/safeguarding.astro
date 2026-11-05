@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../Navbar/Navbar.jsx';
+import Footer from '../App/components/Footer/Footer.jsx';
 import { loadGoogleDoc, splitIntoSections } from '../Safeguarding/googleDoc.js';
 import '../Safeguarding/Safeguarding.css';
 
@@ -93,4 +94,5 @@ const heading = doc.title || 'Safeguarding';
       </div>
     </section>
   </main>
+  <Footer client:load />
 </Layout>

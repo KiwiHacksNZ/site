@@ -1,5 +1,6 @@
 import "./PrivacyPolicy.css";
 import Navbar from "../Navbar/Navbar";
+import Footer from "../App/components/Footer/Footer";
 
 export default function PrivacyPolicy() {
   return (
@@ -111,7 +112,7 @@ export default function PrivacyPolicy() {
               consent as part of the registration process. Parents and
               guardians with questions about what information we hold about
               their teen, or how it's used, are welcome to email us at{" "}
-              <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a>. See
+              <a href="mailto:team@kiwihacks.org">team@kiwihacks.org</a>. See
               also our{" "}
               <a href="/parents-guide" target="_blank" rel="noreferrer">
                 Parents' Guide
@@ -137,7 +138,7 @@ export default function PrivacyPolicy() {
               Under the New Zealand Privacy Act 2020, you have the right to ask
               what personal information we hold about you, request a correction,
               or ask us to delete it. To do any of these, email us at{" "}
-              <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a> and
+              <a href="mailto:team@kiwihacks.org">team@kiwihacks.org</a> and
               we'll get back to you within a reasonable time.
             </p>
           </div>
@@ -158,7 +159,7 @@ export default function PrivacyPolicy() {
             <p className="pp-text">
               If you have any questions about this privacy policy or how we
               handle your information, email us at{" "}
-              <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a>.
+              <a href="mailto:team@kiwihacks.org">team@kiwihacks.org</a>.
             </p>
           </div>
 
@@ -169,6 +170,8 @@ export default function PrivacyPolicy() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </>
   );
 }

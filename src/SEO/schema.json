@@ -2,10 +2,12 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": "NGO",
       "@id": "https://kiwihacks.org/#org",
       "name": "KiwiHacks",
       "legalName": "KiwiHacks Incorporated",
+      "description": "KiwiHacks is a New Zealand non-profit, run by high schoolers, that runs free hackathons for high school students aged 13 to 18.",
+      "nonprofitStatus": "https://schema.org/Nonprofit",
       "foundingDate": "2026-01-07",
       "identifier": {
         "@type": "PropertyValue",
@@ -13,6 +15,20 @@
         "value": "9429053360274"
       },
       "url": "https://kiwihacks.org/",
+      "email": "team@kiwihacks.org",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Floor 8, 23 Customs Street East",
+        "addressLocality": "Auckland Central",
+        "addressRegion": "Auckland",
+        "postalCode": "1010",
+        "addressCountry": "NZ"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "general enquiries",
+        "email": "team@kiwihacks.org"
+      },
       "logo": "https://kiwihacks.org/favicon/android-chrome-512x512.png",
       "sameAs": [
         "https://www.instagram.com/kiwihacks/",
@@ -116,8 +132,8 @@
           "addressCountry": "NZ"
         }
       },
-      "image": "https://kiwihacks.org/kiwihacksimage.png",
-      "description": "KiwiHacks Nova is a free hackathon for teenage coders and innovators, coming to Wellington.",
+      "image": "https://kiwihacks.org/kiwihacksimage.jpg",
+      "description": "KiwiHacks Nova is a free hackathon for teenage coders and innovators that was held in Wellington.",
       "organizer": {
         "@type": "Organization",
         "name": "KiwiHacks",
@@ -140,8 +156,8 @@
           "addressCountry": "NZ"
         }
       },
-      "image": "https://kiwihacks.org/kiwihacksimage.png",
-      "description": "KiwiHacks Nova is a free hackathon for teenage coders and innovators, coming to Christchurch.",
+      "image": "https://kiwihacks.org/kiwihacksimage.jpg",
+      "description": "KiwiHacks Nova is a free hackathon for teenage coders and innovators that was held in Christchurch.",
       "organizer": {
         "@type": "Organization",
         "name": "KiwiHacks",
@@ -164,8 +180,8 @@
           "addressCountry": "NZ"
         }
       },
-      "image": "https://kiwihacks.org/kiwihacksimage.png",
-      "description": "KiwiHacks Nova is a free hackathon for teenage coders and innovators, at MIT Marae in Manukau, Auckland.",
+      "image": "https://kiwihacks.org/kiwihacksimage.jpg",
+      "description": "KiwiHacks Nova is a free hackathon for teenage coders and innovators that was held at MIT Marae in Manukau, Auckland.",
       "organizer": {
         "@type": "Organization",
         "name": "KiwiHacks",

@@ -11,7 +11,7 @@ export default function CTA() {
           Join the Discord
         </a>
         <SquiggleLink href="#nova" className="cta-secondary">
-          See what&apos;s on &rarr;
+          See our last event &rarr;
         </SquiggleLink>
       </div>
       <p className="mono cta-fineprint">

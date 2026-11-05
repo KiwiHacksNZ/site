@@ -82,7 +82,7 @@ export default function Partners() {
       <br />
       <p className="partner-text" data-role="partner-contact">
         If you would like to partner with KiwiHacks, email{" "}
-        <a href="mailto:niko@kiwihacks.org">niko@kiwihacks.org</a>.
+        <a href="mailto:team@kiwihacks.org">team@kiwihacks.org</a>.
       </p>
       <br />
       <p className="partner-text" data-role="partner-thanks">

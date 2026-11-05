@@ -10,7 +10,7 @@ const SITE = "https://kiwihacks.org";
 // Everything below is derived from the same data the pages render, so this file
 // cannot quietly drift out of date the way a hand-maintained copy would.
 const graph = schema["@graph"] ?? [];
-const org = graph.find((node) => node["@type"] === "Organization") ?? {};
+const org = graph.find((node) => node["@id"] === `${SITE}/#org`) ?? {};
 const events = graph.filter((node) => node["@type"] === "Event");
 
 const SOCIAL_LABELS = {
@@ -95,16 +95,18 @@ function buildDocument() {
     org.identifier?.value ? `- ${org.identifier.propertyID}: ${org.identifier.value}` : null,
     org.foundingDate ? `- Founded: ${org.foundingDate}` : null,
     founders.length ? `- Founders: ${founders.join(", ")}` : null,
+    "- Status: non-profit incorporated society",
     "- Country: New Zealand",
     "- Who can take part: any high school student in New Zealand, aged 13 to 18",
     "- Cost to attend: free, including food, mentors, workshops and swag",
     `- Website: ${SITE}/`,
-    `- Contact: niko@kiwihacks.org`,
+    `- Contact: team@kiwihacks.org`,
     "",
     "## Events",
     "",
-    "KiwiHacks Nova is a series of three free 24-hour hackathons for high school",
-    "students, one in each of three cities.",
+    "KiwiHacks Nova was a series of three free 24-hour hackathons for high school",
+    "students, one in each of three cities, held in September and October 2026.",
+    "New events are announced in the Discord first.",
     "",
   );
 
@@ -138,7 +140,7 @@ function buildDocument() {
 
   push(
     "Partnering with KiwiHacks supports the next generation of New Zealand",
-    "builders. Enquiries go to niko@kiwihacks.org.",
+    "builders. Enquiries go to team@kiwihacks.org.",
     "",
     "## Frequently asked questions",
     "",
@@ -159,7 +161,6 @@ function buildDocument() {
     `- [Code of conduct](${SITE}/code-of-conduct)`,
     `- [Privacy policy](${SITE}/privacy-policy)`,
     `- [Status](${SITE}/status)`,
-    `- [Sign up for KiwiHacks Nova](https://kiwihacks.fillout.com/nova)`,
     `- [KiwiHacks Nova site](https://nova.kiwihacks.org)`,
     ...(org.sameAs ?? [])
       .filter((url) => !url.startsWith(`${SITE}/`))
