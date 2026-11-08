@@ -47,5 +47,12 @@
     "logo": "canva-logo.svg",
     "alt": "Canva Logo",
     "tier": "in-kind"
+  },
+  {
+    "name": "Potentia",
+    "url": "https://potentia.co.nz",
+    "logo": "potentia-logo.svg",
+    "alt": "Potentia Logo",
+    "tier": "in-kind"
   }
 ]
