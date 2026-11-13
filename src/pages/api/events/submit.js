@@ -78,7 +78,7 @@ export async function POST({ request, clientAddress }) {
   const files = [header, ...(logo?.size ? [logo] : []), ...photos];
   if (files.some((file) => !IMAGE_TYPES.includes(file.type))) return fail("Images need to be JPG, PNG or WebP.");
 
-  // Hashed so the dataset never holds raw IP addresses.
+  // Hashed so Sanity never holds raw IP addresses.
   const ipHash = createHash("sha256").update(clientAddress ?? "unknown").digest("hex");
   const recent = await submissionsClient.fetch(
     `count(*[_type == "submission" && ipHash == $ipHash && _createdAt > $since])`,
@@ -104,7 +104,9 @@ export async function POST({ request, clientAddress }) {
     if (failed) throw failed.reason;
     const [headerImage, logoImage, ...photoImages] = results.map((result) => result.value);
     await submissionsClient.create({
-      _id: randomUUID(),
+      // Sanity only serves IDs containing a dot to authenticated requests. That
+      // dot is all that keeps the submitter's details out of the public API.
+      _id: `submission.${randomUUID()}`,
       _type: "submission",
       title: f.title,
       eventType: f.eventType,

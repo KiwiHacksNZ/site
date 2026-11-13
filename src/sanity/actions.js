@@ -1,8 +1,6 @@
 import { useClient } from 'sanity';
 import imageUrlBuilder from '@sanity/image-url';
 
-export const PUBLIC_DATASET = import.meta.env.PUBLIC_SANITY_DATASET || 'production';
-
 const slugify = (text) =>
   text
     .normalize('NFD')
@@ -35,23 +33,23 @@ export function ApproveAction({ id, draft, published, onComplete }) {
     disabled: !doc,
     onHandle: async () => {
       if (!window.confirm(`List "${doc.title}" on the events page?`)) return onComplete();
-      const target = client.withConfig({ dataset: PUBLIC_DATASET });
+      const key = id.split('.').pop();
       const builder = imageUrlBuilder(client);
 
-      // Re-encoding through the image CDN drops EXIF data such as GPS.
+      // Re-encoding through the image CDN drops EXIF data such as GPS. The
+      // originals are deleted with the submission.
       const copy = async (image, width) => {
         const blob = await (await fetch(builder.image(image).width(width).fit('max').format('jpg').url())).blob();
-        const asset = await target.assets.upload('image', blob, { filename: `${id}.jpg` });
+        const asset = await client.assets.upload('image', blob, { filename: `${key}.jpg` });
         return { _type: 'image', asset: { _type: 'reference', _ref: asset._id }, ...(image.alt && { alt: image.alt }) };
       };
 
       const { headerImage, logo, photos } = doc;
       const fields = Object.fromEntries(PUBLIC_FIELDS.filter((name) => doc[name] != null).map((name) => [name, doc[name]]));
-      await target.create({
+      await client.create({
         ...fields,
-        _id: id,
         _type: 'communityEvent',
-        slug: { _type: 'slug', current: `${slugify(doc.title)}-${id.slice(0, 4)}` },
+        slug: { _type: 'slug', current: `${slugify(doc.title)}-${key.slice(0, 4)}` },
         headerImage: await copy(headerImage, 2400),
         ...(logo && { logo: await copy(logo, 400) }),
         photos: await Promise.all((photos ?? []).map(async (photo) => ({ ...(await copy(photo, 1600)), _key: photo._key }))),

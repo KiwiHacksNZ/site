@@ -131,9 +131,9 @@ export const communityEvent = defineType({
   preview: eventPreview,
 });
 
-// Lives in the private submissions dataset, so its images and the
-// submitter's contact details can't be listed by the public. Approving one
-// copies the public fields into the main dataset (see actions.js).
+// Created by the submit API with a `submission.` ID, which keeps it out of
+// the public API. Approving one copies the public fields into a
+// communityEvent (see actions.js).
 export const submission = defineType({
   name: 'submission',
   title: 'Event submission',
@@ -152,5 +152,4 @@ export const submission = defineType({
   preview: eventPreview,
 });
 
-export const schemaTypes = [project, communityEvent];
-export const submissionSchemaTypes = [submission];
+export const schemaTypes = [project, communityEvent, submission];

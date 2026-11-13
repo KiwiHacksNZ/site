@@ -12,15 +12,7 @@ export const sanityClient = projectId
 
 const token = import.meta.env.SANITY_WRITE_TOKEN;
 
-// Writes only to the private submissions dataset; approving one in the Studio
-// is what copies it into the public dataset.
 export const submissionsClient =
   projectId && token
-    ? createClient({
-        projectId,
-        dataset: import.meta.env.PUBLIC_SANITY_SUBMISSIONS_DATASET || "submissions",
-        apiVersion: "2026-08-02",
-        useCdn: false,
-        token,
-      })
+    ? createClient({ projectId, dataset, apiVersion: "2026-08-02", useCdn: false, token })
     : null;
