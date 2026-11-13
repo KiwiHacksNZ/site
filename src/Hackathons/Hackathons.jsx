@@ -1,7 +1,10 @@
+import { useState } from "react";
 import "./Hackathons.css";
 import Navbar from "../Navbar/Navbar";
 import { ORG } from "../org";
-import { FaArrowUpRightFromSquare, FaLocationDot, FaRegCalendar } from "react-icons/fa6";
+import { FaDiscord, FaPlus } from "react-icons/fa6";
+
+const HERO_IMAGE = "/assets/gallery/DSCF7194.jpg";
 
 const GROUPS = [
   {
@@ -21,6 +24,18 @@ const GROUPS = [
   },
 ];
 
+const FORMATS = [
+  { value: "online", label: "Online" },
+  { value: "hybrid", label: "Hybrid" },
+  { value: "in-person", label: "In person" },
+];
+
+const ADD_EVENT_HREF = `mailto:${ORG.email}?subject=${encodeURIComponent(
+  "Add my event to kiwihacks.com/hackathons",
+)}&body=${encodeURIComponent(
+  "Event name:\nDates:\nCity (or online):\nWebsite:\nWho it's for:\n",
+)}`;
+
 // Dates arrive as plain YYYY-MM-DD strings. Reading them as UTC and formatting
 // in UTC keeps the day from shifting with the visitor's timezone.
 function parseDate(value) {
@@ -31,110 +46,174 @@ function formatDay(date, options) {
   return new Intl.DateTimeFormat("en-NZ", { timeZone: "UTC", ...options }).format(date);
 }
 
-function formatDateRange(startValue, endValue) {
+// "14 November", "14-15 November", "30 November - 2 December", with the year
+// added only when the event isn't this year.
+function formatDateRange(startValue, endValue, currentYear) {
   const start = parseDate(startValue);
   const end = parseDate(endValue || startValue);
-  const full = { day: "numeric", month: "short", year: "numeric" };
+  const showYear =
+    start.getUTCFullYear() !== currentYear || end.getUTCFullYear() !== currentYear;
+  const dayMonth = { day: "numeric", month: "long" };
+  const withYear = showYear ? { ...dayMonth, year: "numeric" } : dayMonth;
 
-  if (startValue === endValue || !endValue) {
-    return formatDay(start, { weekday: "short", ...full });
+  if (!endValue || startValue === endValue) {
+    return formatDay(start, withYear);
   }
 
   const sameYear = start.getUTCFullYear() === end.getUTCFullYear();
-  const sameMonth = sameYear && start.getUTCMonth() === end.getUTCMonth();
-
-  if (sameMonth) {
-    return `${start.getUTCDate()}-${formatDay(end, full)}`;
+  if (sameYear && start.getUTCMonth() === end.getUTCMonth()) {
+    return `${start.getUTCDate()}-${formatDay(end, withYear)}`;
   }
-  if (sameYear) {
-    return `${formatDay(start, { day: "numeric", month: "short" })} - ${formatDay(end, full)}`;
-  }
-  return `${formatDay(start, full)} - ${formatDay(end, full)}`;
+  return `${formatDay(start, sameYear ? dayMonth : withYear)} - ${formatDay(end, withYear)}`;
 }
 
-function ListingCard({ listing }) {
-  const place = listing.online ? "Online" : listing.location;
+function formatLabel(format) {
+  return FORMATS.find((f) => f.value === format)?.label ?? "In person";
+}
+
+function whereAndWhen(listing, currentYear) {
+  const dates = formatDateRange(listing.startDate, listing.endDate, currentYear);
+  const place = listing.format === "online" ? null : listing.location;
+  return place ? `${dates}: ${place}` : dates;
+}
+
+function ListingCard({ listing, currentYear, featured = false }) {
+  const style = listing.bannerUrl ? { backgroundImage: `url(${listing.bannerUrl})` } : undefined;
+  const Tag = featured ? "div" : "li";
 
   return (
-    <li className="hackathons-card">
-      <a href={listing.url} target="_blank" rel="noopener noreferrer">
-        {listing.logoUrl ? (
-          <img
-            src={listing.logoUrl}
-            alt=""
-            className="hackathons-card-logo"
-            loading="lazy"
-            draggable="false"
-          />
-        ) : (
-          <span className="hackathons-card-logo hackathons-card-logo-fallback" aria-hidden="true">
-            {listing.name.charAt(0)}
-          </span>
-        )}
-        <span className="hackathons-card-body">
-          <span className="hackathons-card-name">
-            {listing.name}
-            <FaArrowUpRightFromSquare aria-hidden="true" className="hackathons-card-external" />
-          </span>
-          <span className="hackathons-card-meta">
-            <span>
-              <FaRegCalendar aria-hidden="true" />
-              {formatDateRange(listing.startDate, listing.endDate)}
-            </span>
-            {place ? (
-              <span>
-                <FaLocationDot aria-hidden="true" />
-                {place}
-              </span>
-            ) : null}
-          </span>
+    <Tag className={`hk-card${featured ? " hk-card-featured" : ""}`}>
+      <a
+        href={listing.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`hk-card-link hk-card-${listing.category}${listing.bannerUrl ? " hk-card-has-banner" : ""}`}
+        style={style}
+      >
+        <span className={`hk-badge hk-badge-${listing.format}`}>{formatLabel(listing.format)}</span>
+        <span className="hk-card-title">
+          {listing.logoUrl ? (
+            <img src={listing.logoUrl} alt="" className="hk-card-logo" loading="lazy" draggable="false" />
+          ) : null}
+          <span className="hk-card-name">{listing.name}</span>
         </span>
+        <span className="hk-card-when">{whereAndWhen(listing, currentYear)}</span>
+        {featured ? <span className="hk-card-cta">Find out more</span> : null}
       </a>
-    </li>
+    </Tag>
   );
 }
 
-export default function Hackathons({ listings = [] }) {
+export default function Hackathons({ listings = [], currentYear = new Date().getFullYear() }) {
+  const [formatFilter, setFormatFilter] = useState(null);
+
+  const visible = formatFilter
+    ? listings.filter((listing) => listing.format === formatFilter)
+    : listings;
+  const featured = visible.filter((listing) => listing.featured);
+
+  const cities = new Set(
+    listings
+      .filter((listing) => listing.format !== "online" && listing.location)
+      .map((listing) => listing.location.trim().toLowerCase()),
+  );
+  const eventCount = listings.length;
+
+  let summary = "A curated list of hackathons and tech events for New Zealand high schoolers.";
+  if (eventCount > 0) {
+    const eventsText = `${eventCount} ${eventCount === 1 ? "event" : "events"} coming up`;
+    const citiesText =
+      cities.size > 0 ? ` in ${cities.size} ${cities.size === 1 ? "city" : "cities"}` : "";
+    summary = `A curated list of hackathons and tech events for New Zealand high schoolers, with ${eventsText}${citiesText}.`;
+  }
+
   return (
     <>
       <Navbar />
 
-      <main className="hackathons-main">
-        <header className="hackathons-header">
-          <h1 className="display">Hackathons in New Zealand</h1>
-          <p>
-            What's on for high school coders between KiwiHacks events. Ours, other people's
-            hackathons, and community events worth turning up to.
-          </p>
+      <main className="hk-main">
+        <header className="hk-hero" style={{ backgroundImage: `url(${HERO_IMAGE})` }}>
+          <a className="hk-add-event" href={ADD_EVENT_HREF}>
+            <FaPlus aria-hidden="true" />
+            Add your event
+          </a>
+          <div className="hk-hero-inner">
+            <h1 className="display">
+              Upcoming High School Hackathons in <span>New Zealand</span>
+            </h1>
+            <p>{summary}</p>
+          </div>
         </header>
 
+        <section className="hk-subscribe" aria-label="Get new events">
+          <div>
+            <h2>Want to hear when new events are added?</h2>
+            <p>We post every new listing in the KiwiHacks Discord, along with the rest of the club.</p>
+          </div>
+          <a className="hk-button" href="/discord" target="_blank" rel="noopener noreferrer">
+            <FaDiscord aria-hidden="true" />
+            Join the Discord
+          </a>
+        </section>
+
+        <div className="hk-filters" role="group" aria-label="Filter by format">
+          {FORMATS.map((format) => (
+            <button
+              key={format.value}
+              type="button"
+              className={`hk-filter hk-filter-${format.value}`}
+              aria-pressed={formatFilter === format.value}
+              onClick={() =>
+                setFormatFilter((current) => (current === format.value ? null : format.value))
+              }
+            >
+              {format.label}
+            </button>
+          ))}
+        </div>
+
+        {featured.length > 0 ? (
+          <section className="hk-featured" aria-label="Featured">
+            {featured.map((listing) => (
+              <ListingCard listing={listing} currentYear={currentYear} featured key={listing.id} />
+            ))}
+          </section>
+        ) : null}
+
         {GROUPS.map((group) => {
-          const items = listings.filter((listing) => listing.category === group.category);
-          const headingId = `hackathons-${group.category}`;
+          const items = visible.filter(
+            (listing) => listing.category === group.category && !listing.featured,
+          );
+          const hasFeatured = featured.some((listing) => listing.category === group.category);
+          const headingId = `hk-${group.category}`;
 
           return (
-            <section className="hackathons-group" key={group.category} aria-labelledby={headingId}>
-              <div className="hackathons-group-heading">
+            <section className="hk-group" key={group.category} aria-labelledby={headingId}>
+              <div className="hk-group-heading">
                 <h2 id={headingId}>{group.title}</h2>
                 <p>{group.blurb}</p>
               </div>
 
               {items.length > 0 ? (
-                <ul className="hackathons-list">
+                <ul className="hk-grid">
                   {items.map((listing) => (
-                    <ListingCard listing={listing} key={listing.id} />
+                    <ListingCard listing={listing} currentYear={currentYear} key={listing.id} />
                   ))}
                 </ul>
-              ) : (
-                <p className="hackathons-empty">Nothing coming up right now. Check back soon.</p>
+              ) : hasFeatured ? null : (
+                <p className="hk-empty">
+                  {formatFilter
+                    ? `No ${formatLabel(formatFilter).toLowerCase()} events here right now.`
+                    : "Nothing coming up right now. Check back soon."}
+                </p>
               )}
             </section>
           );
         })}
 
-        <p className="hackathons-submit">
-          Running an event high schoolers should know about? Email{" "}
-          <a href={`mailto:${ORG.email}`}>{ORG.email}</a> and we'll take a look.
+        <p className="hk-footnote">
+          Running an event high schoolers should know about?{" "}
+          <a href={ADD_EVENT_HREF}>Send it to us</a> and we'll add it.
         </p>
       </main>
     </>

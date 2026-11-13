@@ -92,6 +92,12 @@ export const HACKATHON_CATEGORIES = [
   { title: "Community event", value: "community-event" },
 ];
 
+export const HACKATHON_FORMATS = [
+  { title: "In person", value: "in-person" },
+  { title: "Hybrid", value: "hybrid" },
+  { title: "Online", value: "online" },
+];
+
 export const hackathon = defineType({
   name: "hackathon",
   title: "Hackathon listing",
@@ -133,20 +139,24 @@ export const hackathon = defineType({
         }),
     }),
     defineField({
-      name: "online",
-      title: "Online event",
-      type: "boolean",
-      initialValue: false,
+      name: "format",
+      title: "Format",
+      type: "string",
+      options: { list: HACKATHON_FORMATS, layout: "radio", direction: "horizontal" },
+      initialValue: "in-person",
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: "location",
       title: "City",
       type: "string",
-      description: 'e.g. "Auckland". Ignored for online events, which show "Online".',
-      hidden: ({ document }) => Boolean(document?.online),
+      description: 'e.g. "Auckland". Not shown for online events.',
+      hidden: ({ document }) => document?.format === "online",
       validation: (rule) =>
         rule.custom((location, context) =>
-          context.document?.online || location ? true : "Add a city, or tick Online event",
+          context.document?.format === "online" || location
+            ? true
+            : "Add a city, or set the format to Online",
         ),
     }),
     defineField({
@@ -159,7 +169,22 @@ export const hackathon = defineType({
       name: "logo",
       title: "Logo",
       type: "image",
-      description: "Optional. Square works best.",
+      description: "Optional. Square, ideally on a transparent background.",
+    }),
+    defineField({
+      name: "banner",
+      title: "Background image",
+      type: "image",
+      options: { hotspot: true },
+      description:
+        "Optional. Fills the card behind the name, darkened so the text stays readable. Landscape works best.",
+    }),
+    defineField({
+      name: "featured",
+      title: "Featured",
+      type: "boolean",
+      description: "Featured listings get a big banner at the top of the page.",
+      initialValue: false,
     }),
   ],
   orderings: [

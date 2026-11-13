@@ -26,10 +26,12 @@ if (sanityClient) {
         category,
         startDate,
         "endDate": coalesce(endDate, startDate),
+        "format": coalesce(format, "in-person"),
         location,
-        online,
         url,
-        logo
+        featured,
+        logo,
+        banner
       }`,
       { today },
     );
@@ -41,12 +43,14 @@ if (sanityClient) {
 
 const builder = sanityClient ? imageUrlBuilder(sanityClient) : null;
 
-const items = listings.map(({ logo, ...listing }) => ({
+const items = listings.map(({ logo, banner, ...listing }) => ({
   ...listing,
-  logoUrl: logo ? builder.image(logo).width(160).height(160).fit('crop').auto('format').url() : null,
+  featured: Boolean(listing.featured),
+  logoUrl: logo ? builder.image(logo).width(192).fit('max').auto('format').url() : null,
+  bannerUrl: banner ? builder.image(banner).width(1200).height(700).fit('crop').auto('format').url() : null,
 }));
 ---
 
-<Layout title="Hackathons in New Zealand | KiwiHacks">
-  <Hackathons client:load listings={items} />
+<Layout title="Upcoming High School Hackathons in New Zealand | KiwiHacks">
+  <Hackathons client:load listings={items} currentYear={Number(today.slice(0, 4))} />
 </Layout>
