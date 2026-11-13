@@ -1,13 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hackathons from '../Hackathons/Hackathons.jsx';
-import { sanityClient } from '../sanity/client';
-import imageUrlBuilder from '@sanity/image-url';
+import { LISTINGS } from '../Hackathons/listings.js';
+
+// MVP: listings are hardcoded in src/Hackathons/listings.js. They move to
+// Sanity (src/sanity/schema.js, "hackathon" type) once the design is agreed.
 
 // Today's date in New Zealand as YYYY-MM-DD. Listings store plain dates, so an
 // event stays up for the whole of its last day here rather than dropping off
 // at midnight UTC (midday in NZ). The page renders per request, so a finished
-// event disappears the next day without a redeploy.
+// event moves to "Past events" the next day without a redeploy.
 const today = new Intl.DateTimeFormat('en-CA', {
   timeZone: 'Pacific/Auckland',
   year: 'numeric',
@@ -15,46 +17,23 @@ const today = new Intl.DateTimeFormat('en-CA', {
   day: '2-digit',
 }).format(new Date());
 
-let listings = [];
-if (sanityClient) {
-  try {
-    listings = await sanityClient.fetch(
-      `*[_type == "hackathon" && defined(startDate)] | order(startDate asc, name asc){
-        "id": _id,
-        name,
-        category,
-        startDate,
-        "endDate": coalesce(endDate, startDate),
-        "format": select(format == "online" => "online", "in-person"),
-        location,
-        time,
-        url,
-        featured,
-        logo,
-        banner
-      }`,
-    );
-  } catch (error) {
-    // A Sanity outage should cost an empty list, not a 500.
-    console.error('Failed to load hackathon listings', error);
-  }
-}
-
-const builder = sanityClient ? imageUrlBuilder(sanityClient) : null;
-
-const toItem = ({ logo, banner, ...listing }) => ({
+const listings = LISTINGS.map(({ banner, ...listing }) => ({
   ...listing,
+  endDate: listing.endDate ?? listing.startDate,
+  format: listing.format === 'online' ? 'online' : 'in-person',
   featured: Boolean(listing.featured),
-  logoUrl: logo ? builder.image(logo).width(192).fit('max').auto('format').url() : null,
-  bannerUrl: banner ? builder.image(banner).width(1200).height(700).fit('crop').auto('format').url() : null,
-});
+  url: listing.url ?? null,
+  time: listing.time ?? null,
+  logoUrl: null,
+  bannerUrl: banner ?? null,
+})).sort((a, b) => a.startDate.localeCompare(b.startDate) || a.name.localeCompare(b.name));
 
 // Plain YYYY-MM-DD strings compare correctly as text.
-const upcoming = listings.filter((listing) => listing.endDate >= today).map(toItem);
+const upcoming = listings.filter((listing) => listing.endDate >= today);
 const past = listings
   .filter((listing) => listing.endDate < today)
   .reverse()
-  .map((listing) => toItem({ ...listing, featured: false }));
+  .map((listing) => ({ ...listing, featured: false }));
 ---
 
 <Layout title="Upcoming High School Hackathons in New Zealand | KiwiHacks">

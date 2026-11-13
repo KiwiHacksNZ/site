@@ -1,0 +1,139 @@
+// Hardcoded listings for the /hackathons MVP. The plan is to move these into
+// Sanity (the "hackathon" type in src/sanity/schema.js already matches this
+// shape) once the page design is signed off.
+//
+// Fields: id, name, category ("kiwihacks" | "community-hackathon" |
+// "community-event"), startDate and optional endDate (YYYY-MM-DD, NZ dates),
+// optional time, format ("in-person" | "online"), location (city), optional
+// url, optional banner (path under /public), optional featured.
+//
+// Past and upcoming are worked out from the dates at request time, so nothing
+// here needs moving when an event finishes.
+
+const BANNERS = "/assets/hackathons";
+
+export const LISTINGS = [
+  {
+    id: "counterspell-auckland",
+    name: "Counterspell Auckland",
+    category: "kiwihacks",
+    startDate: "2024-11-23",
+    endDate: "2024-11-24",
+    format: "in-person",
+    location: "Auckland",
+    url: "https://counterspell.hackclub.com/auckland",
+    banner: `${BANNERS}/counterspell-auckland.jpg`,
+  },
+  {
+    id: "scrapyard-auckland",
+    name: "Scrapyard Auckland",
+    category: "kiwihacks",
+    startDate: "2025-03-16",
+    format: "in-person",
+    location: "Auckland",
+    url: "https://scrapyard.hackclub.com/auckland",
+    banner: `${BANNERS}/scrapyard-auckland.jpg`,
+  },
+  {
+    id: "daydream-auckland",
+    name: "Daydream Auckland",
+    category: "kiwihacks",
+    startDate: "2025-09-28",
+    format: "in-person",
+    location: "Auckland",
+    url: "https://daydream.hackclub.com/auckland",
+    banner: `${BANNERS}/daydream-auckland.jpg`,
+  },
+  {
+    id: "campfire-auckland",
+    name: "Campfire Auckland",
+    category: "kiwihacks",
+    startDate: "2026-02-28",
+    format: "in-person",
+    location: "Auckland",
+    url: "https://campfire.hackclub.com/auckland",
+    banner: `${BANNERS}/campfire-auckland.jpg`,
+  },
+  {
+    id: "kiwihacks-26",
+    name: "KiwiHacks '26",
+    category: "kiwihacks",
+    startDate: "2026-05-02",
+    endDate: "2026-05-03",
+    format: "in-person",
+    location: "Auckland",
+    banner: `${BANNERS}/kiwihacks-26.jpg`,
+  },
+  {
+    id: "lock-in-1",
+    name: "Community Lock-In #1",
+    category: "kiwihacks",
+    startDate: "2026-08-02",
+    format: "in-person",
+    location: "Auckland",
+    banner: `${BANNERS}/lock-in-1.jpg`,
+  },
+  {
+    id: "lock-in-2",
+    name: "Community Lock-In #2",
+    category: "kiwihacks",
+    startDate: "2026-09-05",
+    format: "in-person",
+    location: "Auckland",
+    banner: `${BANNERS}/lock-in-2.jpg`,
+  },
+  {
+    id: "nova-wellington",
+    name: "KiwiHacks Nova Wellington",
+    category: "kiwihacks",
+    startDate: "2026-09-26",
+    format: "in-person",
+    location: "Wellington",
+    url: "https://nova.kiwihacks.org",
+    banner: `${BANNERS}/nova-wellington.jpg`,
+  },
+  {
+    id: "nova-christchurch",
+    name: "KiwiHacks Nova Christchurch",
+    category: "kiwihacks",
+    startDate: "2026-10-02",
+    endDate: "2026-10-03",
+    format: "in-person",
+    location: "Christchurch",
+    url: "https://nova.kiwihacks.org",
+    banner: `${BANNERS}/nova-christchurch.jpg`,
+  },
+  {
+    id: "nova-auckland",
+    name: "KiwiHacks Nova Auckland",
+    category: "kiwihacks",
+    startDate: "2026-10-09",
+    endDate: "2026-10-10",
+    format: "in-person",
+    location: "Auckland",
+    url: "https://nova.kiwihacks.org",
+    banner: `${BANNERS}/nova-auckland.jpg`,
+  },
+  {
+    id: "lock-in-3",
+    name: "Community Lock-In #3: Study Edition",
+    category: "kiwihacks",
+    startDate: "2026-11-22",
+    time: "10am-4pm",
+    format: "in-person",
+    location: "Auckland",
+    url: "https://kiwihacks.fillout.com/lock-in-november",
+    banner: `${BANNERS}/lock-in-3.jpg`,
+  },
+  {
+    id: "amber-fireside",
+    name: "Fireside chat with Amber Winton (NextWork)",
+    category: "community-event",
+    startDate: "2026-11-23",
+    time: "5:30pm-7:30pm",
+    format: "in-person",
+    location: "Auckland",
+    url: "https://luma.com/4a9n5jir",
+    banner: `${BANNERS}/amber-fireside.jpg`,
+  },
+];
