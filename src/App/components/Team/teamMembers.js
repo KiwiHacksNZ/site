@@ -26,7 +26,7 @@ export const teamMembers = [
   },
   {
     name: "Josh Palmer",
-    role: "Outreach + website",
+    role: "Technical systems + community",
     image: "/assets/People/josh.jpg",
     links: [
       { type: "email", href: "mailto:josh@kiwihacks.org", label: "Email Josh" },
@@ -34,7 +34,7 @@ export const teamMembers = [
       { type: "github", href: "https://github.com/heycastawhat", label: "Josh on GitHub" },
       { type: "gitlab", href: "https://gitlab.com/castawhat", label: "Josh on GitLab" },
     ],
-    bio: "I'm a 14 year old scout from Selwyn College leading outreach + helping out the website. I'm passionate about coding & learning. I love the thrill of getting a project finally working & I'm super excited to see what people create at KiwiHacks!",
+    bio: "I'm a 15 year old from Selwyn College mainly working on our technical systems and community management.",
   },
   {
     name: "Kyle Bendall",
