@@ -5,7 +5,7 @@
 // Fields: id, name, category ("kiwihacks" | "community-hackathon" |
 // "community-event"), startDate and optional endDate (YYYY-MM-DD, NZ dates),
 // optional time, format ("in-person" | "online"), location (city), optional
-// url, optional banner (path under /public), optional featured.
+// url, optional banner and logo (paths under /public), optional featured.
 //
 // Past and upcoming are worked out from the dates at request time, so nothing
 // here needs moving when an event finishes.
@@ -135,5 +135,41 @@ export const LISTINGS = [
     location: "Auckland",
     url: "https://luma.com/4a9n5jir",
     banner: `${BANNERS}/amber-fireside.jpg`,
+  },
+  {
+    id: "haven-wellington",
+    name: "Haven Wellington",
+    category: "community-hackathon",
+    startDate: "2026-11-14",
+    endDate: "2026-11-15",
+    format: "in-person",
+    location: "Wellington",
+    url: "https://haven.hackclub.com/wellington",
+    banner: `${BANNERS}/haven.jpg`,
+    logo: `${BANNERS}/haven-logo.webp`,
+  },
+  {
+    id: "haven-christchurch",
+    name: "Haven Christchurch",
+    category: "community-hackathon",
+    startDate: "2026-11-14",
+    endDate: "2026-11-15",
+    format: "in-person",
+    location: "Christchurch",
+    url: "https://haven.hackclub.com/christchurch",
+    banner: `${BANNERS}/haven.jpg`,
+    logo: `${BANNERS}/haven-logo.webp`,
+  },
+  {
+    // Date from Genesia's outreach email ("aiming to run" on 12-13 Dec).
+    // genesiagirls.org is down, so this links to their Instagram.
+    id: "genesia-hack-the-gap",
+    name: "Hack the Gap by Genesia Girls",
+    category: "community-hackathon",
+    startDate: "2026-12-12",
+    endDate: "2026-12-13",
+    format: "in-person",
+    location: "Auckland",
+    url: "https://www.instagram.com/genesiagirls/",
   },
 ];

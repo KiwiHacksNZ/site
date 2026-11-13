@@ -350,10 +350,12 @@
 }
 
 .hk-card-logo {
-  width: 64px;
+  width: auto;
+  max-width: 150px;
   height: 64px;
   object-fit: contain;
   border-radius: 12px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
 }
 
 .hk-card-name {
@@ -393,16 +395,8 @@ div.hk-card-link:hover {
   border-radius: 20px;
 }
 
-.hk-card-featured .hk-card-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  margin: auto 0;
-}
-
-.hk-card-logo {
-  width: 96px;
+.hk-card-featured .hk-card-logo {
+  max-width: 220px;
   height: 96px;
 }
 

@@ -17,14 +17,14 @@ const today = new Intl.DateTimeFormat('en-CA', {
   day: '2-digit',
 }).format(new Date());
 
-const listings = LISTINGS.map(({ banner, ...listing }) => ({
+const listings = LISTINGS.map(({ banner, logo, ...listing }) => ({
   ...listing,
   endDate: listing.endDate ?? listing.startDate,
   format: listing.format === 'online' ? 'online' : 'in-person',
   featured: Boolean(listing.featured),
   url: listing.url ?? null,
   time: listing.time ?? null,
-  logoUrl: null,
+  logoUrl: logo ?? null,
   bannerUrl: banner ?? null,
 })).sort((a, b) => a.startDate.localeCompare(b.startDate) || a.name.localeCompare(b.name));
 
