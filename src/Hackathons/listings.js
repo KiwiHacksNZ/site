@@ -5,7 +5,8 @@
 // Fields: id, name, category ("kiwihacks" | "community-hackathon" |
 // "community-event"), startDate and optional endDate (YYYY-MM-DD, NZ dates),
 // optional time, format ("in-person" | "online"), location (city), optional
-// url, optional banner and logo (paths under /public), optional featured.
+// url, optional banner and logo (paths under /public), optional note (one
+// short line, e.g. an application deadline), optional featured.
 //
 // Past and upcoming are worked out from the dates at request time, so nothing
 // here needs moving when an event finishes.
@@ -128,7 +129,7 @@ export const LISTINGS = [
   {
     id: "amber-fireside",
     name: "Fireside chat with Amber Winton (NextWork)",
-    category: "community-event",
+    category: "kiwihacks",
     startDate: "2026-11-23",
     time: "5:30pm-7:30pm",
     format: "in-person",
@@ -171,5 +172,20 @@ export const LISTINGS = [
     format: "in-person",
     location: "Auckland",
     url: "https://www.instagram.com/genesiagirls/",
+  },
+  {
+    // From Jane Street's email to sponsored orgs. For women, transgender and
+    // gender-expansive school leavers from NZ, Australia, Korea or Japan who
+    // start university in 2027. Travel and accommodation are covered.
+    id: "jane-street-wise",
+    name: "Jane Street WiSE Program",
+    category: "community-event",
+    startDate: "2027-01-27",
+    endDate: "2027-01-30",
+    format: "in-person",
+    location: "Hong Kong",
+    note: "Applications close 13 December",
+    url: "https://www.janestreet.com/join-jane-street/programs-and-events/wise/",
+    banner: `${BANNERS}/jane-street-wise.jpg`,
   },
 ];

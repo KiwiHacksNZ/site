@@ -24,6 +24,7 @@ const listings = LISTINGS.map(({ banner, logo, ...listing }) => ({
   featured: Boolean(listing.featured),
   url: listing.url ?? null,
   time: listing.time ?? null,
+  note: listing.note ?? null,
   logoUrl: logo ?? null,
   bannerUrl: banner ?? null,
 })).sort((a, b) => a.startDate.localeCompare(b.startDate) || a.name.localeCompare(b.name));

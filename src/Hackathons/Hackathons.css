@@ -371,6 +371,16 @@
   opacity: 0.92;
 }
 
+.hk-card-note {
+  margin-top: -0.25rem;
+  padding: 0.1rem 0.55rem;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 6px;
+  color: var(--hk-ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
 .hk-past .hk-card-link {
   min-height: 170px;
   filter: saturate(0.55);

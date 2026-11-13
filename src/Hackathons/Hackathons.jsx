@@ -105,6 +105,7 @@ function ListingCard({ listing, currentYear, featured = false, past = false }) {
           <span className="hk-card-name">{listing.name}</span>
         </span>
         <span className="hk-card-when">{whereAndWhen(listing, currentYear)}</span>
+        {listing.note ? <span className="hk-card-note">{listing.note}</span> : null}
         {featured ? <span className="hk-card-cta">Find out more</span> : null}
       </Inner>
     </Tag>
