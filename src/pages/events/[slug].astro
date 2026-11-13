@@ -1,0 +1,227 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../Navbar/Navbar.jsx";
+import Footer from "../../App/components/Footer/Footer.jsx";
+import Icon from "../../Events/Icon.astro";
+import { official, formatStart, formatRange, formatShortDay, calendarHref, mapsHref, mapsEmbed } from "../../Events/events.js";
+import { communityEvent, imageUrl } from "../../Events/community.js";
+import { ORG } from "../../org.js";
+import "../../Events/Events.css";
+
+const { slug } = Astro.params;
+const kh = official.find((event) => event.slug === slug);
+const ce = kh ? null : await communityEvent(slug);
+if (!kh && !ce) return Astro.rewrite("/404");
+
+const url = new URL(`/events/${slug}`, "https://kiwihacks.org").href;
+const event = kh ?? {
+  ...ce,
+  start: new Date(ce.startsAt),
+  end: new Date(ce.endsAt),
+  address: ce.venue,
+  venueShort: [ce.venue || ce.city],
+  costShort: "Community event",
+};
+const finished = event.end < new Date();
+const signupHost = ce?.signupUrl && URL.parse(ce.signupUrl)?.hostname.replace(/^www\./, "");
+const signupUrl = kh ? kh.signupUrl : ce.signupUrl;
+const initials = ce?.organiser.split(/\s+/).slice(0, 2).map((word) => word[0]).join("").toUpperCase();
+const reportHref = `mailto:${ORG.email}?subject=${encodeURIComponent(`Report: ${event.title}`)}&body=${encodeURIComponent(url)}`;
+---
+
+<Layout title={`${event.title} | KiwiHacks`} description={event.summary}>
+  <div class="ev">
+    <Navbar client:load />
+
+    <main class="ev-page">
+      <a class="ev-back" href="/hackathons">← All events</a>
+
+      {kh ? (
+        <div class="ev-banner nova">
+          <img class="ev-star" src="/assets/stars.png" alt="" style="top:10%;left:7%;width:120px;rotate:-12deg" />
+          <img class="ev-star" src="/assets/stars.png" alt="" style="bottom:8%;right:8%;width:150px;rotate:30deg" />
+          <img src="/assets/events/nova-logo.png" alt="KiwiHacks Nova" />
+          <span class="mono">{kh.city}</span>
+        </div>
+      ) : (
+        <img class="ev-banner" src={imageUrl(ce.headerImage, 2000)} alt={ce.headerImage.alt ?? ""} />
+      )}
+
+      <div class="ev-layout">
+        <article>
+          <p class="ev-meta">
+            {kh && <span class="ev-badge"><Icon name="check" size={16} color="#132f1e" width={2.5} />Official KiwiHacks event</span>}
+            {ce && <span class="ev-badge" style="background:#fff">{ce.format}</span>}
+            <span class="mono">{formatStart(event.start)}</span>
+          </p>
+          <h1 class="ev-title">{event.title}</h1>
+          <p class="ev-lede">{kh ? kh.lede : ce.summary}</p>
+
+          {kh && !finished && (
+            <div class="ev-notice"><p><b>{kh.notice[0]}</b> {kh.notice[1]}</p></div>
+          )}
+          {ce && (
+            <>
+              <p class="ev-lede" style="font-size:1.05rem">Run by <b>{ce.organiser}</b></p>
+              <div class="ev-notice" style="margin-top:1.75rem">
+                <Icon name="info" size={24} color="#132f1e" />
+                <p>
+                  <b>Community event.</b> This is run by <b>{ce.organiser}</b>, not KiwiHacks. We checked it before
+                  listing it, but sign-ups, supervision and anything on the day are up to the organiser.
+                </p>
+              </div>
+            </>
+          )}
+
+          <section class="ev-block" aria-labelledby="about-h">
+            <h2 id="about-h" class="mono">{kh ? "About" : "About this event"}</h2>
+            {(kh ? kh.about : ce.about.split(/\n\s*\n/)).map((para) => <p>{para}</p>)}
+          </section>
+
+          {kh && (
+            <>
+              <section class="ev-block" aria-labelledby="sched-h">
+                <h2 id="sched-h" class="mono">Schedule</h2>
+                <div class="ev-cols">
+                  {kh.schedule.map(({ day, items }) => (
+                    <div>
+                      <h3>{day}</h3>
+                      <ol class="ev-timeline">
+                        {items.map(([at, what]) => <li><b>{at}</b> · {what}</li>)}
+                      </ol>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              <section class="ev-block" aria-labelledby="bring-h">
+                <h2 id="bring-h" class="mono">What's included, what to bring</h2>
+                <div class="ev-boxes">
+                  <div class="ev-box"><h3>We've got</h3><ul>{kh.provided.map((item) => <li>{item}</li>)}</ul></div>
+                  <div class="ev-box"><h3>You bring</h3><ul>{kh.bring.map((item) => <li>{item}</li>)}</ul></div>
+                </div>
+              </section>
+            </>
+          )}
+
+          {(kh ? kh.photos.length : ce.photos?.length) > 0 && (
+            <section class="ev-block" aria-labelledby="photos-h">
+              <h2 id="photos-h" class="mono">{kh ? `From ${kh.photosFrom}` : "From past events"}</h2>
+              <div class="ev-gallery">
+                {kh
+                  ? kh.photos.map(([src, alt]) => <img src={src} alt={alt} loading="lazy" />)
+                  : ce.photos.flatMap((photo) => {
+                      const src = imageUrl(photo, 800);
+                      return src ? [<img src={src} alt={photo.alt ?? ""} loading="lazy" />] : [];
+                    })}
+              </div>
+              {kh && <a href="/showcase" style="display:inline-block;margin-top:0.9rem;font-weight:600">See what people built →</a>}
+            </section>
+          )}
+
+          {event.address && (
+            <section class="ev-block" aria-labelledby="where-h">
+              <h2 id="where-h" class="mono">Where</h2>
+              <p>{kh ? <><b>{kh.venue}</b><br />{kh.address}</> : ce.venue}</p>
+              <iframe class="ev-map" title={`Map showing ${kh?.venue ?? ce.venue}`} src={mapsEmbed(event.address)} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              {kh ? <p style="font-size:1rem;margin-top:0.75rem">{kh.venueNote}</p> : <a href={mapsHref(event.address)} target="_blank" rel="noreferrer" style="display:inline-block;margin-top:0.75rem;font-weight:600">Open in Google Maps →</a>}
+            </section>
+          )}
+
+          {kh && (
+            <section class="ev-block" aria-labelledby="faq-h">
+              <h2 id="faq-h" class="mono">FAQ</h2>
+              <div class="ev-faq">
+                {kh.faqs.map(([q, a], i) => <details open={i === 0}><summary>{q}</summary><p>{a}</p></details>)}
+              </div>
+            </section>
+          )}
+
+          {ce && (
+            <section class="ev-block ev-organiser" aria-labelledby="org-h">
+              {ce.logo ? <img class="initials" src={imageUrl(ce.logo, 160)} alt="" /> : <div class="initials" aria-hidden="true">{initials}</div>}
+              <div>
+                <h2 id="org-h">Organised by</h2>
+                <p>{ce.organiser}</p>
+              </div>
+              {ce.websiteUrl && <a class="ev-btn outline" href={ce.websiteUrl} target="_blank" rel="noreferrer">Contact the organisers</a>}
+            </section>
+          )}
+        </article>
+
+        <aside class="ev-aside" aria-label="Event details">
+          <dl>
+            <div>
+              <Icon name="calendar" />
+              <div>
+                <dt>When</dt>
+                <dd>{formatRange(event.start, event.end)}</dd>
+                {!finished && <a class="small" href={calendarHref({ title: event.title, start: event.start, end: event.end, location: event.address, url })} download={`${slug}.ics`}>Add to calendar</a>}
+              </div>
+            </div>
+            <div><Icon name="pin" /><div><dt>Where</dt><dd>{event.venueShort.join("\n")}</dd></div></div>
+            <div><Icon name="people" /><div><dt>Who can come</dt><dd>{event.audience}</dd></div></div>
+            <div><Icon name="tag" /><div><dt>Cost</dt><dd>{event.cost}</dd></div></div>
+          </dl>
+
+          {finished ? (
+            <>
+              <a class="ev-btn" href="/discord">Hear about the next one</a>
+              <p class="note">This event has finished.</p>
+            </>
+          ) : (
+            signupUrl && (
+              <>
+                <a class="ev-btn" href={signupUrl} {...(ce && { target: "_blank", rel: "noreferrer" })}>{kh ? "Sign up" : "Sign up on their site ↗"}</a>
+                <p class="note">{kh ? kh.signupNote : signupHost ? `You'll go to ${signupHost}.` : "Opens their sign-up page."}</p>
+              </>
+            )
+          )}
+          {ce?.websiteUrl && <a class="ev-btn outline" href={ce.websiteUrl} target="_blank" rel="noreferrer">Visit their website ↗</a>}
+
+          {kh ? (
+            <>
+              <div class="ev-aside-links stack">
+                {kh.links.map(([label, href]) => <a href={href}>{label} →</a>)}
+              </div>
+              <p style="margin:1rem 0 0;font-size:0.9rem">{kh.contact}</p>
+            </>
+          ) : (
+            <div class="ev-aside-links" style="justify-content:center">
+              <button type="button" data-share={url}>Share</button>
+              <a href={reportHref}>Report this event</a>
+            </div>
+          )}
+        </aside>
+      </div>
+    </main>
+
+    {!finished && signupUrl && (
+      <div class="ev-mobile-cta">
+        <span><b>{event.costShort}</b><br />{formatShortDay(event.start)}</span>
+        <a class="ev-btn" href={signupUrl} {...(ce && { target: "_blank", rel: "noreferrer" })}>{kh ? "Sign up" : "Sign up ↗"}</a>
+      </div>
+    )}
+
+    {kh && !finished && (
+      <section class="ev-section tinted">
+        <div class="tape-divider-container" aria-hidden="true" style="background-image:url(/assets/tape.png)"></div>
+        <p style="font-weight:700;font-size:1.5rem;margin:1rem auto 0">Come to {kh.title.replace("KiwiHacks ", "")}.</p>
+        <p style="font-size:1.5rem;margin:0 auto">Sign up, show up, and give it a go.</p>
+        <a class="ev-btn blue" href={kh.signupUrl} style="margin-top:2rem">Sign up for free</a>
+      </section>
+    )}
+
+  </div>
+  <Footer />
+</Layout>
+
+<script>
+  document.querySelector("[data-share]")?.addEventListener("click", async (e) => {
+    const button = e.currentTarget;
+    const url = button.dataset.share;
+    if (navigator.share) return navigator.share({ url }).catch(() => {});
+    await navigator.clipboard.writeText(url);
+    button.textContent = "Link copied";
+  });
+</script>

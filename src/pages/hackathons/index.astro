@@ -1,0 +1,180 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../Navbar/Navbar.jsx";
+import Footer from "../../App/components/Footer/Footer.jsx";
+import SquiggleLink from "../../App/components/SquiggleLink.jsx";
+import EventCard from "../../Events/EventCard.astro";
+import Icon from "../../Events/Icon.astro";
+import { official, past, formatCardDate, TIME_ZONE } from "../../Events/events.js";
+import { upcomingCommunityEvents, imageUrl } from "../../Events/community.js";
+import "../../Events/Events.css";
+
+const now = new Date();
+const next = official.filter((event) => event.end >= now);
+const finishedOfficial = official.filter((event) => event.end < now);
+const yearInNz = (date) => new Intl.DateTimeFormat("en-NZ", { timeZone: TIME_ZONE, year: "numeric" }).format(date);
+const community = await upcomingCommunityEvents();
+const places = new Set(community.map((event) => event.city).filter((city) => city !== "Online")).size;
+const online = community.some((event) => event.city === "Online");
+const formats = ["In person", "Online", "Hybrid"].filter((format) => community.some((event) => event.format === format));
+---
+
+<Layout title="Events | KiwiHacks">
+  <div class="ev">
+    <Navbar client:load />
+
+    <header class="ev-hero">
+      <img class="ev-star" src="/assets/stars.png" alt="" style="top:14%;left:6%;width:130px;rotate:-10deg" />
+      <img class="ev-star" src="/assets/stars.png" alt="" style="top:9%;right:9%;width:150px;rotate:-40deg" />
+      <img class="ev-star" src="/assets/stars.png" alt="" style="top:52%;left:14%;width:160px;rotate:40deg" />
+      <img class="ev-star" src="/assets/stars.png" alt="" style="top:46%;right:5%;width:140px;rotate:75deg" />
+      <h1 class="mono">Tech events for high schoolers</h1>
+      <p>
+        Hackathons, game jams and workshops we run, plus events other groups run for high schoolers around New
+        Zealand. Ours are free and open to any high school student, 13 to 18.
+      </p>
+      <div class="ev-hero-actions">
+        <a class="ev-btn" href="/discord">Hear about the next one</a>
+        <div class="ev-hero-links">
+          <SquiggleLink client:visible href="#past">See our past events →</SquiggleLink>
+          <SquiggleLink client:visible href="/hackathons/submit">Submit an event →</SquiggleLink>
+        </div>
+      </div>
+    </header>
+
+    <section class="ev-section tinted" aria-labelledby="next">
+      <h2 id="next" class="mono">What's on at KiwiHacks</h2>
+      {next.length === 0 && <p>No hackathons booked right now. New ones are announced in the Discord first.</p>}
+      <ul class="ev-cards">
+        {next.map((event) => (
+          <EventCard
+            when={`${formatCardDate(event.start, event.end)} · ${event.suburb ?? event.city}`}
+            title={event.title}
+            blurb={event.summary}
+            href={`/events/${event.slug}`}
+            cta="Event details"
+            media="nova"
+            format={event.format}
+          >
+            <img src="/assets/events/nova-logo.png" alt="KiwiHacks Nova logo" />
+          </EventCard>
+        ))}
+        <EventCard
+          when="Once a month · 10am to 4pm"
+          title="Community lock-ins"
+          blurb="Come into the office to build projects with your friends. Free pizza. Invites go out in the Discord."
+          href="/discord"
+          cta="Join the Discord"
+          image={["/assets/gallery/DSCF7194.jpg", "KiwiHackers at a community lock-in"]}
+        />
+        <EventCard
+          when="Any time"
+          title="The Discord"
+          blurb="This is where KiwiHackers hang out between events. Ask for help, show people what you're making, and hear about new events first."
+          href="/discord"
+          cta="Join the Discord"
+          media="discord"
+        >
+          <Icon name="chat" size={96} color="#132f1e" width={1.6} />
+        </EventCard>
+      </ul>
+    </section>
+
+    <section id="community-events" class="ev-section" aria-labelledby="comm-h">
+      <h2 id="comm-h" class="mono">Community events</h2>
+      <p>
+        Events for high schoolers run by other groups around New Zealand. We check every one before it goes up, but
+        KiwiHacks doesn't run them.
+      </p>
+      {community.length === 0 ? (
+        <p>Nothing listed right now. Running something? Send it in.</p>
+      ) : (
+        <>
+          <p class="ev-count mono">{community.length} upcoming {community.length === 1 ? "event" : "events"}{places > 0 && ` in ${places} ${places === 1 ? "place" : "places"}`}{online && (places > 0 ? " and online" : ", online")}</p>
+          <div class="ev-filters" role="group" aria-label="Filter community events by format">
+            {["All", ...formats].map((format, i) => (
+              <button type="button" aria-pressed={i === 0 ? "true" : "false"} data-filter={format}>{format}</button>
+            ))}
+          </div>
+          <p id="no-match" hidden>No events match that filter.</p>
+        </>
+      )}
+      <ul class="ev-cards" id="community-list">
+        {community.map((event) => {
+          const start = new Date(event.startsAt);
+          return (
+            <EventCard
+              when={`${formatCardDate(start, new Date(event.endsAt))} · ${event.city}`}
+              title={event.title}
+              blurb={event.summary}
+              meta={`Run by ${event.organiser} · ${event.cost}`}
+              href={`/events/${event.slug}`}
+              cta="See the event"
+              image={[imageUrl(event.headerImage, 600), event.headerImage.alt ?? ""]}
+              format={event.format}
+              logo={event.logo && imageUrl(event.logo, 160)}
+            />
+          );
+        })}
+      </ul>
+      <a class="ev-btn light" href="/hackathons/submit" style="margin-top:2.5rem">Submit your event</a>
+    </section>
+
+    <section id="past" class="ev-section" aria-labelledby="past-h" style="padding-top:5rem">
+      <div class="tape-divider-container" aria-hidden="true" style="background-image:url(/assets/tape.png)"></div>
+      <img class="ev-star" src="/assets/stars.png" alt="" style="top:2rem;right:8%;width:120px;rotate:15deg;opacity:0.8" />
+      <h2 id="past-h" class="mono">Past events</h2>
+      <p>We started with 10 high schoolers in a room in November 2024.</p>
+      <ul class="ev-cards">
+        {finishedOfficial.map((event) => (
+          <EventCard
+            when={`${formatCardDate(event.start, event.end)} ${yearInNz(event.end)}`}
+            title={event.title}
+            blurb={event.summary}
+            href={`/events/${event.slug}`}
+            cta="Event details"
+            media="nova"
+          >
+            <img src="/assets/events/nova-logo.png" alt="KiwiHacks Nova logo" />
+          </EventCard>
+        ))}
+        {past.map((event) =>
+          event.nova ? (
+            <EventCard {...event} media="nova">
+              <img src="/assets/events/nova-logo.png" alt="KiwiHacks Nova logo" />
+            </EventCard>
+          ) : (
+            <EventCard {...event} />
+          ),
+        )}
+      </ul>
+    </section>
+
+    <section class="ev-section tinted">
+      <p style="font-weight:700;font-size:1.5rem;margin:0 auto">Come to the next one.</p>
+      <p style="font-size:1.5rem;margin:0 auto">Sign up, show up, and give it a go.</p>
+      <a class="ev-btn blue" href="/discord" style="margin-top:2rem">Join the Discord</a>
+      <p class="mono" style="font-size:0.9rem;opacity:0.8;margin-top:1.5rem">
+        Free to join. Open to any high school student in New Zealand, 13 to 18.
+      </p>
+    </section>
+
+  </div>
+  <Footer />
+</Layout>
+
+<script>
+  const buttons = document.querySelectorAll("[data-filter]");
+  buttons.forEach((button) =>
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+      buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+      let shown = 0;
+      document.querySelectorAll("#community-list > li").forEach((card) => {
+        card.hidden = filter !== "All" && card.dataset.format !== filter;
+        shown += !card.hidden;
+      });
+      document.getElementById("no-match").hidden = shown > 0;
+    }),
+  );
+</script>
