@@ -11,7 +11,6 @@
   --hk-blue: #36c6fb;
   --hk-sand: #a58f75;
   --hk-online: #1688b8;
-  --hk-hybrid: #c2730e;
   --hk-in-person: #2f7d36;
   --hk-width: min(1100px, calc(100vw - 32px));
 
@@ -67,16 +66,6 @@
 
 .hk-hero h1 span {
   color: var(--hk-blue);
-}
-
-.hk-main .hk-hero p {
-  max-width: 620px;
-  text-align: center;
-  margin: 1.1rem auto 0;
-  color: rgba(255, 255, 255, 0.92);
-  font-size: clamp(1.05rem, 2vw, 1.3rem);
-  line-height: 1.4;
-  text-wrap: balance;
 }
 
 .hk-add-event {
@@ -178,7 +167,6 @@
 }
 
 .hk-filter-online { color: var(--hk-online); }
-.hk-filter-hybrid { color: var(--hk-hybrid); }
 .hk-filter-in-person { color: var(--hk-in-person); }
 
 .hk-filter:hover {
@@ -190,7 +178,6 @@
 }
 
 .hk-filter-online[aria-pressed="true"] { background: var(--hk-online); }
-.hk-filter-hybrid[aria-pressed="true"] { background: var(--hk-hybrid); }
 .hk-filter-in-person[aria-pressed="true"] { background: var(--hk-in-person); }
 
 .hk-filter:focus-visible {
@@ -352,7 +339,6 @@
 }
 
 .hk-badge-online { color: var(--hk-online); }
-.hk-badge-hybrid { color: var(--hk-hybrid); }
 .hk-badge-in-person { color: var(--hk-in-person); }
 
 .hk-card-title {
@@ -381,6 +367,25 @@
 .hk-card-when {
   font-size: 0.98rem;
   opacity: 0.92;
+}
+
+.hk-past .hk-card-link {
+  min-height: 170px;
+  filter: saturate(0.55);
+}
+
+.hk-past .hk-card-link:hover,
+.hk-past .hk-card-link:focus-visible {
+  filter: none;
+}
+
+.hk-past .hk-card-name {
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+}
+
+div.hk-card-link:hover {
+  transform: none;
+  box-shadow: 0 10px 26px rgba(19, 47, 30, 0.18);
 }
 
 .hk-card-featured .hk-card-link {

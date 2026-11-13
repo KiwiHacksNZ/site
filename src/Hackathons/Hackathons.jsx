@@ -26,7 +26,6 @@ const GROUPS = [
 
 const FORMATS = [
   { value: "online", label: "Online" },
-  { value: "hybrid", label: "Hybrid" },
   { value: "in-person", label: "In person" },
 ];
 
@@ -73,23 +72,31 @@ function formatLabel(format) {
 
 function whereAndWhen(listing, currentYear) {
   const dates = formatDateRange(listing.startDate, listing.endDate, currentYear);
+  const when = listing.time ? `${dates}, ${listing.time}` : dates;
   const place = listing.format === "online" ? null : listing.location;
-  return place ? `${dates}: ${place}` : dates;
+  return place ? `${when}: ${place}` : when;
 }
 
-function ListingCard({ listing, currentYear, featured = false }) {
+function ListingCard({ listing, currentYear, featured = false, past = false }) {
   const style = listing.bannerUrl ? { backgroundImage: `url(${listing.bannerUrl})` } : undefined;
   const Tag = featured ? "div" : "li";
+  const className = [
+    "hk-card-link",
+    `hk-card-${listing.category}`,
+    listing.bannerUrl ? "hk-card-has-banner" : null,
+    past ? "hk-card-past" : null,
+  ]
+    .filter(Boolean)
+    .join(" ");
+  // Past events often have no live site any more, so the link is optional.
+  const Inner = listing.url ? "a" : "div";
+  const linkProps = listing.url
+    ? { href: listing.url, target: "_blank", rel: "noopener noreferrer" }
+    : {};
 
   return (
     <Tag className={`hk-card${featured ? " hk-card-featured" : ""}`}>
-      <a
-        href={listing.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`hk-card-link hk-card-${listing.category}${listing.bannerUrl ? " hk-card-has-banner" : ""}`}
-        style={style}
-      >
+      <Inner {...linkProps} className={className} style={style}>
         <span className={`hk-badge hk-badge-${listing.format}`}>{formatLabel(listing.format)}</span>
         <span className="hk-card-title">
           {listing.logoUrl ? (
@@ -99,33 +106,22 @@ function ListingCard({ listing, currentYear, featured = false }) {
         </span>
         <span className="hk-card-when">{whereAndWhen(listing, currentYear)}</span>
         {featured ? <span className="hk-card-cta">Find out more</span> : null}
-      </a>
+      </Inner>
     </Tag>
   );
 }
 
-export default function Hackathons({ listings = [], currentYear = new Date().getFullYear() }) {
+export default function Hackathons({
+  listings = [],
+  pastListings = [],
+  currentYear = new Date().getFullYear(),
+}) {
   const [formatFilter, setFormatFilter] = useState(null);
 
-  const visible = formatFilter
-    ? listings.filter((listing) => listing.format === formatFilter)
-    : listings;
+  const byFormat = (listing) => !formatFilter || listing.format === formatFilter;
+  const visible = listings.filter(byFormat);
+  const visiblePast = pastListings.filter(byFormat);
   const featured = visible.filter((listing) => listing.featured);
-
-  const cities = new Set(
-    listings
-      .filter((listing) => listing.format !== "online" && listing.location)
-      .map((listing) => listing.location.trim().toLowerCase()),
-  );
-  const eventCount = listings.length;
-
-  let summary = "A curated list of hackathons and tech events for New Zealand high schoolers.";
-  if (eventCount > 0) {
-    const eventsText = `${eventCount} ${eventCount === 1 ? "event" : "events"} coming up`;
-    const citiesText =
-      cities.size > 0 ? ` in ${cities.size} ${cities.size === 1 ? "city" : "cities"}` : "";
-    summary = `A curated list of hackathons and tech events for New Zealand high schoolers, with ${eventsText}${citiesText}.`;
-  }
 
   return (
     <>
@@ -141,7 +137,6 @@ export default function Hackathons({ listings = [], currentYear = new Date().get
             <h1 className="display">
               Upcoming High School Hackathons in <span>New Zealand</span>
             </h1>
-            <p>{summary}</p>
           </div>
         </header>
 
@@ -210,6 +205,20 @@ export default function Hackathons({ listings = [], currentYear = new Date().get
             </section>
           );
         })}
+
+        {visiblePast.length > 0 ? (
+          <section className="hk-group hk-past" aria-labelledby="hk-past">
+            <div className="hk-group-heading">
+              <h2 id="hk-past">Past events</h2>
+              <p>What we've run so far.</p>
+            </div>
+            <ul className="hk-grid">
+              {visiblePast.map((listing) => (
+                <ListingCard listing={listing} currentYear={currentYear} past key={listing.id} />
+              ))}
+            </ul>
+          </section>
+        ) : null}
 
         <p className="hk-footnote">
           Running an event high schoolers should know about?{" "}

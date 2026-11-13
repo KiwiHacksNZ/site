@@ -94,7 +94,6 @@ export const HACKATHON_CATEGORIES = [
 
 export const HACKATHON_FORMATS = [
   { title: "In person", value: "in-person" },
-  { title: "Hybrid", value: "hybrid" },
   { title: "Online", value: "online" },
 ];
 
@@ -160,10 +159,17 @@ export const hackathon = defineType({
         ),
     }),
     defineField({
+      name: "time",
+      title: "Time",
+      type: "string",
+      description: 'Optional, e.g. "10am-4pm". Shown after the date.',
+    }),
+    defineField({
       name: "url",
       title: "Event website",
       type: "url",
-      validation: (rule) => rule.required().uri({ scheme: ["http", "https"] }),
+      description: "Where the card links to. Optional for past events whose site is gone.",
+      validation: (rule) => rule.uri({ scheme: ["http", "https"] }),
     }),
     defineField({
       name: "logo",
