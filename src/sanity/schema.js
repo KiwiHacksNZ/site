@@ -86,4 +86,96 @@ export const project = defineType({
   },
 });
 
-export const schemaTypes = [project];
+export const HACKATHON_CATEGORIES = [
+  { title: "KiwiHacks event", value: "kiwihacks" },
+  { title: "Community hackathon", value: "community-hackathon" },
+  { title: "Community event", value: "community-event" },
+];
+
+export const hackathon = defineType({
+  name: "hackathon",
+  title: "Hackathon listing",
+  type: "document",
+  fields: [
+    defineField({
+      name: "name",
+      title: "Event name",
+      type: "string",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "category",
+      title: "Category",
+      type: "string",
+      options: { list: HACKATHON_CATEGORIES, layout: "radio" },
+      initialValue: "community-hackathon",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "startDate",
+      title: "Start date",
+      type: "date",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "endDate",
+      title: "End date",
+      type: "date",
+      description:
+        "Last day of the event. Leave empty for a one-day event. The listing disappears from the site the day after this date (NZ time).",
+      validation: (rule) =>
+        rule.custom((endDate, context) => {
+          const startDate = context.document?.startDate;
+          if (endDate && startDate && endDate < startDate) {
+            return "End date can't be before the start date";
+          }
+          return true;
+        }),
+    }),
+    defineField({
+      name: "online",
+      title: "Online event",
+      type: "boolean",
+      initialValue: false,
+    }),
+    defineField({
+      name: "location",
+      title: "City",
+      type: "string",
+      description: 'e.g. "Auckland". Ignored for online events, which show "Online".',
+      hidden: ({ document }) => Boolean(document?.online),
+      validation: (rule) =>
+        rule.custom((location, context) =>
+          context.document?.online || location ? true : "Add a city, or tick Online event",
+        ),
+    }),
+    defineField({
+      name: "url",
+      title: "Event website",
+      type: "url",
+      validation: (rule) => rule.required().uri({ scheme: ["http", "https"] }),
+    }),
+    defineField({
+      name: "logo",
+      title: "Logo",
+      type: "image",
+      description: "Optional. Square works best.",
+    }),
+  ],
+  orderings: [
+    {
+      title: "Start date",
+      name: "startDateAsc",
+      by: [{ field: "startDate", direction: "asc" }],
+    },
+  ],
+  preview: {
+    select: { title: "name", startDate: "startDate", category: "category", media: "logo" },
+    prepare({ title, startDate, category, media }) {
+      const label = HACKATHON_CATEGORIES.find((c) => c.value === category)?.title;
+      return { title, subtitle: [startDate, label].filter(Boolean).join(" - "), media };
+    },
+  },
+});
+
+export const schemaTypes = [project, hackathon];

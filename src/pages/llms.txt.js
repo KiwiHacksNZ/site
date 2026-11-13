@@ -156,6 +156,7 @@ function buildDocument() {
     `- [Home](${SITE}/)`,
     `- [Discord, where the club lives day to day](${SITE}/discord)`,
     `- [Project showcase](${SITE}/showcase)`,
+    `- [Upcoming hackathons and events](${SITE}/hackathons)`,
     `- [The team](${SITE}/team)`,
     `- [Parents guide](${SITE}/parents-guide)`,
     `- [Code of conduct](${SITE}/code-of-conduct)`,

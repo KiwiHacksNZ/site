@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hackathons from '../Hackathons/Hackathons.jsx';
+import { sanityClient } from '../sanity/client';
+import imageUrlBuilder from '@sanity/image-url';
+
+// Today's date in New Zealand as YYYY-MM-DD. Listings store plain dates, so an
+// event stays up for the whole of its last day here rather than dropping off
+// at midnight UTC (midday in NZ). The page renders per request, so a finished
+// event disappears the next day without a redeploy.
+const today = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Pacific/Auckland',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+}).format(new Date());
+
+let listings = [];
+if (sanityClient) {
+  try {
+    listings = await sanityClient.fetch(
+      `*[_type == "hackathon" && defined(startDate) && coalesce(endDate, startDate) >= $today]
+        | order(startDate asc, name asc){
+        "id": _id,
+        name,
+        category,
+        startDate,
+        "endDate": coalesce(endDate, startDate),
+        location,
+        online,
+        url,
+        logo
+      }`,
+      { today },
+    );
+  } catch (error) {
+    // A Sanity outage should cost an empty list, not a 500.
+    console.error('Failed to load hackathon listings', error);
+  }
+}
+
+const builder = sanityClient ? imageUrlBuilder(sanityClient) : null;
+
+const items = listings.map(({ logo, ...listing }) => ({
+  ...listing,
+  logoUrl: logo ? builder.image(logo).width(160).height(160).fit('crop').auto('format').url() : null,
+}));
+---
+
+<Layout title="Hackathons in New Zealand | KiwiHacks">
+  <Hackathons client:load listings={items} />
+</Layout>

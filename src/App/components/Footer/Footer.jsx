@@ -84,6 +84,7 @@ export default function Footer() {
         <p>Important Links</p>
         <a href="../about">About Us</a>
         <a href="../contact">Contact</a>
+        <a href="../hackathons">Hackathons</a>
         <a href="../code-of-conduct">Code of Conduct</a>
         <a href="../privacy-policy">Privacy Policy</a>
         <a href="../safeguarding">Safeguarding</a>

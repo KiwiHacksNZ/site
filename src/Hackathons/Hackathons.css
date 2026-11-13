@@ -1,0 +1,197 @@
+@font-face {
+  font-family: "ABeeZee";
+  src: url("/fonts/ABeeZee.ttf") format("truetype");
+  font-display: swap;
+}
+
+.hackathons-main {
+  --hackathons-border: #a58f75;
+  --hackathons-ink: #132f1e;
+  --hackathons-accent: #2e522b;
+
+  min-height: calc(100vh - 78px);
+  background: #eae6e2;
+  color: var(--hackathons-ink);
+  padding: 4rem 0 5rem;
+  text-align: left;
+}
+
+.hackathons-header p,
+.hackathons-group p {
+  /* App.css gives every p a 50% width, auto margins and padding. */
+  width: auto;
+  padding: 0;
+}
+
+.hackathons-header,
+.hackathons-group,
+.hackathons-main .hackathons-submit {
+  width: min(960px, calc(100vw - 32px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hackathons-header {
+  margin-bottom: 2.5rem;
+}
+
+.hackathons-header h1 {
+  margin: 0;
+  color: #0d0d0d;
+  font-size: clamp(2.15rem, 5vw, 3.3rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.hackathons-header p {
+  max-width: 640px;
+  margin: 0.9rem 0 0;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.4;
+}
+
+.hackathons-group {
+  margin-bottom: 2.5rem;
+}
+
+.hackathons-group-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  padding-bottom: 0.6rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--hackathons-border);
+}
+
+.hackathons-group-heading h2 {
+  margin: 0;
+  color: #0d0d0d;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 600;
+}
+
+.hackathons-group-heading p {
+  margin: 0;
+  opacity: 0.75;
+}
+
+.hackathons-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hackathons-card a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.45);
+  border: 4px solid var(--hackathons-border);
+  border-radius: 20px;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(19, 47, 30, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hackathons-card a:hover,
+.hackathons-card a:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(19, 47, 30, 0.18);
+}
+
+.hackathons-card a:focus-visible {
+  outline: 3px solid var(--hackathons-accent);
+  outline-offset: 3px;
+}
+
+.hackathons-card-logo {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #fff;
+}
+
+.hackathons-card-logo-fallback {
+  display: grid;
+  place-items: center;
+  background: var(--hackathons-accent);
+  color: #fff;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.hackathons-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.hackathons-card-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.hackathons-card-external {
+  margin-left: 0.45rem;
+  font-size: 0.75em;
+  opacity: 0.6;
+  vertical-align: baseline;
+}
+
+.hackathons-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  font-size: 0.95rem;
+}
+
+.hackathons-card-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hackathons-card-meta svg {
+  color: var(--hackathons-accent);
+}
+
+.hackathons-empty {
+  margin: 0;
+  padding: 1.25rem;
+  border: 3px dashed var(--hackathons-border);
+  border-radius: 20px;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.hackathons-main .hackathons-submit {
+  margin-top: 3rem;
+}
+
+.hackathons-submit a {
+  color: var(--hackathons-accent);
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .hackathons-main {
+    padding-top: 2.5rem;
+  }
+
+  .hackathons-card-logo {
+    width: 52px;
+    height: 52px;
+  }
+}

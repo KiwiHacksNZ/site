@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "hackathons.kiwihacks.com" }],
+      "destination": "https://www.kiwihacks.com/hackathons",
+      "permanent": false
+    }
+  ]
+}
