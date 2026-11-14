@@ -1,4 +1,4 @@
-import "./Next.css";
+import "./WhatsNext.css";
 import SquiggleLink from "../SquiggleLink";
 
 const items = [
@@ -22,21 +22,21 @@ const items = [
   },
 ];
 
-export default function Next() {
+export default function WhatsNext() {
   return (
-    <section id="next" className="next">
+    <section id="whats-next" className="whats-next">
       <h2 className="mono">What&apos;s next</h2>
-      <p className="next-lede">
+      <p className="whats-next-lede">
         Our last event, KiwiHacks Nova, wrapped up in October 2026. Here&apos;s
         what&apos;s coming up.
       </p>
 
-      <ul className="next-grid">
+      <ul className="whats-next-grid">
         {items.map((item) => (
-          <li key={item.title} className="next-card">
+          <li key={item.title} className="whats-next-card">
             <h3>{item.title}</h3>
             <p>{item.body}</p>
-            <SquiggleLink className="next-link" href={item.href}>
+            <SquiggleLink className="whats-next-link" href={item.href}>
               {item.linkText} &rarr;
             </SquiggleLink>
           </li>

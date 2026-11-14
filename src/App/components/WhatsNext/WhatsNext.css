@@ -1,14 +1,14 @@
-.next {
+.whats-next {
   padding: 4rem 1.5rem;
 }
 
-.next h2 {
+.whats-next h2 {
   font-size: 2.6rem;
   margin: 0;
   color: var(--very-dark-green);
 }
 
-.next-lede {
+.whats-next-lede {
   text-align: center !important;
   width: auto !important;
   max-width: 60ch;
@@ -16,7 +16,7 @@
   font-size: 1.2rem;
 }
 
-.next-grid {
+.whats-next-grid {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -26,7 +26,7 @@
   padding: 0;
 }
 
-.next-card {
+.whats-next-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -37,13 +37,13 @@
   border-radius: 15px;
 }
 
-.next-card h3 {
+.whats-next-card h3 {
   margin: 0;
   font-size: 1.3rem;
   color: var(--very-dark-green);
 }
 
-.next-card p {
+.whats-next-card p {
   width: auto !important;
   padding: 0.6rem 0 0 !important;
   margin: 0 !important;
@@ -51,18 +51,18 @@
   flex: 1;
 }
 
-.next-link {
+.whats-next-link {
   margin-top: 1rem;
   color: var(--dark-green);
   font-weight: 600;
 }
 
 @media screen and (max-width: 768px) {
-  .next {
+  .whats-next {
     padding: 2.5rem 1.5rem;
   }
 
-  .next h2 {
+  .whats-next h2 {
     font-size: 2rem;
   }
 }
