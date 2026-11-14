@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import "./Showcase.css";
 import Navbar from "../Navbar/Navbar";
+import Footer from "../App/components/Footer/Footer";
 import {
   FaArrowUpRightFromSquare,
   FaChevronLeft,
@@ -169,6 +170,7 @@ export default function Showcase({ projects = [] }) {
           </section>
         ) : null}
       </main>
+      <Footer />
     </>
   );
 }

@@ -1,0 +1,68 @@
+.next {
+  padding: 4rem 1.5rem;
+}
+
+.next h2 {
+  font-size: 2.6rem;
+  margin: 0;
+  color: var(--very-dark-green);
+}
+
+.next-lede {
+  text-align: center !important;
+  width: auto !important;
+  max-width: 60ch;
+  margin: 1rem auto 2.5rem;
+  font-size: 1.2rem;
+}
+
+.next-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.next-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 1.75rem;
+  background: #fff;
+  border: 1.5px dashed var(--dark-green);
+  border-radius: 15px;
+}
+
+.next-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--very-dark-green);
+}
+
+.next-card p {
+  width: auto !important;
+  padding: 0.6rem 0 0 !important;
+  margin: 0 !important;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.next-link {
+  margin-top: 1rem;
+  color: var(--dark-green);
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .next {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .next h2 {
+    font-size: 2rem;
+  }
+}

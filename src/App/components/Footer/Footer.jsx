@@ -29,8 +29,10 @@ export default function Footer() {
           Built with ❤️ by teens, for teens.
         </p>
         <p className="footer-text-piece footer-legal">
-          A New Zealand non-profit incorporated society · NZBN {ORG.nzbn} ·
-          Society no. {ORG.societyNumber}
+          <a href="/about">
+            A New Zealand non-profit incorporated society
+          </a>{" "}
+          · NZBN {ORG.nzbn} · Society no. {ORG.societyNumber}
         </p>
         <p className="footer-text-piece footer-legal">
           {ORG.address.join(", ")} ·{" "}

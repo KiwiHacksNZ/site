@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Projects from "./components/Projects/Projects";
 import About from "./components/About/About";
+import Next from "./components/Next/Next";
 import Nova from "./components/Nova/Nova";
 import Benefits from "./components/Benefits/Benefits";
 import FAQ from "./components/FAQ/FAQ";
@@ -52,6 +53,7 @@ export default function App({ projects = [] }) {
 
       <main>
         <Hero />
+        <Next />
         <Nova />
         <About />
         <Projects projects={projects} />
