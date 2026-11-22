@@ -1,7 +1,10 @@
 import "./CTA.css";
 import SquiggleLink from "../SquiggleLink";
 
-export default function CTA() {
+export default function CTA({
+  secondaryHref = "#nova",
+  secondaryLabel = "See our last event",
+}) {
   return (
     <section id="cta" className="cta">
       <p className="boldp">Come to the next one.</p>
@@ -10,8 +13,8 @@ export default function CTA() {
         <a href="/discord" className="nova-sign-up-link nova-last-button">
           Join the Discord
         </a>
-        <SquiggleLink href="#nova" className="cta-secondary">
-          See our last event &rarr;
+        <SquiggleLink href={secondaryHref} className="cta-secondary">
+          {secondaryLabel} &rarr;
         </SquiggleLink>
       </div>
       <p className="mono cta-fineprint">

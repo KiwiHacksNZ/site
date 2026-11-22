@@ -32,6 +32,9 @@ export default defineConfig({
   output: "server",
   adapter: vercel(),
   redirects: {
+    "/hackathons": "/events",
+    // TODO: swap in the real Fillout form URL before merging.
+    "/submit-event": "https://kiwihacks.fillout.com/community-event",
     "/discord": "https://discord.gg/SNdNUQ4Vp7",
     "/chat": "https://discord.gg/SNdNUQ4Vp7",
     "/community": "https://discord.gg/SNdNUQ4Vp7",

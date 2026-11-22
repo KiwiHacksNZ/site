@@ -1,6 +1,6 @@
 import schemaData from "./schema.json";
 
-export const SITE = "https://kiwihacks.org";
+export const SITE = "https://www.kiwihacks.com";
 
 const DEFAULT_TITLE = "KiwiHacks - New Zealand's High School Hackathon Club";
 const DEFAULT_DESCRIPTION =
@@ -26,6 +26,10 @@ const PAGES = {
   "/showcase": {
     description:
       "Projects built by New Zealand high schoolers at KiwiHacks hackathons. Apps, games, websites and hardware, most of them made in a single weekend.",
+  },
+  "/events": {
+    description:
+      "Free hackathons, game jams and workshops for New Zealand high schoolers, run by KiwiHacks, plus community tech events run by other groups.",
   },
   "/code-of-conduct": {
     description:

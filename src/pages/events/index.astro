@@ -1,0 +1,82 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../Navbar/Navbar.jsx";
+import Footer from "../../App/components/Footer/Footer.jsx";
+import CTA from "../../App/components/CTA/CTA.jsx";
+import SquiggleLink from "../../App/components/SquiggleLink.jsx";
+import EventList, { GRID_MAX } from "../../Events/EventList.jsx";
+import { kiwihacksEvents, communityEvents, formatCardDate, imageUrl } from "../../Events/events.js";
+import "../../App/components/Projects/Projects.css";
+import "../../Events/Events.css";
+
+const [ours, community] = await Promise.all([kiwihacksEvents(), communityEvents()]);
+
+// Plain data for the cards, so no Sanity code ships to the browser.
+const card = (event, { past = false } = {}) => ({
+  id: event._id,
+  title: event.title,
+  summary: event.summary,
+  url: event.url,
+  imageSrc: imageUrl(event.image, 800),
+  imageAlt: event.image.alt ?? "",
+  cta: past ? "See the event" : "Find out more",
+  when: [
+    past ? formatCardDate(event.startsAt, event.endsAt, { year: true }) : formatCardDate(event.startsAt, event.endsAt),
+    !past && event.city,
+    event.organiser && `Run by ${event.organiser}`,
+    event.cost,
+  ]
+    .filter(Boolean)
+    .join(" · "),
+});
+const upcoming = ours.upcoming.map((event) => card(event));
+const past = ours.past.map((event) => card(event, { past: true }));
+const theirs = community.map((event) => card(event));
+
+// Rows that drift alternate direction down the page.
+const drifting = [upcoming, past, theirs].filter((list) => list.length > GRID_MAX);
+const reverse = (list) => drifting.indexOf(list) % 2 === 1;
+---
+
+<Layout title="Events | KiwiHacks">
+  <Navbar client:load />
+
+  <main>
+    <section class="projects" aria-labelledby="next">
+      <h1 id="next" class="mono events-h1">What's on</h1>
+      <p class="projects-lede">
+        {ours.upcoming.length === 0 && "No hackathons booked right now. "}
+        New events are announced in the <a href="/discord">Discord</a> first. We also run a lock-in at the office
+        once a month: build things with your friends, eat free pizza.
+      </p>
+      {upcoming.length > 0 && <EventList client:visible events={upcoming} reverse={reverse(upcoming)} label="Upcoming KiwiHacks events" />}
+    </section>
+
+    {ours.past.length > 0 && (
+      <section id="past" class="projects" aria-labelledby="past-h">
+        <h2 id="past-h" class="mono">Past events</h2>
+        <p class="projects-lede">We started with 10 high schoolers in a room in November 2024.</p>
+        <EventList client:visible events={past} reverse={reverse(past)} label="Past KiwiHacks events" />
+        <SquiggleLink client:visible className="projects-more" href="/showcase">
+          See what people built &rarr;
+        </SquiggleLink>
+      </section>
+    )}
+
+    <section class="projects" aria-labelledby="community">
+      <h2 id="community" class="mono">Community events</h2>
+      <p class="projects-lede">
+        Run by other groups for high schoolers, not by KiwiHacks. We check each one before it goes up.
+        {community.length === 0 && " Nothing listed right now."}
+      </p>
+      {theirs.length > 0 && <EventList client:visible events={theirs} reverse={reverse(theirs)} label="Community events" />}
+      <SquiggleLink client:visible className="projects-more" href="/submit-event">
+        Submit your event &rarr;
+      </SquiggleLink>
+    </section>
+
+    <CTA secondaryHref="#past" secondaryLabel="See our past events" />
+  </main>
+
+  <Footer />
+</Layout>

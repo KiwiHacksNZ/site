@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://kiwihacks.org/sitemap.xml
+Sitemap: https://www.kiwihacks.com/sitemap.xml
