@@ -10,12 +10,36 @@
   font-weight: 600;
 }
 
+/* What's on: a tinted band at the top, the same tint as the closing CTA. */
+.events-banner {
+  background-color: rgba(118, 176, 112, 0.15);
+  padding-bottom: 3.5rem;
+}
+
+/* Sit the band right under the navbar instead of after its usual gap. */
+body:has(.events-banner) .navbar {
+  margin-bottom: 0;
+}
+
+.events-banner .projects-lede {
+  margin-bottom: 0;
+}
+
+.events-banner .project-grid,
+.events-banner .events-row {
+  margin-top: 2.5rem;
+}
+
+.events-banner .projects-more {
+  margin-top: 1.75rem;
+}
+
 .projects + .projects {
   padding-top: 1.5rem;
 }
 
-.projects-lede:last-child {
-  margin-bottom: 0;
+.events-banner + .projects {
+  padding-top: 4rem;
 }
 
 @media screen and (max-width: 768px) {

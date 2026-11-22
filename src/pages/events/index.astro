@@ -42,7 +42,7 @@ const reverse = (list) => drifting.indexOf(list) % 2 === 1;
   <Navbar client:load />
 
   <main>
-    <section class="projects" aria-labelledby="next">
+    <section class="projects events-banner" aria-labelledby="next">
       <h1 id="next" class="mono events-h1">What's on</h1>
       <p class="projects-lede">
         {ours.upcoming.length === 0 && "No hackathons booked right now. "}
@@ -50,6 +50,9 @@ const reverse = (list) => drifting.indexOf(list) % 2 === 1;
         once a month: build things with your friends, eat free pizza.
       </p>
       {upcoming.length > 0 && <EventList client:visible events={upcoming} reverse={reverse(upcoming)} label="Upcoming KiwiHacks events" />}
+      <SquiggleLink client:visible className="projects-more" href="/discord">
+        Hear about the next one &rarr;
+      </SquiggleLink>
     </section>
 
     {ours.past.length > 0 && (
