@@ -50,7 +50,7 @@ export const teamMembers = [
         label: "Sebastian on GitHub",
       },
     ],
-    bio: "I'm a 15 year old student from Pakuranga College helping out with the website and technical infrastructure for KiwiHacks. I'm passionate about technology, AV, and building cool systems that make events run smoothly. I'm excited to help bring KiwiHacks to life and see the amazing projects people create during the hackathon!",
+    bio: "I'm a 16 year old student from Pakuranga College helping out with the website and technical infrastructure for KiwiHacks. I'm passionate about technology, AV, and building cool systems that make events run smoothly. I'm excited to help bring KiwiHacks to life and see the amazing projects people create during the hackathon!",
   },
   {
     name: "Josh Palmer",
