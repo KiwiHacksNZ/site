@@ -5,7 +5,7 @@ import schema from "../SEO/schema.json";
 
 export const prerender = false;
 
-const SITE = "https://kiwihacks.org";
+const SITE = "https://www.kiwihacks.com";
 
 // Everything below is derived from the same data the pages render, so this file
 // cannot quietly drift out of date the way a hand-maintained copy would.
@@ -77,7 +77,7 @@ function buildDocument() {
     "> high school students aged 13 to 18, and everything is organised by high",
     "> schoolers. Attending is free, and no prior experience is needed.",
     "",
-    "This file is a plain-text summary of kiwihacks.org for language models and",
+    "This file is a plain-text summary of www.kiwihacks.com for language models and",
     "other automated readers. It is generated from the same data the website",
     "renders, so it stays in step with the pages.",
     "",

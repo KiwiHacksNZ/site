@@ -3,7 +3,7 @@
   "@graph": [
     {
       "@type": "NGO",
-      "@id": "https://kiwihacks.org/#org",
+      "@id": "https://www.kiwihacks.com/#org",
       "name": "KiwiHacks",
       "legalName": "KiwiHacks Incorporated",
       "description": "KiwiHacks is a New Zealand non-profit, run by high schoolers, that runs free hackathons for high school students aged 13 to 18.",
@@ -14,7 +14,7 @@
         "propertyID": "NZBN",
         "value": "9429053360274"
       },
-      "url": "https://kiwihacks.org/",
+      "url": "https://www.kiwihacks.com/",
       "email": "team@kiwihacks.org",
       "address": {
         "@type": "PostalAddress",
@@ -29,19 +29,19 @@
         "contactType": "general enquiries",
         "email": "team@kiwihacks.org"
       },
-      "logo": "https://kiwihacks.org/favicon/android-chrome-512x512.png",
+      "logo": "https://www.kiwihacks.com/favicon/android-chrome-512x512.png",
       "sameAs": [
         "https://www.instagram.com/kiwihacks/",
         "https://nz.linkedin.com/company/kiwihacks",
         "https://github.com/orgs/KiwiHacksNZ",
-        "https://kiwihacks.org/discord"
+        "https://www.kiwihacks.com/discord"
       ],
       "founder": [
         {
           "@type": "Person",
           "name": "Niko Purdie",
           "jobTitle": "Chief KiwiHacker",
-          "image": "https://kiwihacks.org/assets/People/niko.jpg",
+          "image": "https://www.kiwihacks.com/assets/People/niko.jpg",
           "sameAs": [
             "https://github.com/N1k0s1",
             "https://www.linkedin.com/in/nikopurdie?originalSubdomain=nz",
@@ -52,7 +52,7 @@
           "@type": "Person",
           "name": "Sebastian Johnson",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/assets/People/sebastian.jpg",
+          "image": "https://www.kiwihacks.com/assets/People/sebastian.jpg",
           "sameAs": [
             "https://github.com/pakkid",
             "https://instagram.com/le_snakey",
@@ -63,7 +63,7 @@
           "@type": "Person",
           "name": "Kyle Bendall",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/assets/People/kyle.jpg",
+          "image": "https://www.kiwihacks.com/assets/People/kyle.jpg",
           "sameAs": [
             "https://gitlab.com/dekoder-py",
             "https://github.com/Dekoder-py",
@@ -74,7 +74,7 @@
           "@type": "Person",
           "name": "Josh Palmer",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/assets/People/josh.jpg",
+          "image": "https://www.kiwihacks.com/assets/People/josh.jpg",
           "sameAs": [
             "https://gitlab.com/castawhat",
             "https://github.com/heycastawhat",
@@ -85,7 +85,7 @@
           "@type": "Person",
           "name": "Audrey Shi",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/assets/People/audrey.jpg",
+          "image": "https://www.kiwihacks.com/assets/People/audrey.jpg",
           "sameAs": [
             "https://www.linkedin.com/in/audrey-shi-0657213b4/"
           ]
@@ -94,7 +94,7 @@
           "@type": "Person",
           "name": "Christie Berenshteyn",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/assets/People/christie.jpg",
+          "image": "https://www.kiwihacks.com/assets/People/christie.jpg",
           "sameAs": [
             "https://github.com/Christie125"
           ]
@@ -103,13 +103,13 @@
           "@type": "Person",
           "name": "Maggie Berenshteyn",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/assets/People/maggie.jpg"
+          "image": "https://www.kiwihacks.com/assets/People/maggie.jpg"
         },
         {
           "@type": "Person",
           "name": "Kiera Langridge",
           "jobTitle": "Organiser",
-          "image": "https://kiwihacks.org/assets/People/kiera.jpg",
+          "image": "https://www.kiwihacks.com/assets/People/kiera.jpg",
           "sameAs": [
             "https://www.linkedin.com/in/kiera-langridge-459098322/"
           ]
@@ -132,12 +132,12 @@
           "addressCountry": "NZ"
         }
       },
-      "image": "https://kiwihacks.org/kiwihacksimage.jpg",
+      "image": "https://www.kiwihacks.com/kiwihacksimage.jpg",
       "description": "KiwiHacks Nova is a free hackathon for teenage coders and innovators that was held in Wellington.",
       "organizer": {
         "@type": "Organization",
         "name": "KiwiHacks",
-        "url": "https://kiwihacks.org/"
+        "url": "https://www.kiwihacks.com/"
       }
     },
     {
@@ -156,12 +156,12 @@
           "addressCountry": "NZ"
         }
       },
-      "image": "https://kiwihacks.org/kiwihacksimage.jpg",
+      "image": "https://www.kiwihacks.com/kiwihacksimage.jpg",
       "description": "KiwiHacks Nova is a free hackathon for teenage coders and innovators that was held in Christchurch.",
       "organizer": {
         "@type": "Organization",
         "name": "KiwiHacks",
-        "url": "https://kiwihacks.org/"
+        "url": "https://www.kiwihacks.com/"
       }
     },
     {
@@ -180,27 +180,27 @@
           "addressCountry": "NZ"
         }
       },
-      "image": "https://kiwihacks.org/kiwihacksimage.jpg",
+      "image": "https://www.kiwihacks.com/kiwihacksimage.jpg",
       "description": "KiwiHacks Nova is a free hackathon for teenage coders and innovators that was held at MIT Marae in Manukau, Auckland.",
       "organizer": {
         "@type": "Organization",
         "name": "KiwiHacks",
-        "url": "https://kiwihacks.org/"
+        "url": "https://www.kiwihacks.com/"
       }
     },
     {
       "@type": "WebSite",
-      "@id": "https://kiwihacks.org/#website",
-      "url": "https://kiwihacks.org/",
+      "@id": "https://www.kiwihacks.com/#website",
+      "url": "https://www.kiwihacks.com/",
       "name": "KiwiHacks"
     },
     {
       "@type": "WebPage",
-      "@id": "https://kiwihacks.org/#webpage",
-      "url": "https://kiwihacks.org/",
+      "@id": "https://www.kiwihacks.com/#webpage",
+      "url": "https://www.kiwihacks.com/",
       "name": "KiwiHacks",
       "mainEntity": {
-        "@id": "https://kiwihacks.org/#org"
+        "@id": "https://www.kiwihacks.com/#org"
       }
     }
   ]

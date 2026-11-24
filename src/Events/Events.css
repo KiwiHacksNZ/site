@@ -1,0 +1,69 @@
+/* /events reuses the homepage's project section (Projects.css). */
+.events-h1 {
+  font-size: 2.6rem;
+  margin: 0;
+  color: var(--very-dark-green);
+}
+
+.projects-lede a {
+  color: var(--dark-green);
+  font-weight: 600;
+}
+
+/* What's on: a tinted band at the top, the same tint as the closing CTA. */
+.events-banner {
+  background-color: rgba(118, 176, 112, 0.15);
+  padding-bottom: 3.5rem;
+}
+
+/* Sit the band right under the navbar instead of after its usual gap. */
+body:has(.events-banner) .navbar {
+  margin-bottom: 0;
+}
+
+.events-banner .projects-lede {
+  margin-bottom: 0;
+}
+
+.events-banner .project-grid,
+.events-banner .events-row {
+  margin-top: 2.5rem;
+}
+
+.events-banner .projects-more {
+  margin-top: 1.75rem;
+}
+
+.projects + .projects {
+  padding-top: 1.5rem;
+}
+
+.events-banner + .projects {
+  padding-top: 4rem;
+}
+
+@media screen and (max-width: 768px) {
+  .events-h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Sideways row for sections with lots of events (EventList.jsx). It runs to
+   the screen edges so cards visibly carry on off-screen. */
+.events-row {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0 -1.5rem;
+  padding: 0.5rem 1.5rem 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.events-row::-webkit-scrollbar {
+  display: none;
+}
+
+.events-row .project-card {
+  flex: 0 0 min(320px, 80vw);
+}

@@ -21,7 +21,7 @@ export default function ForkPreviewPage({ children }) {
           <button type="button" onClick={() => setHasEntered(true)}>
             Enter this fork
           </button>
-          <a href="https://kiwihacks.org/" rel="noreferrer">
+          <a href="https://www.kiwihacks.com/" rel="noreferrer">
             Go to official site
           </a>
         </div>

@@ -17,7 +17,7 @@ bun run build
 
 ## Content (Sanity)
 
-Showcase projects live in Sanity. Create `.env` with:
+Showcase projects and community events live in Sanity. Create `.env` with:
 
 ```bash
 PUBLIC_SANITY_PROJECT_ID=your-project-id
@@ -30,3 +30,7 @@ which the Studio bundle needs.
 Set the same two vars in Vercel. Edit content at `/studio` (locally
 `http://localhost:4321/studio`), and add both origins under
 Sanity → API → CORS origins with credentials allowed.
+
+Community events on `/events` come from the **Event** type in
+Studio. Organisers request a listing through the Fillout form at
+`/submit-event`; a developer checks the request and adds it in Studio.
