@@ -478,3 +478,15 @@
     white-space: normal;
   }
 }
+
+.showcase-stories-link {
+  width: min(1220px, 92vw);
+  margin: 2.5rem auto 0;
+  text-align: center;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+}
+
+.showcase-stories-link a {
+  color: var(--dark-green);
+  font-weight: 700;
+}

@@ -1,0 +1,231 @@
+/* Matches the showcase look: warm paper background, thick brown card borders. */
+
+.stories-main,
+.story-page {
+  min-height: calc(100vh - 78px);
+  background: #eae6e2;
+  color: var(--very-dark-green);
+  padding: 3rem 0 4rem;
+}
+
+/* The global stylesheets centre text, set every p to 50% width with padding,
+   and on phones force p to 90% width with !important. Stories read better as
+   normal left-aligned text, so undo that here (the !important is needed to
+   beat the global phone rule). */
+.stories-main,
+.story-page {
+  text-align: left;
+}
+
+.stories-main p,
+.story-page p {
+  width: auto !important;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.story-body p {
+  margin-bottom: 1rem;
+}
+
+/* Top-level paragraphs on the list page keep the page column width. */
+.stories-main > .stories-intro,
+.stories-main > .stories-empty {
+  width: min(1220px, 92vw) !important;
+  margin-bottom: 2rem;
+}
+
+.stories-main > *,
+.story-page > * {
+  width: min(1220px, 92vw);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* The story page is one readable column: header, cover and body share a width. */
+.story-page > * {
+  width: min(760px, 92vw);
+}
+
+.stories-heading {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #0d0d0d;
+  font-size: clamp(2.15rem, 5vw, 3.3rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.stories-intro,
+.stories-empty {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.4;
+}
+
+/* One column on phones, more as the screen widens. */
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 1.5rem;
+}
+
+.story-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 0;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.3);
+  border: 7px solid #a58f75;
+  border-radius: 24px;
+  box-shadow: 0 10px 24px rgba(19, 47, 30, 0.12);
+}
+
+.story-card-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.story-card-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.story-card-title a {
+  color: #0d0d0d;
+  text-decoration: none;
+}
+
+/* The title link covers the whole card, so clicking the image, summary or
+   tags opens the story too. */
+.story-card-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 17px;
+}
+
+.story-card:hover .story-card-title a,
+.story-card-title a:focus-visible {
+  text-decoration: underline;
+}
+
+.story-card-title a:focus-visible {
+  outline: none;
+}
+
+.story-card:has(a:focus-visible) {
+  outline: 3px solid var(--dark-green);
+  outline-offset: 3px;
+}
+
+.story-card-summary {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.story-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.story-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.story-tag {
+  padding: 0.2rem 0.7rem;
+  background: var(--dark-green);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.story-details {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* Story page */
+
+.story-page-header {
+  margin-bottom: 1.5rem;
+}
+
+.story-page-title {
+  margin: 0 0 1rem;
+  color: #0d0d0d;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.story-page-header .story-meta {
+  margin-top: 0;
+}
+
+.story-cover,
+.story-figure {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.story-figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.story-cover img,
+.story-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
+.story-cover figcaption,
+.story-figure figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.story-body {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.story-body h2,
+.story-body h3 {
+  margin: 2rem 0 0.6rem;
+  line-height: 1.2;
+}
+
+.story-body blockquote {
+  margin: 1.5rem 0;
+  padding: 0.2rem 0 0.2rem 1rem;
+  border-left: 5px solid #a58f75;
+  font-style: italic;
+}
+
+.story-body a {
+  color: var(--dark-green);
+}
+

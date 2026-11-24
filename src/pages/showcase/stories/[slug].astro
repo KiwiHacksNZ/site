@@ -1,0 +1,16 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../Navbar/Navbar.jsx';
+import Footer from '../../../App/components/Footer/Footer.jsx';
+import StoryPage from '../../../Stories/StoryPage.jsx';
+import { fetchStory } from '../../../sanity/stories';
+
+const story = await fetchStory(Astro.params.slug);
+if (!story) return Astro.rewrite("/404");
+---
+
+<Layout title={`${story.title} | KiwiHacks`} description={story.summary}>
+  <Navbar client:load />
+  <StoryPage story={story} />
+  <Footer />
+</Layout>

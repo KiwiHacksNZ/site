@@ -7,11 +7,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "lint": "eslint .",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test": "vitest run"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.1",
     "@astrojs/vercel": "^11.0.2",
+    "@portabletext/react": "^8.0.1",
     "@sanity/astro": "^3.5.0",
     "@sanity/client": "^7.26.0",
     "@sanity/image-url": "^2.1.1",
@@ -35,6 +37,8 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
-    "vite": "^7.2.4"
+    "groq-js": "^2.0.3",
+    "vite": "^7.2.4",
+    "vitest": "^5.1.1"
   }
 }

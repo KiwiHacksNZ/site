@@ -50,7 +50,7 @@ export default function Footer() {
       </div>
       <div className="footer-links">
         <a
-          href="../discord"
+          href="/discord"
           target="_blank"
           className="footer-link"
           aria-label="Discord"
@@ -84,12 +84,12 @@ export default function Footer() {
       </div>
       <div className="footer-important-links">
         <p>Important Links</p>
-        <a href="../about">About Us</a>
-        <a href="../contact">Contact</a>
-        <a href="../code-of-conduct">Code of Conduct</a>
-        <a href="../privacy-policy">Privacy Policy</a>
-        <a href="../safeguarding">Safeguarding</a>
-        <a href="../status">Status</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact</a>
+        <a href="/code-of-conduct">Code of Conduct</a>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/safeguarding">Safeguarding</a>
+        <a href="/status">Status</a>
         <a href="/llms.txt" title="Plain-text summary of this site for language models">
           llms.txt
         </a>

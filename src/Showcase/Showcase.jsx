@@ -169,6 +169,10 @@ export default function Showcase({ projects = [] }) {
             </div>
           </section>
         ) : null}
+
+        <section className="showcase-stories-link">
+          <a href="/showcase/stories">Read the stories of the people behind the projects</a>
+        </section>
       </main>
       <Footer />
     </>

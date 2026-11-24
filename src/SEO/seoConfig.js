@@ -27,6 +27,10 @@ const PAGES = {
     description:
       "Projects built by New Zealand high schoolers at KiwiHacks hackathons. Apps, games, websites and hardware, most of them made in a single weekend.",
   },
+  "/showcase/stories": {
+    description:
+      "Stories of New Zealand high schoolers who build things with tech: what they made, how they got there, and what they learned along the way.",
+  },
   "/code-of-conduct": {
     description:
       "The code of conduct every KiwiHacks attendee, mentor and organiser agrees to. How we keep our hackathons safe and welcoming.",

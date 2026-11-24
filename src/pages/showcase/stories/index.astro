@@ -1,0 +1,15 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../Navbar/Navbar.jsx';
+import Footer from '../../../App/components/Footer/Footer.jsx';
+import Stories from '../../../Stories/Stories.jsx';
+import { fetchStories } from '../../../sanity/stories';
+
+const stories = await fetchStories();
+---
+
+<Layout title="Stories | KiwiHacks">
+  <Navbar client:load />
+  <Stories stories={stories} />
+  <Footer />
+</Layout>
