@@ -22,7 +22,7 @@ export default function Navbar() {
 
       <div className={`nav-links ${isOpen ? "open" : ""}`}>
         <a href="../" className="nav-link" onClick={close}>Home</a>
-        <a href="../#nova" className="nav-link" onClick={close}>Events</a>
+        <a href="/hackathons" className="nav-link" onClick={close}>Events</a>
         <a href="../about" className="nav-link" onClick={close}>About</a>
         <a href="../#community" className="nav-link" onClick={close}>Community</a>
         <a href="../#faq" className="nav-link" onClick={close}>FAQ</a>

@@ -1,0 +1,256 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../Navbar/Navbar.jsx";
+import Footer from "../../App/components/Footer/Footer.jsx";
+import { ORG } from "../../org.js";
+import "../../Events/Events.css";
+
+import { EVENT_TYPES, FORMATS, CITIES } from "../../Events/options.js";
+---
+
+<Layout title="Submit an event | KiwiHacks" description="Running a tech event for high schoolers in New Zealand? Submit it to the KiwiHacks community events list.">
+  <div class="ev">
+    <Navbar client:load />
+
+    <header class="ev-hero" style="padding-bottom:3rem">
+      <img class="ev-star" src="/assets/stars.png" alt="" style="top:18%;left:8%;width:130px;rotate:-10deg" />
+      <img class="ev-star" src="/assets/stars.png" alt="" style="top:12%;right:10%;width:140px;rotate:-40deg" />
+      <a href="/hackathons" style="position:relative;font-weight:600">← Back to events</a>
+      <h1 class="mono" style="margin-top:1rem">Submit an event</h1>
+      <p>
+        Running a hackathon, game jam, workshop or meetup for high schoolers? Tell us about it and we'll look at adding
+        it to the community events list.
+      </p>
+    </header>
+
+    <main style="padding:0 1.5rem 5rem">
+      <div class="ev-form-wrap">
+        <form class="ev-form" id="submit-event" novalidate>
+          <fieldset>
+            <legend>The event</legend>
+            <label class="ev-field wide">Event name
+              <input name="title" required placeholder="e.g. Wellington Game Jam" />
+            </label>
+            <label class="ev-field">Type of event
+              <select name="eventType" required>
+                <option value="">Choose one</option>
+                {EVENT_TYPES.map((type) => <option>{type}</option>)}
+              </select>
+            </label>
+            <label class="ev-field">Format
+              <select name="format" required>
+                <option value="">Choose one</option>
+                {FORMATS.map((format) => <option>{format}</option>)}
+              </select>
+            </label>
+            <label class="ev-field wide">Where
+              <select name="city" required>
+                <option value="">Choose a city</option>
+                {CITIES.map((city) => <option>{city}</option>)}
+              </select>
+            </label>
+            <label class="ev-field">Starts <span class="hint">New Zealand time.</span>
+              <input type="datetime-local" name="startsAt" required />
+            </label>
+            <label class="ev-field">Ends <span class="hint">New Zealand time.</span>
+              <input type="datetime-local" name="endsAt" required />
+            </label>
+            <label class="ev-field wide">Venue address
+              <input name="venue" placeholder="Leave blank if it's online" />
+            </label>
+            <label class="ev-field">Who can come <input name="audience" required placeholder="e.g. Ages 13 to 18" /></label>
+            <label class="ev-field">Cost to attend <input name="cost" required placeholder="e.g. Free, or $20" /></label>
+            <label class="ev-field">Sign-up link <span class="hint">Where people register or get tickets.</span>
+              <input type="url" name="signupUrl" placeholder="https://" />
+            </label>
+            <label class="ev-field">Website <span class="hint">Your event or group's own site.</span>
+              <input type="url" name="websiteUrl" placeholder="https://" />
+            </label>
+            <p class="hint wide">Add at least one of these two.</p>
+            <label class="ev-field wide">One-line summary <span class="hint">Shown in the events list. Up to 140 characters.</span>
+              <input name="summary" required maxlength="140" />
+            </label>
+            <label class="ev-field wide">About the event
+              <span class="hint">The main text on your event page. What happens, what to bring, the schedule, anything people should know.</span>
+              <textarea name="about" required rows="8" maxlength="3000"></textarea>
+            </label>
+          </fieldset>
+
+          <fieldset class="stack">
+            <legend>Photos</legend>
+            <p>Your event gets its own page on kiwihacks.org. These make it look like yours.</p>
+            <label class="ev-field">Header image
+              <span class="hint">The big banner at the top of your page. Wide, at least 1600 × 800, JPG or PNG.</span>
+              <span class="ev-drop">
+                <img id="header-preview" alt="Chosen header image preview" hidden />
+                <span id="header-label">Choose a wide photo</span>
+                <input type="file" name="headerImage" accept="image/jpeg,image/png,image/webp" required />
+              </span>
+            </label>
+            <label class="ev-field">Photos from past events
+              <span class="hint">Optional. Up to 6, shown as a gallery. Only use photos you have permission to share, of people who agreed to be in them.</span>
+              <span class="ev-thumbs" id="photo-previews"></span>
+              <input type="file" name="photos" accept="image/jpeg,image/png,image/webp" multiple style="font-weight:400" />
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Who's running it</legend>
+            <label class="ev-field">Organisation or group <input name="organiser" required /></label>
+            <label class="ev-field">Logo <span class="hint">Optional. Square, shown on your event card.</span>
+              <input type="file" name="logo" accept="image/jpeg,image/png,image/webp" style="font-weight:400" />
+            </label>
+            <label class="ev-field">Your name <input name="name" required autocomplete="name" /></label>
+            <label class="ev-field">Contact email <span class="hint">Only the KiwiHacks team sees this.</span>
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+          </fieldset>
+
+          <fieldset class="stack">
+            <legend>Keeping it safe</legend>
+            <label class="ev-check"><input type="checkbox" name="confirmAges" value="yes" required />High school students aged 13 to 18 can come.</label>
+            <label class="ev-check"><input type="checkbox" name="confirmAdult" value="yes" required />An adult is responsible for attendees for the whole event, and there's a code of conduct.</label>
+            <label class="ev-check"><input type="checkbox" name="confirmReview" value="yes" required />I understand KiwiHacks checks every submission, doesn't run or supervise listed events, and might not list mine.</label>
+          </fieldset>
+
+          <label class="ev-honeypot" aria-hidden="true">Leave this empty <input name="website_confirm" tabindex="-1" autocomplete="off" /></label>
+
+          <p class="ev-error" id="form-error" role="alert" hidden></p>
+          <div class="ev-form-actions">
+            <button type="submit" class="ev-btn">Submit event</button>
+            <span class="hint" style="font-size:0.95rem">Questions? Email <a href={`mailto:${ORG.email}`}>{ORG.email}</a></span>
+          </div>
+        </form>
+
+        <div class="ev-sent" id="sent" role="status" hidden>
+          <h2 class="mono">Thanks, it's in.</h2>
+          <p>We'll check it over and email you once it's listed, or if we have questions.</p>
+          <div>
+            <a class="ev-btn" href="/hackathons" style="padding:1rem 3rem;font-size:1.1rem">Back to events</a>
+            <button type="button" class="ev-link-button" id="again">Submit another</button>
+          </div>
+        </div>
+
+        <aside class="ev-side">
+          <div style="background:var(--tint)">
+            <h2>What happens next</h2>
+            <ol>
+              <li>Someone on the KiwiHacks team checks it, usually within 5 working days.</li>
+              <li>If it's a good fit, it gets its own event page on kiwihacks.org and shows up under community events, with your group named as the organiser.</li>
+              <li>We email you either way. If details change, just reply.</li>
+            </ol>
+          </div>
+          <div style="background:#fff;border:var(--card-border)">
+            <h2>What we list</h2>
+            <p>
+              Tech events high schoolers can actually go to: hackathons, game jams, workshops, meetups and talks in New
+              Zealand or online. We don't list recruitment drives or paid courses dressed up as events.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+  </div>
+  <Footer />
+</Layout>
+
+<script>
+  const form = document.getElementById("submit-event");
+  const error = document.getElementById("form-error");
+  const sent = document.getElementById("sent");
+  const header = form.elements.namedItem("headerImage");
+  const photos = form.elements.namedItem("photos");
+
+  // Vercel functions reject bodies over 4.5MB, so photos are shrunk before
+  // upload, harder each pass until the whole form fits.
+  const BUDGET = 4_000_000;
+
+  async function shrink(file, maxWidth, quality) {
+    const bitmap = await createImageBitmap(file);
+    const scale = Math.min(1, maxWidth / bitmap.width);
+    const canvas = Object.assign(document.createElement("canvas"), {
+      width: Math.round(bitmap.width * scale),
+      height: Math.round(bitmap.height * scale),
+    });
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+    const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", quality));
+    return new File([blob], file.name.replace(/\.\w+$/, ".jpg"), { type: "image/jpeg" });
+  }
+
+  header.addEventListener("change", async () => {
+    const file = header.files[0];
+    const preview = document.getElementById("header-preview");
+    preview.hidden = !file;
+    if (!file) return;
+    preview.src = URL.createObjectURL(file);
+    const { width, height } = await createImageBitmap(file);
+    document.getElementById("header-label").innerHTML = `<b></b> · ${width} × ${height} · Choose another to replace it`;
+    document.querySelector("#header-label b").textContent = file.name;
+  });
+
+  photos.addEventListener("change", () => {
+    const list = document.getElementById("photo-previews");
+    list.replaceChildren(
+      ...[...photos.files].slice(0, 6).map((file, i) =>
+        Object.assign(document.createElement("img"), { src: URL.createObjectURL(file), alt: `Uploaded photo ${i + 1}` }),
+      ),
+    );
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    error.hidden = true;
+    const field = (name) => form.elements.namedItem(name);
+    const links = [field("signupUrl"), field("websiteUrl")];
+    links[0].setCustomValidity(links.some((input) => input.value.trim()) ? "" : "Add a sign-up link or a website.");
+    field("venue").setCustomValidity(
+      field("format").value === "Online" || field("venue").value.trim() ? "" : "Add a venue address, or set the format to Online.",
+    );
+    if (!form.reportValidity()) return;
+
+    const button = form.querySelector("button[type=submit]");
+    button.disabled = true;
+    button.textContent = "Sending…";
+    try {
+      const logo = field("logo").files[0];
+      let data;
+      for (const quality of [0.82, 0.65, 0.5]) {
+        data = new FormData(form);
+        data.set("headerImage", await shrink(header.files[0], 2400, quality));
+        if (logo) data.set("logo", await shrink(logo, 400, quality));
+        data.delete("photos");
+        for (const file of [...photos.files].slice(0, 6)) data.append("photos", await shrink(file, 1600, quality));
+        const size = [...data.values()].reduce((total, value) => total + (value.size ?? value.length), 0);
+        if (size < BUDGET) break;
+        if (quality === 0.5) throw new Error("Your photos are too big to send together. Try removing a couple.");
+      }
+
+      const res = await fetch("/api/events/submit", { method: "POST", body: data });
+      const body = await res.json().catch(() => ({}));
+      if (res.status === 413) throw new Error("Your photos are too big to send together. Try removing a couple.");
+      if (!res.ok) throw new Error(body.error || "Something went wrong. Try again, or email us.");
+      form.hidden = true;
+      sent.hidden = false;
+      sent.scrollIntoView({ block: "center" });
+    } catch (err) {
+      error.textContent = err.message;
+      error.hidden = false;
+    } finally {
+      button.disabled = false;
+      button.textContent = "Submit event";
+    }
+  });
+
+  document.getElementById("again").addEventListener("click", () => {
+    form.reset();
+    document.getElementById("header-preview").hidden = true;
+    document.getElementById("header-label").textContent = "Choose a wide photo";
+    document.getElementById("photo-previews").replaceChildren();
+    sent.hidden = true;
+    form.hidden = false;
+  });
+</script>

@@ -32,6 +32,7 @@ export default defineConfig({
   output: "server",
   adapter: vercel(),
   redirects: {
+    "/events": "/hackathons",
     "/discord": "https://discord.gg/SNdNUQ4Vp7",
     "/chat": "https://discord.gg/SNdNUQ4Vp7",
     "/community": "https://discord.gg/SNdNUQ4Vp7",

@@ -52,6 +52,15 @@ export default function PrivacyPolicy() {
                 details for consent and emergency purposes.
               </li>
               <li>
+                <strong>Community event submissions</strong> - if you send us an
+                event to list, we collect your name, email address, organisation,
+                the event details, and any photos you upload. We also store a
+                hash of your IP address, not the address itself, to limit spam.
+                Your name, email, and that hash stay private. If we list the
+                event, the event details, photos, and organisation name are
+                published on this website.
+              </li>
+              <li>
                 <strong>Email correspondence</strong> - your email address and
                 the contents of any message you send us, if you contact us
                 directly or subscribe to our community newsletter.
@@ -79,6 +88,7 @@ export default function PrivacyPolicy() {
               <li>Communicate with you about events you've signed up for, including schedule changes</li>
               <li>Send occasional community updates and newsletters, which you can unsubscribe from at any time</li>
               <li>Improve KiwiHacks events and this website</li>
+              <li>Review community event submissions and publish the events we decide to list</li>
             </ul>
             <p className="pp-text">
               We do not sell, rent, or trade your personal information to
@@ -92,7 +102,8 @@ export default function PrivacyPolicy() {
               Your information is only accessible to the KiwiHacks organising
               team, on a need-to-know basis. We use a small number of trusted
               third-party services to help us run KiwiHacks, including Fillout
-              (event sign-up forms), Brevo (email newsletters), and Google
+              (event sign-up forms), Sanity (the project showcase and private
+              event submissions), Brevo (email newsletters), and Google
               Workspace (internal record-keeping and communication). These
               providers only process your information on our behalf and under
               their own security and privacy terms.

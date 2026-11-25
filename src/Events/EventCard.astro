@@ -1,0 +1,19 @@
+---
+const { when, title, blurb, meta, href, cta, image, media, format, logo, city } = Astro.props;
+const external = href?.startsWith("http");
+---
+
+<li class="ev-card" data-format={format} data-city={city}>
+  <div class="ev-card-top">
+    {image ? <img class="ev-card-media" src={image[0]} alt={image[1]} loading="lazy" /> : <div class={`ev-card-media ${media}`}><slot /></div>}
+    {format && <span class="ev-pill">{format}</span>}
+    {logo && <img class="ev-card-logo" src={logo} alt="" />}
+  </div>
+  <div class="ev-card-body">
+    <p class="when mono">{when}</p>
+    <h3>{title}</h3>
+    <p>{blurb}</p>
+    {meta && <p class="meta">{meta}</p>}
+    {href && <a href={href} {...(external && { target: "_blank", rel: "noreferrer" })}>{cta} →</a>}
+  </div>
+</li>
